@@ -1,0 +1,7 @@
+D:\Applications\Course1Basics\Course1Basics\bin\Debug\Course1Basics.exe.config
+D:\Applications\Course1Basics\Course1Basics\bin\Debug\Course1Basics.exe
+D:\Applications\Course1Basics\Course1Basics\bin\Debug\Course1Basics.pdb
+D:\Applications\Course1Basics\Course1Basics\obj\Debug\Course1Basics.csprojAssemblyReference.cache
+D:\Applications\Course1Basics\Course1Basics\obj\Debug\Course1Basics.csproj.CoreCompileInputs.cache
+D:\Applications\Course1Basics\Course1Basics\obj\Debug\Course1Basics.exe
+D:\Applications\Course1Basics\Course1Basics\obj\Debug\Course1Basics.pdb
