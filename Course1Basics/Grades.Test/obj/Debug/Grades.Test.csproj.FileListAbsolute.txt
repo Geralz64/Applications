@@ -1,0 +1,17 @@
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Grades.Test.dll
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Grades.Test.pdb
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Applications\Course1Basics\Grades.Test\obj\Debug\Grades.Test.csprojAssemblyReference.cache
+D:\Applications\Course1Basics\Grades.Test\obj\Debug\Grades.Test.csproj.CoreCompileInputs.cache
+D:\Applications\Course1Basics\Grades.Test\obj\Debug\Grades.Test.csproj.CopyComplete
+D:\Applications\Course1Basics\Grades.Test\obj\Debug\Grades.Test.dll
+D:\Applications\Course1Basics\Grades.Test\obj\Debug\Grades.Test.pdb
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Grades.exe
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Grades.pdb
+D:\Applications\Course1Basics\Grades.Test\bin\Debug\Grades.exe.config
