@@ -11,8 +11,7 @@ namespace Grades
     {
         static void Main()
         {
-
-            GradeBook book = new GradeBook();
+            IGradeTracker book = CreateGradeBook();
 
             GetName(book);
 
@@ -20,13 +19,25 @@ namespace Grades
 
             WriteFile(book);
 
-            GradeStatistics stats = ChangeBookName(book);
-
-            WriteInformation(stats);
+            WriteInformation(book);
         }
 
-        private static void WriteInformation(GradeStatistics stats)
+        private static IGradeTracker CreateGradeBook()
         {
+            return new ThrowAwayGradeBook();
+        }
+
+        private static void WriteInformation(IGradeTracker book)
+        {
+
+            foreach (float grade in book)
+            {
+                Console.WriteLine(grade);
+            }
+
+
+            GradeStatistics stats = book.ComputeStatistics();
+
             WriteResult("Highest Grade", stats.HighestGrade);
             WriteResult("Lowest Grade", stats.LowestGrade);
             WriteResult("Average Grade", stats.AverageGrade);
@@ -36,7 +47,7 @@ namespace Grades
             WriteResult("Description", stats.Description);
         }
 
-        private static GradeStatistics ChangeBookName(GradeBook book)
+        private static GradeStatistics ChangeBookName(IGradeTracker book)
         {
             book.NameChanged += OnNameChanged;
 
@@ -45,7 +56,7 @@ namespace Grades
             return stats;
         }
 
-        private static void WriteFile(GradeBook book)
+        private static void WriteFile(IGradeTracker book)
         {
             using (StreamWriter outputFile = File.CreateText("greades.txt"))
             {
@@ -55,14 +66,14 @@ namespace Grades
             }
         }
 
-        private static void AddGrades(GradeBook book)
+        private static void AddGrades(IGradeTracker book)
         {
             book.AddGrade(85);
             book.AddGrade(90);
             book.AddGrade(89.5f);
         }
 
-        private static void GetName(GradeBook book)
+        private static void GetName(IGradeTracker book)
         {
             try
             {
