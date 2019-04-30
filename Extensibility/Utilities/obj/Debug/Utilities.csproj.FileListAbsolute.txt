@@ -1,0 +1,6 @@
+D:\Applications\Extensibility\Utilities\bin\Debug\Utilities.dll
+D:\Applications\Extensibility\Utilities\bin\Debug\Utilities.pdb
+D:\Applications\Extensibility\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+D:\Applications\Extensibility\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+D:\Applications\Extensibility\Utilities\obj\Debug\Utilities.dll
+D:\Applications\Extensibility\Utilities\obj\Debug\Utilities.pdb

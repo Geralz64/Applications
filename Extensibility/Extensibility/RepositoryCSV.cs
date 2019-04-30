@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Repository.Interface;
 namespace Extensibility
 {
-    public class RepositoryCSVFile<T> : IFileRepository<T>
+    public class RepositoryCSV<T> : IFileRepository<T>
 
     {
         private static string FileName { get; set; }
@@ -19,7 +19,7 @@ namespace Extensibility
         private List<T> Items { get; set; }
 
 
-        public RepositoryCSVFile(string _fileName, string _fileLocation, bool _hasHeader, string _delimiter, List<T> _items)
+        public RepositoryCSV(string _fileName, string _fileLocation, bool _hasHeader, string _delimiter, List<T> _items)
         {
             FileName = _fileName;
             FileLocation = _fileLocation;
