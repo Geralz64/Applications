@@ -1,0 +1,2 @@
+D:\Applications\Course1Basics\Polygons\obj\Debug\Polygons.csprojAssemblyReference.cache
+D:\Applications\Course1Basics\Polygons\obj\Debug\Polygons.csproj.CoreCompileInputs.cache

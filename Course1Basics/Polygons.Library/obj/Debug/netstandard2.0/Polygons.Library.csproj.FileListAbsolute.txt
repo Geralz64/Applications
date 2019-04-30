@@ -1,0 +1,4 @@
+D:\Applications\Course1Basics\Polygons.Library\obj\Debug\netstandard2.0\Polygons.Library.csprojAssemblyReference.cache
+D:\Applications\Course1Basics\Polygons.Library\obj\Debug\netstandard2.0\Polygons.Library.csproj.CoreCompileInputs.cache
+D:\Applications\Course1Basics\Polygons.Library\obj\Debug\netstandard2.0\Polygons.Library.AssemblyInfoInputs.cache
+D:\Applications\Course1Basics\Polygons.Library\obj\Debug\netstandard2.0\Polygons.Library.AssemblyInfo.cs

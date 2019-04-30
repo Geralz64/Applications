@@ -1,0 +1,7 @@
+D:\Applications\Course1Basics\GameConsole\bin\Debug\GameConsole.exe.config
+D:\Applications\Course1Basics\GameConsole\bin\Debug\GameConsole.exe
+D:\Applications\Course1Basics\GameConsole\bin\Debug\GameConsole.pdb
+D:\Applications\Course1Basics\GameConsole\obj\Debug\GameConsole.csprojAssemblyReference.cache
+D:\Applications\Course1Basics\GameConsole\obj\Debug\GameConsole.csproj.CoreCompileInputs.cache
+D:\Applications\Course1Basics\GameConsole\obj\Debug\GameConsole.exe
+D:\Applications\Course1Basics\GameConsole\obj\Debug\GameConsole.pdb

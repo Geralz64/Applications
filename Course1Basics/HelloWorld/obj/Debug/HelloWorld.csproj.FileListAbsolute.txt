@@ -4,3 +4,4 @@ D:\Applications\Course1Basics\HelloWorld\bin\Debug\HelloWorld.pdb
 D:\Applications\Course1Basics\HelloWorld\obj\Debug\HelloWorld.csproj.CoreCompileInputs.cache
 D:\Applications\Course1Basics\HelloWorld\obj\Debug\HelloWorld.exe
 D:\Applications\Course1Basics\HelloWorld\obj\Debug\HelloWorld.pdb
+D:\Applications\Course1Basics\HelloWorld\obj\Debug\HelloWorld.csprojAssemblyReference.cache

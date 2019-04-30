@@ -1,0 +1,11 @@
+C:\Users\geraldo\source\repos\Utilities\Utilities\bin\Debug\Utilities.dll
+C:\Users\geraldo\source\repos\Utilities\Utilities\bin\Debug\Utilities.pdb
+C:\Users\geraldo\source\repos\Utilities\Utilities\bin\Debug\CsvHelper.dll
+C:\Users\geraldo\source\repos\Utilities\Utilities\bin\Debug\System.ValueTuple.dll
+C:\Users\geraldo\source\repos\Utilities\Utilities\bin\Debug\CsvHelper.xml
+C:\Users\geraldo\source\repos\Utilities\Utilities\bin\Debug\System.ValueTuple.xml
+C:\Users\geraldo\source\repos\Utilities\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+C:\Users\geraldo\source\repos\Utilities\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\geraldo\source\repos\Utilities\Utilities\obj\Debug\Utilities.csproj.CopyComplete
+C:\Users\geraldo\source\repos\Utilities\Utilities\obj\Debug\Utilities.dll
+C:\Users\geraldo\source\repos\Utilities\Utilities\obj\Debug\Utilities.pdb
