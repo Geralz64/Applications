@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Repository.Interface;
 namespace Extensibility
 {
-    public class RepositoryCSV<T> : IFileRepository<T>
+    public class RepositoryCSV<T> : IDataFileRepository<T>
 
     {
         private static string FileName { get; set; }
@@ -64,10 +64,35 @@ namespace Extensibility
 
         public bool ValidateFile(string filePath)
         {
-            throw new NotImplementedException();
+
+            /*
+             What do I want to validate?
+
+            -The fields are in the correct format as the ones in the layout
+            -No special characters in the lines
+            -Dates for example are in the correct format
+            -If its a txtfile that the record has the correct length
+                       
+             */
+
+
+
+            return true;
+
+
         }
 
-        public void BackupFile(string fromPath, string toPath)
+        public IEnumerable<T> FileWithInfo(IEnumerable<T> files)
+        {
+
+            //read through the files
+            //count the records in each file
+
+            return null;
+
+        }
+
+        public IEnumerable<string> FileWithInfo(IEnumerable<string> files)
         {
             throw new NotImplementedException();
         }

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.CSV", "Extensibility\Repository.CSV.csproj", "{66BF89E0-A6BC-46BD-80F4-0FAFC9C499AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.FixedLength", "Repository.FixedLengthFile\Repository.FixedLength.csproj", "{0372CAE5-650B-4737-AC2F-886066FDED7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.Text", "Repository.FixedLengthFile\Repository.Text.csproj", "{0372CAE5-650B-4737-AC2F-886066FDED7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.SQL", "Repository.SQL\Repository.SQL.csproj", "{9A710F61-49C5-42C7-9101-63AAC55B8EAB}"
 EndProject

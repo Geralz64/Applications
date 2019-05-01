@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -13,14 +14,10 @@ namespace Utilities
         public static string LogInfoStart()
         {
 
-
             StackTrace stack = new StackTrace();
 
-            return
-                stack.GetFrame(1).GetMethod().Name.ToString();
+            return stack.GetFrame(1).GetMethod().Name.ToString();
 
-            //Console.WriteLine($"Process {stack.GetFrame(1).ToString()} started @ {DateTime.Now}");
-           
         }
 
 
@@ -33,13 +30,28 @@ namespace Utilities
 
         }
 
-        public static void BackupFile()
+        public static void BackupFile(string sourceFileName, string destinationFileName)
         {
-
-           
-
+            File.Copy(sourceFileName, destinationFileName);
 
         }
+
+        public static IEnumerable<string> FilesToProcess(string path, string fileExtension)
+        {
+
+            IEnumerable<string> filesInFolder = Directory.GetFiles(path, fileExtension);
+
+
+            return filesInFolder;
+        }
+
+
+
+        //Delete the file 
+
+        //Present files with information
+
+
 
 
     }

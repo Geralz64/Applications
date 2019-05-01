@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Repository.FixedLengthFile
 {
-    public class Class1
+    class RepositorySingleLine
     {
     }
 }
