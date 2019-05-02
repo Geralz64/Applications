@@ -51,6 +51,17 @@ namespace Utilities
 
         //Present files with information
 
+        public static void ShowFiles(IEnumerable<string> files )
+        {
+
+            foreach (var file in files)
+            {
+                Console.WriteLine(file);
+
+            }
+
+
+        }
 
 
 
