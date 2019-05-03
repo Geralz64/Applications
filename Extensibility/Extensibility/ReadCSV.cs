@@ -10,27 +10,33 @@ using Utilities;
 
 namespace Extensibility
 {
-    public class RepositoryCSV<T> : IDataFileRepository<T> //Make it the read class
+    public class ReadCSV<T> : IReadFileRepository<T> //Make it the read class
 
     {
         private static string FileLocation { get; set; }
         private static bool HasHeader { get; set; }
         private static string Delimiter { get; set; }
+
         //private List<T> Items { get; set; }
 
 
-        public RepositoryCSV(string _fileName, string _fileLocation, bool _hasHeader, string _delimiter, List<T> _items)
+        public ReadCSV(
+           string _fileLocation, bool _hasHeader , string _delimiter
+
+            )
         {
             FileLocation = _fileLocation;
             HasHeader = _hasHeader;
             Delimiter = _delimiter;
-            //Items = _items;
+
         }
+
+
 
         public IEnumerable<T> ReadFile()
         {
 
-            using (var reader = new StreamReader(FileLocation + FileName))
+            using (var reader = new StreamReader(FileLocation))
             {
                 using (var csv = new CsvReader(reader))
                 {
@@ -81,29 +87,25 @@ namespace Extensibility
 
         }
 
-        public List<FileInfo> FilesWithInfo(string filePath, string fileExtension)
+        public IEnumerable<string> FilesToProcess(string filePath)
         {
 
-            var filesToProcess = Utilities.Utilities.FilesToProcess(filePath, fileExtension);
+            var filesToProcess = Utilities.Utilities.FilesToProcess(filePath, "*.csv");
 
-            var filesWithInfo = new List<FileInfo>();
-
-
-            foreach (var file in filesToProcess)
-            {
-                var fileWithInfo = new FileInfo();
-
-                fileWithInfo.FileName = file;
-                fileWithInfo.FileCount = ReadFile().Count();
-
-                filesWithInfo.Add(fileWithInfo);
-
-            }
-
-            return filesWithInfo;
-
+            return filesToProcess;
 
         }
+
+        public void ShowFilesWithInfo(List<FileInfo> files)
+        {
+
+            foreach (var file in files)
+            {
+                Console.Write($"Name: {file.FileName} Count: {file.FileCount}");
+            }
+
+        }
+
 
         public IEnumerable<string> FileWithInfo(IEnumerable<string> files)
         {
@@ -111,16 +113,6 @@ namespace Extensibility
         }
 
 
-        private static int RecordCoundInFile()
-        {
-
-
-
-
-
-
-            return 0;
-        }
     }
 
 

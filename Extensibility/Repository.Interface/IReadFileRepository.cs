@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Repository.Interface
 {
-    public interface IDataFileRepository<T>
+    public interface IReadFileRepository<T>
     {
         IEnumerable<T> ReadFile();
-        void CreateFile();
         bool ValidateFile(string filePath);
-        IEnumerable<string> FileWithInfo(IEnumerable<string> files);
+        IEnumerable<string> FilesToProcess(string filePath);
+
+        //IEnumerable<string> FilesWithRecordCount(string filePath, string fileExtension);
         //Going to present each file plus the amount 
         //of records for each file to help keep track of the amount of records processed
 
