@@ -8,9 +8,10 @@ namespace Repository.Interface
 {
     public interface IReadFileRepository<T>
     {
-        IEnumerable<T> ReadFile();
-        bool ValidateFile(string filePath);
-        IEnumerable<string> FilesToProcess(string filePath);
+        //void ReadFile();
+        //bool ValidateFile(string filePath);
+        //IEnumerable<string> FilesToProcess(string filePath);
+        string RemoveSpecialCharacters(string item);
 
         //IEnumerable<string> FilesWithRecordCount(string filePath, string fileExtension);
         //Going to present each file plus the amount 

@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdventureWorks2012Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberNumber" />
+    </Key>
+    <Property Name="MemberNumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MemberIdentifier" Type="varchar" MaxLength="5" />
+    <Property Name="BirthDate" Type="int" />
+    <Property Name="SSN" Type="int" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="60" />
+    <Property Name="City" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="StateProvinceID" Type="int" Nullable="false" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="SpatialLocation" Type="geography" />
+    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AddressType">
+    <Key>
+      <PropertyRef Name="AddressTypeID" />
+    </Key>
+    <Property Name="AddressTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BusinessEntity">
+    <Key>
+      <PropertyRef Name="BusinessEntityID" />
+    </Key>
+    <Property Name="BusinessEntityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BusinessEntityAddress">
+    <Key>
+      <PropertyRef Name="BusinessEntityID" />
+      <PropertyRef Name="AddressID" />
+      <PropertyRef Name="AddressTypeID" />
+    </Key>
+    <Property Name="BusinessEntityID" Type="int" Nullable="false" />
+    <Property Name="AddressID" Type="int" Nullable="false" />
+    <Property Name="AddressTypeID" Type="int" Nullable="false" />
+    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BusinessEntityContact">
+    <Key>
+      <PropertyRef Name="BusinessEntityID" />
+      <PropertyRef Name="PersonID" />
+      <PropertyRef Name="ContactTypeID" />
+    </Key>
+    <Property Name="BusinessEntityID" Type="int" Nullable="false" />
+    <Property Name="PersonID" Type="int" Nullable="false" />
+    <Property Name="ContactTypeID" Type="int" Nullable="false" />
+    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactType">
+    <Key>
+      <PropertyRef Name="ContactTypeID" />
+    </Key>
+    <Property Name="ContactTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CountryRegion">
+    <Key>
+      <PropertyRef Name="CountryRegionCode" />
+    </Key>
+    <Property Name="CountryRegionCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailAddress">
+    <Key>
+      <PropertyRef Name="BusinessEntityID" />
+      <PropertyRef Name="EmailAddressID" />
+    </Key>
+    <Property Name="BusinessEntityID" Type="int" Nullable="false" />
+    <Property Name="EmailAddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Password">
+    <Key>
+      <PropertyRef Name="BusinessEntityID" />
+    </Key>
+    <Property Name="BusinessEntityID" Type="int" Nullable="false" />
+    <Property Name="PasswordHash" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordSalt" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="BusinessEntityID" />
+    </Key>
+    <Property Name="BusinessEntityID" Type="int" Nullable="false" />
+    <Property Name="PersonType" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="NameStyle" Type="bit" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="8" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
+    <Property Name="EmailPromotion" Type="int" Nullable="false" />
+    <Property Name="AdditionalContactInfo" Type="xml" />
+    <Property Name="Demographics" Type="xml" />
+    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonPhone">
+    <Key>
+      <PropertyRef Name="BusinessEntityID" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="PhoneNumberTypeID" />
+    </Key>
+    <Property Name="BusinessEntityID" Type="int" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="PhoneNumberTypeID" Type="int" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhoneNumberType">
+    <Key>
+      <PropertyRef Name="PhoneNumberTypeID" />
+    </Key>
+    <Property Name="PhoneNumberTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StateProvince">
+    <Key>
+      <PropertyRef Name="StateProvinceID" />
+    </Key>
+    <Property Name="StateProvinceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateProvinceCode" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="CountryRegionCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="IsOnlyStateProvinceFlag" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TerritoryID" Type="int" Nullable="false" />
+    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Address_StateProvince_StateProvinceID">
+    <End Role="StateProvince" Type="Self.StateProvince" Multiplicity="1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateProvince">
+        <PropertyRef Name="StateProvinceID" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="StateProvinceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessEntityAddress_Address_AddressID">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="BusinessEntityAddress" Type="Self.BusinessEntityAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="BusinessEntityAddress">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessEntityAddress_AddressType_AddressTypeID">
+    <End Role="AddressType" Type="Self.AddressType" Multiplicity="1" />
+    <End Role="BusinessEntityAddress" Type="Self.BusinessEntityAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressType">
+        <PropertyRef Name="AddressTypeID" />
+      </Principal>
+      <Dependent Role="BusinessEntityAddress">
+        <PropertyRef Name="AddressTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessEntityAddress_BusinessEntity_BusinessEntityID">
+    <End Role="BusinessEntity" Type="Self.BusinessEntity" Multiplicity="1" />
+    <End Role="BusinessEntityAddress" Type="Self.BusinessEntityAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessEntity">
+        <PropertyRef Name="BusinessEntityID" />
+      </Principal>
+      <Dependent Role="BusinessEntityAddress">
+        <PropertyRef Name="BusinessEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessEntityContact_BusinessEntity_BusinessEntityID">
+    <End Role="BusinessEntity" Type="Self.BusinessEntity" Multiplicity="1" />
+    <End Role="BusinessEntityContact" Type="Self.BusinessEntityContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessEntity">
+        <PropertyRef Name="BusinessEntityID" />
+      </Principal>
+      <Dependent Role="BusinessEntityContact">
+        <PropertyRef Name="BusinessEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessEntityContact_ContactType_ContactTypeID">
+    <End Role="ContactType" Type="Self.ContactType" Multiplicity="1" />
+    <End Role="BusinessEntityContact" Type="Self.BusinessEntityContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactType">
+        <PropertyRef Name="ContactTypeID" />
+      </Principal>
+      <Dependent Role="BusinessEntityContact">
+        <PropertyRef Name="ContactTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessEntityContact_Person_PersonID">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="BusinessEntityContact" Type="Self.BusinessEntityContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="BusinessEntityID" />
+      </Principal>
+      <Dependent Role="BusinessEntityContact">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmailAddress_Person_BusinessEntityID">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="EmailAddress" Type="Self.EmailAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="BusinessEntityID" />
+      </Principal>
+      <Dependent Role="EmailAddress">
+        <PropertyRef Name="BusinessEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Password_Person_BusinessEntityID">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Password" Type="Self.Password" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="BusinessEntityID" />
+      </Principal>
+      <Dependent Role="Password">
+        <PropertyRef Name="BusinessEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_BusinessEntity_BusinessEntityID">
+    <End Role="BusinessEntity" Type="Self.BusinessEntity" Multiplicity="1" />
+    <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessEntity">
+        <PropertyRef Name="BusinessEntityID" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="BusinessEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonPhone_Person_BusinessEntityID">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="PersonPhone" Type="Self.PersonPhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="BusinessEntityID" />
+      </Principal>
+      <Dependent Role="PersonPhone">
+        <PropertyRef Name="BusinessEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonPhone_PhoneNumberType_PhoneNumberTypeID">
+    <End Role="PhoneNumberType" Type="Self.PhoneNumberType" Multiplicity="1" />
+    <End Role="PersonPhone" Type="Self.PersonPhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhoneNumberType">
+        <PropertyRef Name="PhoneNumberTypeID" />
+      </Principal>
+      <Dependent Role="PersonPhone">
+        <PropertyRef Name="PhoneNumberTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StateProvince_CountryRegion_CountryRegionCode">
+    <End Role="CountryRegion" Type="Self.CountryRegion" Multiplicity="1" />
+    <End Role="StateProvince" Type="Self.StateProvince" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryRegion">
+        <PropertyRef Name="CountryRegionCode" />
+      </Principal>
+      <Dependent Role="StateProvince">
+        <PropertyRef Name="CountryRegionCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AdventureWorks2012ModelStoreContainer">
+    <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="AddressType" EntityType="Self.AddressType" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="BusinessEntity" EntityType="Self.BusinessEntity" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="BusinessEntityAddress" EntityType="Self.BusinessEntityAddress" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="BusinessEntityContact" EntityType="Self.BusinessEntityContact" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="ContactType" EntityType="Self.ContactType" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="CountryRegion" EntityType="Self.CountryRegion" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="EmailAddress" EntityType="Self.EmailAddress" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="Password" EntityType="Self.Password" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="PersonPhone" EntityType="Self.PersonPhone" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="PhoneNumberType" EntityType="Self.PhoneNumberType" Schema="Person" store:Type="Tables" />
+    <EntitySet Name="StateProvince" EntityType="Self.StateProvince" Schema="Person" store:Type="Tables" />
+    <AssociationSet Name="FK_Address_StateProvince_StateProvinceID" Association="Self.FK_Address_StateProvince_StateProvinceID">
+      <End Role="StateProvince" EntitySet="StateProvince" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessEntityAddress_Address_AddressID" Association="Self.FK_BusinessEntityAddress_Address_AddressID">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="BusinessEntityAddress" EntitySet="BusinessEntityAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessEntityAddress_AddressType_AddressTypeID" Association="Self.FK_BusinessEntityAddress_AddressType_AddressTypeID">
+      <End Role="AddressType" EntitySet="AddressType" />
+      <End Role="BusinessEntityAddress" EntitySet="BusinessEntityAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessEntityAddress_BusinessEntity_BusinessEntityID" Association="Self.FK_BusinessEntityAddress_BusinessEntity_BusinessEntityID">
+      <End Role="BusinessEntity" EntitySet="BusinessEntity" />
+      <End Role="BusinessEntityAddress" EntitySet="BusinessEntityAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessEntityContact_BusinessEntity_BusinessEntityID" Association="Self.FK_BusinessEntityContact_BusinessEntity_BusinessEntityID">
+      <End Role="BusinessEntity" EntitySet="BusinessEntity" />
+      <End Role="BusinessEntityContact" EntitySet="BusinessEntityContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessEntityContact_ContactType_ContactTypeID" Association="Self.FK_BusinessEntityContact_ContactType_ContactTypeID">
+      <End Role="ContactType" EntitySet="ContactType" />
+      <End Role="BusinessEntityContact" EntitySet="BusinessEntityContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessEntityContact_Person_PersonID" Association="Self.FK_BusinessEntityContact_Person_PersonID">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="BusinessEntityContact" EntitySet="BusinessEntityContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmailAddress_Person_BusinessEntityID" Association="Self.FK_EmailAddress_Person_BusinessEntityID">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="EmailAddress" EntitySet="EmailAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Password_Person_BusinessEntityID" Association="Self.FK_Password_Person_BusinessEntityID">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Password" EntitySet="Password" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_BusinessEntity_BusinessEntityID" Association="Self.FK_Person_BusinessEntity_BusinessEntityID">
+      <End Role="BusinessEntity" EntitySet="BusinessEntity" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonPhone_Person_BusinessEntityID" Association="Self.FK_PersonPhone_Person_BusinessEntityID">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="PersonPhone" EntitySet="PersonPhone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonPhone_PhoneNumberType_PhoneNumberTypeID" Association="Self.FK_PersonPhone_PhoneNumberType_PhoneNumberTypeID">
+      <End Role="PhoneNumberType" EntitySet="PhoneNumberType" />
+      <End Role="PersonPhone" EntitySet="PersonPhone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StateProvince_CountryRegion_CountryRegionCode" Association="Self.FK_StateProvince_CountryRegion_CountryRegionCode">
+      <End Role="CountryRegion" EntitySet="CountryRegion" />
+      <End Role="StateProvince" EntitySet="StateProvince" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

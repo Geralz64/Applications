@@ -16,8 +16,8 @@ namespace Extensibility
         private static string FileLocation { get; set; }
         private static bool HasHeader { get; set; }
         private static string Delimiter { get; set; }
-
-        //private List<T> Items { get; set; }
+        //public IEnumerable<T> Records { get; set; }
+        public int RecordCount { get; set; }
 
 
         public ReadCSV(
@@ -32,7 +32,7 @@ namespace Extensibility
         }
 
 
-
+        
         public IEnumerable<T> ReadFile()
         {
 
@@ -40,49 +40,25 @@ namespace Extensibility
             {
                 using (var csv = new CsvReader(reader))
                 {
-
                     csv.Configuration.HasHeaderRecord = HasHeader;
-                    var member = csv.GetRecords<T>();
 
-                    return member;
+                    var records = csv.GetRecords<T>().ToList();
+
+                    return records;
                 }
 
             }
 
         }
 
-        //public void CreateFile()
-        //{
-        //    string fileFullPath = FileLocation + FileName;
-
-        //    using (var writer = new StreamWriter(fileFullPath))
-        //    {
-        //        using (var csv = new CsvWriter(writer))
-        //        {
-        //            csv.Configuration.HasHeaderRecord = HasHeader;
-        //            csv.Configuration.Delimiter = Delimiter;
-
-        //            csv.WriteRecords(Items);
-        //        }
-        //    }
-        //}
-
-        public bool ValidateFile(string filePath)
+        public string RemoveSpecialCharacters(string item)
         {
 
-            /*
-             What do I want to validate?
-
-            -The fields are in the correct format as the ones in the layout
-            -No special characters in the lines
-            -Dates for example are in the correct format
-            -If its a txtfile that the record has the correct length
-                       
-             */
-
-
-
-            return true;
+            item = item.Replace("ñ", "n");
+            item = item.Replace("Ñ", "N");
+            item = item.Replace("'", "");
+            item = item.Replace(",", "");
+            return item;
 
 
         }
@@ -95,6 +71,10 @@ namespace Extensibility
             return filesToProcess;
 
         }
+        
+        //SINGLE FILE AND MULTIPLE FILES
+
+
 
         public void ShowFilesWithInfo(List<FileInfo> files)
         {
@@ -107,10 +87,15 @@ namespace Extensibility
         }
 
 
-        public IEnumerable<string> FileWithInfo(IEnumerable<string> files)
+        public int GetFileRecordCount(IEnumerable<T> file)
         {
-            throw new NotImplementedException();
+
+            int recordCount = file.Count();
+
+
+            return recordCount;
         }
+
 
 
     }
