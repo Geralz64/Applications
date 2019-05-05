@@ -1,0 +1,15 @@
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\SQLDataProcessor.exe.config
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\SQLDataProcessor.exe
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\SQLDataProcessor.pdb
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\EntityFramework.dll
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\EntityFramework.SqlServer.dll
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\Repository.SQL.dll
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\Repository.SQL.pdb
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\Repository.SQL.dll.config
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\EntityFramework.xml
+D:\Applications\Extensibility\SQLDataProcessor\bin\Debug\EntityFramework.SqlServer.xml
+D:\Applications\Extensibility\SQLDataProcessor\obj\Debug\SQLDataProcessor.csprojAssemblyReference.cache
+D:\Applications\Extensibility\SQLDataProcessor\obj\Debug\SQLDataProcessor.csproj.CoreCompileInputs.cache
+D:\Applications\Extensibility\SQLDataProcessor\obj\Debug\SQLDataProcessor.csproj.CopyComplete
+D:\Applications\Extensibility\SQLDataProcessor\obj\Debug\SQLDataProcessor.exe
+D:\Applications\Extensibility\SQLDataProcessor\obj\Debug\SQLDataProcessor.pdb

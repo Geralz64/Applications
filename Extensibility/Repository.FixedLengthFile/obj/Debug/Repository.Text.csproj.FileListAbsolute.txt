@@ -1,6 +1,5 @@
 D:\Applications\Extensibility\Repository.FixedLengthFile\bin\Debug\Repository.FixedLengthFile.dll
 D:\Applications\Extensibility\Repository.FixedLengthFile\bin\Debug\Repository.FixedLengthFile.pdb
-D:\Applications\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.Text.csprojAssemblyReference.cache
 D:\Applications\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.Text.csproj.CoreCompileInputs.cache
 D:\Applications\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.FixedLengthFile.dll
 D:\Applications\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.FixedLengthFile.pdb

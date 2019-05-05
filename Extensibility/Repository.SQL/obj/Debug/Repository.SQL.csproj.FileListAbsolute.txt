@@ -5,7 +5,6 @@ D:\Applications\Extensibility\Repository.SQL\bin\Debug\EntityFramework.dll
 D:\Applications\Extensibility\Repository.SQL\bin\Debug\EntityFramework.SqlServer.dll
 D:\Applications\Extensibility\Repository.SQL\bin\Debug\EntityFramework.xml
 D:\Applications\Extensibility\Repository.SQL\bin\Debug\EntityFramework.SqlServer.xml
-D:\Applications\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.csprojAssemblyReference.cache
 D:\Applications\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.csproj.CoreCompileInputs.cache
 D:\Applications\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.csproj.CopyComplete
 D:\Applications\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.dll
