@@ -17,6 +17,8 @@ namespace SQLDataProcessor
              */
             GroupingQueries();
 
+            GroupingLambdaExpressions();
+
             LeftJoinQueries();
 
             SingleTableQueries();
@@ -34,6 +36,24 @@ namespace SQLDataProcessor
 
         }
 
+        private static void GroupingLambdaExpressions()
+        {
+
+            var db = new Repository.SQL.AdventureWorks2012Entities();
+
+            var results1 = db.People
+                            .Where(p => p.Password != null)
+                            .GroupBy(p => p.BusinessEntityID);
+
+            var results2 = db.People
+                           .GroupBy(p => p.ModifiedDate);
+
+            var resutls3 = db.People
+                            .Where(p => p.AdditionalContactInfo != null)
+                            .GroupBy(p => p.ModifiedDate)
+                            .OrderBy(p => p.Key);
+        }
+
         private static void GroupingQueries()
         {
 
@@ -41,8 +61,8 @@ namespace SQLDataProcessor
 
 
             var results = from people in db.People
-                          where people.BusinessEntity.ToString() != ""
-                          group people by people.BusinessEntity;
+                          where people.Password != null
+                          group people by people.BusinessEntityID;
 
 
             foreach (var record in results)
@@ -50,15 +70,12 @@ namespace SQLDataProcessor
 
                 Console.WriteLine($"{record.Key}: {record.Count()}");
 
-
             }
 
-
-
             var results2 = from people in db.People
-                           group people by people.Demographics;
+                           group people by people.ModifiedDate;
 
-            foreach (var record2 in results)
+            foreach (var record2 in results2)
             {
 
                 Console.WriteLine($"{record2.Key}: {record2.Count()}");
@@ -68,19 +85,17 @@ namespace SQLDataProcessor
 
             var results3 = from people in db.People
                            where people.AdditionalContactInfo != null
-                           group people by people.Demographics into p
+                           group people by people.ModifiedDate into p
                            orderby p.Key
                            select p;
 
-
-            foreach (var record3 in results)
+            foreach (var record3 in results3)
             {
 
                 Console.WriteLine($"{record3.Key}: {record3.Count()}");
 
 
             }
-
 
 
         }
@@ -124,12 +139,12 @@ namespace SQLDataProcessor
                                                 p => p.BusinessEntityID,
                                                 e => e.BusinessEntityID,
                                                 (p, e) => new
-                                                        {
-                                                            p.BusinessEntity,
-                                                            p.Demographics,
-                                                            e.EmailAddress1,
-                                                            e.ModifiedDate
-                                                        });
+                                                {
+                                                    p.BusinessEntity,
+                                                    p.Demographics,
+                                                    e.EmailAddress1,
+                                                    e.ModifiedDate
+                                                });
 
             //AFTER V2
             var personsLambda2 = db.People.Join(
@@ -137,7 +152,7 @@ namespace SQLDataProcessor
                                                 p => p.BusinessEntityID,
                                                 e => e.BusinessEntityID,
                                                 (p, e) => new
-                                                {p,e }
+                                                { p, e }
                                                 );
         }
 
