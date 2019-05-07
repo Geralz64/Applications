@@ -15,6 +15,7 @@ namespace SQLDataProcessor
             /*
              Query format practice and lambda expression format
              */
+            GroupingQueries();
 
             LeftJoinQueries();
 
@@ -28,6 +29,57 @@ namespace SQLDataProcessor
 
             InnerJoinLambdaExpression();
 
+
+
+
+        }
+
+        private static void GroupingQueries()
+        {
+
+            var db = new Repository.SQL.AdventureWorks2012Entities();
+
+
+            var results = from people in db.People
+                          where people.BusinessEntity.ToString() != ""
+                          group people by people.BusinessEntity;
+
+
+            foreach (var record in results)
+            {
+
+                Console.WriteLine($"{record.Key}: {record.Count()}");
+
+
+            }
+
+
+
+            var results2 = from people in db.People
+                           group people by people.Demographics;
+
+            foreach (var record2 in results)
+            {
+
+                Console.WriteLine($"{record2.Key}: {record2.Count()}");
+
+
+            }
+
+            var results3 = from people in db.People
+                           where people.AdditionalContactInfo != null
+                           group people by people.Demographics into p
+                           orderby p.Key
+                           select p;
+
+
+            foreach (var record3 in results)
+            {
+
+                Console.WriteLine($"{record3.Key}: {record3.Count()}");
+
+
+            }
 
 
 

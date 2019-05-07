@@ -1,6 +1,10 @@
-D:\Applications\Extensibility\Repository.Interface\bin\Debug\Repository.Interface.dll
-D:\Applications\Extensibility\Repository.Interface\bin\Debug\Repository.Interface.pdb
-D:\Applications\Extensibility\Repository.Interface\obj\Debug\Repository.Interface.csproj.CoreCompileInputs.cache
-D:\Applications\Extensibility\Repository.Interface\obj\Debug\Repository.Interface.dll
-D:\Applications\Extensibility\Repository.Interface\obj\Debug\Repository.Interface.pdb
-D:\Applications\Extensibility\Repository.Interface\obj\Debug\Repository.Interface.csprojAssemblyReference.cache
+D:/Applications/Extensibility/Repository.Interface/bin/Debug/Repository.Interface.dll
+D:/Applications/Extensibility/Repository.Interface/bin/Debug/Repository.Interface.pdb
+D:/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interface.csproj.CoreCompileInputs.cache
+D:/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interface.dll
+D:/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interface.pdb
+D:/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interface.csprojAssemblyReference.cache
+/Volumes/USB/Applications/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interface.csprojAssemblyReference.cache
+/Volumes/USB/Applications/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interface.csproj.CoreCompileInputs.cache
+/Volumes/USB/Applications/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interface.dll
+/Volumes/USB/Applications/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interface.pdb
