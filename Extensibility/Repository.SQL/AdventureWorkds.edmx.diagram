@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="AdventureWorks2012Model.Password" Width="1.5" PointX="5.25" PointY="20.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorks2012Model.Person" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorks2012Model.PersonPhone" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorks2012Model.PhoneNumberType" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorks2012Model.PhoneNumberType" Width="3.5" PointX="6" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorks2012Model.StateProvince" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="AdventureWorks2012Model.FK_Address_StateProvince_StateProvinceID" ManuallyRouted="false" />
         <AssociationConnector Association="AdventureWorks2012Model.FK_BusinessEntityAddress_Address_AddressID" ManuallyRouted="false" />

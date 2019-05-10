@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Util
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities.Test", "Utilities.Test\Utilities.Test.csproj", "{80A65FCB-B25B-4728-828B-2256B055E544}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSVFileProcessor", "FileProcessor\CSVFileProcessor.csproj", "{12052CE9-3F52-4BA3-98F8-46C9CFA2F94D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLConsole", "FileProcessor\XMLConsole.csproj", "{12052CE9-3F52-4BA3-98F8-46C9CFA2F94D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLDataProcessor", "SQLDataProcessor\SQLDataProcessor.csproj", "{A0E27F69-8A88-4535-A87F-FFA6DD9955E2}"
 EndProject

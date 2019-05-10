@@ -15,6 +15,9 @@ namespace SQLDataProcessor
             /*
              Query format practice and lambda expression format
              */
+
+            MorePractice();
+
             GroupingQueries();
 
             GroupingLambdaExpressions();
@@ -30,6 +33,90 @@ namespace SQLDataProcessor
             LeftJoinQueries();
 
             InnerJoinLambdaExpression();
+
+
+
+
+        }
+
+        private static void MorePractice()
+        {
+            var db = new Repository.SQL.AdventureWorks2012Entities();
+
+            //Single table query structurue
+            var records1 = from phone in db.PersonPhones
+                           where phone.PhoneNumber != null
+                           select phone;
+
+            //Single table lambda expression
+            var records1l = db.PersonPhones.Where(p => p.PhoneNumber != null);
+
+            //Multiple tables query structure
+            var records2 = from personPhone in db.PersonPhones
+                           join phoneNumberType in db.PhoneNumberTypes
+                           on personPhone.PhoneNumberTypeID equals phoneNumberType.PhoneNumberTypeID
+                           select personPhone;
+
+            //Multiple tables lambda expression
+            var records2l = db.PersonPhones
+                                .Join(db.PhoneNumberTypes,
+                                  pp => pp.PhoneNumberTypeID,
+                                  pt => pt.PhoneNumberTypeID,
+                                  (pp, pt) => new
+                                  {
+                                      pp,
+                                      pt
+                                  });
+
+            //left join
+            var records3 = from pp in db.PersonPhones
+                           join pt in db.PhoneNumberTypes
+                           on pp.PhoneNumberTypeID equals pt.PhoneNumberTypeID into personPhonesTypes
+                           from pt in personPhonesTypes.DefaultIfEmpty()
+                           where pt == null
+                           select pp;
+
+            //Projection query structure
+            var records4 = from pp in db.PersonPhones
+                           join pt in db.PhoneNumberTypes
+                           on pp.PhoneNumberTypeID equals pt.PhoneNumberTypeID
+                           select new
+                           {
+
+                               PersonPhoneNumber = pp.PhoneNumber,
+                               PhoneName = pt.Name
+
+                           };
+
+            //Projection lambda expression
+            var recrod4l = db.PersonPhones
+                            .Join(db.PhoneNumberTypes,
+                                   pp => pp.PhoneNumberTypeID,
+                                   pt => pt.PhoneNumberTypeID,
+                                   (pp, pt) => new
+                                   {
+                                       PersonPhoneNumber = pp.PhoneNumber,
+                                       PhoneName = pt.Name
+
+                                   });
+
+
+            //group by
+            var record5 = from personPhones in db.PersonPhones
+                          group personPhones by personPhones.PhoneNumberTypeID into P
+                          select new
+                          {
+
+                              PhoneTypes = P.Key,
+                              AmountPerType = P.Count()
+
+                          };
+            //group by lambda
+            var record5l = db.PersonPhones.GroupBy(p => p.PhoneNumberTypeID).Select(p => new
+            {
+                PhoneTypes = p.Key,
+                AmountPerType = p.Count()
+            });
 
 
 
