@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="SQLDataProcessor/Program.cs">
     <Files>
       <File FileName="Extensibility/ReadCSV.cs" Line="27" Column="10" />
-      <File FileName="SQLDataProcessor/Program.cs" Line="88" Column="56" />
+      <File FileName="SQLDataProcessor/Program.cs" Line="88" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,4 +25,5 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.XMLConsole PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
