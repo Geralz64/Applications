@@ -13,3 +13,15 @@ D:/Applications/Extensibility/Repository.SQL/obj/Debug/Repository.SQL.pdb
 /Volumes/USB/Applications/Applications/Extensibility/Repository.SQL/obj/Debug/Repository.SQL.csproj.CoreCompileInputs.cache
 /Volumes/USB/Applications/Applications/Extensibility/Repository.SQL/obj/Debug/Repository.SQL.dll
 /Volumes/USB/Applications/Applications/Extensibility/Repository.SQL/obj/Debug/Repository.SQL.pdb
+D:\Applications\CSharp\Extensibility\Repository.SQL\bin\Debug\Repository.SQL.dll.config
+D:\Applications\CSharp\Extensibility\Repository.SQL\bin\Debug\Repository.SQL.dll
+D:\Applications\CSharp\Extensibility\Repository.SQL\bin\Debug\Repository.SQL.pdb
+D:\Applications\CSharp\Extensibility\Repository.SQL\bin\Debug\EntityFramework.dll
+D:\Applications\CSharp\Extensibility\Repository.SQL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Applications\CSharp\Extensibility\Repository.SQL\bin\Debug\EntityFramework.xml
+D:\Applications\CSharp\Extensibility\Repository.SQL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.csprojAssemblyReference.cache
+D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.csproj.CoreCompileInputs.cache
+D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.csproj.CopyComplete
+D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.dll
+D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.pdb

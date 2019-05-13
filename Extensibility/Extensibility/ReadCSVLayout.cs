@@ -8,36 +8,8 @@ using System.Threading.Tasks;
 
 namespace Extensibility
 {
-    public class Layout
+    public  static class ReadCSVLayout
     {
-        public string RecordName { get; set; }
-        public int LengthOfRecord { get; set; }
-        public string TypeofRecord { get; set; }
-        public static List<Layout> ReadLayoutCSV(string filePath)
-        {
-
-            var layout = new List<Layout>();
-
-            string data = File.ReadAllText(filePath);
-
-            foreach (string row in data.Split('\n'))
-            {
-
-                var layoutLine = new Layout();
-
-                var records = row.Split(',');
-
-                layoutLine.RecordName = records[0];
-                layoutLine.LengthOfRecord = Convert.ToInt32(records[1]);
-                layoutLine.TypeofRecord = records[2];
-
-                layout.Add(layoutLine);
-
-            }
-
-            return layout;
-
-        }
 
         public static List<string[]> ReadCSVFile(string filePath, List<Layout> layout)
         {
@@ -61,7 +33,7 @@ namespace Extensibility
 
                     layoutLine = layout.ElementAt(count);
 
-                    isValid = ValidateValue(item[count].ToString(), layoutLine);
+                    isValid = ValidateRecord(item, layoutLine);
 
                     if (isValid == false)
                     {
@@ -85,9 +57,7 @@ namespace Extensibility
 
             return list;
         }
-
-
-        private static bool ValidateValue(string record, Layout recordLayout)
+        public static bool ValidateRecord(string record, Layout recordLayout)
         {
 
             bool isValid = true;
@@ -103,15 +73,16 @@ namespace Extensibility
 
             if (recordType == "N")
             {
+                int check = Regex.Matches(record, @"[a-zA-Z]").Count;
 
-                isValid = !Regex.IsMatch(record, @"^[a-zA-Z]+$");
-
+                isValid = check > 0 ? false : true;
             }
 
 
             return isValid;
         }
 
+       
 
 
 

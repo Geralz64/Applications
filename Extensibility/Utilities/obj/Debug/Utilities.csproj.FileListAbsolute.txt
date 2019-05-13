@@ -8,3 +8,9 @@ D:/Applications/Extensibility/Utilities/obj/Debug/Utilities.csprojAssemblyRefere
 /Volumes/USB/Applications/Applications/Extensibility/Utilities/obj/Debug/Utilities.csproj.CoreCompileInputs.cache
 /Volumes/USB/Applications/Applications/Extensibility/Utilities/obj/Debug/Utilities.dll
 /Volumes/USB/Applications/Applications/Extensibility/Utilities/obj/Debug/Utilities.pdb
+D:\Applications\CSharp\Extensibility\Utilities\bin\Debug\Utilities.dll
+D:\Applications\CSharp\Extensibility\Utilities\bin\Debug\Utilities.pdb
+D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.dll
+D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.pdb
