@@ -16,7 +16,6 @@ namespace Extensibility
         private static string FileLocation { get; set; }
         private static bool HasHeader { get; set; }
         private static string Delimiter { get; set; }
-        //public IEnumerable<T> Records { get; set; }
         public int RecordCount { get; set; }
 
 
@@ -94,12 +93,6 @@ namespace Extensibility
 
             return recordCount;
         }
-
-
-
-
-
-
 
 
 

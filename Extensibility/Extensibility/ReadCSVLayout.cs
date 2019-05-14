@@ -23,16 +23,13 @@ namespace Extensibility
             {
 
                 var layoutLine = new Layout();
-
                 var records = row.Split(',');
-
                 int count = 0;
 
                 foreach (var item in records)
                 {
 
                     layoutLine = layout.ElementAt(count);
-
                     isValid = ValidateRecord(item, layoutLine);
 
                     if (isValid == false)
@@ -41,7 +38,6 @@ namespace Extensibility
                     }
 
                     count += 1;
-
                 }
 
                 if (isValid == true)

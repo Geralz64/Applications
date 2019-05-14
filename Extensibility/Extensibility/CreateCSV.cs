@@ -1,34 +1,32 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Extensibility
 {
-   public class CreateCSV
+    public class CreateCSV<T>
     {
 
-        private static string FileLocation { get; set; }
-        private static bool HasHeader { get; set; }
-        private static string Delimiter { get; set; }
+        public void CreateCSVFile(CSVFileInformation<T> csvFileInfo)
+        {
 
+            string fileFullPath =  csvFileInfo.FileLocation+ csvFileInfo.FileName;
 
-        //public void CreateFile()
-        //{
-        //    string fileFullPath = FileLocation + FileName;
+            using (var writer = new StreamWriter(fileFullPath))
+            {
+                using (var csv = new CsvWriter(writer))
+                {
+                    csv.Configuration.HasHeaderRecord = csvFileInfo.HasHeader;
+                    csv.Configuration.Delimiter = csvFileInfo.Delimiter;
 
-        //    using (var writer = new StreamWriter(fileFullPath))
-        //    {
-        //        using (var csv = new CsvWriter(writer))
-        //        {
-        //            csv.Configuration.HasHeaderRecord = HasHeader;
-        //            csv.Configuration.Delimiter = Delimiter;
-
-        //            csv.WriteRecords(Items);
-        //        }
-        //    }
-        //}
+                    csv.WriteRecords(csvFileInfo.Records);
+                }
+            }
+        }
 
     }
 }
