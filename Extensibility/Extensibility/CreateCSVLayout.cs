@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,33 +8,27 @@ using System.Threading.Tasks;
 
 namespace Extensibility
 {
-    class CreateCSVLayout<T>
+    public static class CreateCSVLayout<T>
     {
 
-
-        /*
-         Take the read layout
-         Loop thorugh the records and write the file using the layout
-        
-         */
-
-
-        public static void CreateCSVLayoutFile(CSVFileInformation<T> cSVFileInformation, List<Layout> layout)
+        public static void CreateCSVLayoutFile(CSVFileInformation<T> csvFileInfo)
         {
 
-            using (var writer = new StreamWriter(cSVFileInformation.FileLocation + cSVFileInformation.FileName))
+            string fileFullPath = csvFileInfo.FileLocation + csvFileInfo.FileName;
+
+            using (var writer = new StreamWriter(fileFullPath))
             {
+                using (var csv = new CsvWriter(writer))
+                {
+                    csv.Configuration.HasHeaderRecord = csvFileInfo.HasHeader;
+                    csv.Configuration.Delimiter = csvFileInfo.Delimiter;
 
-                //CREATE THE FILE USING A FOR EACH OF THE LIST OF STRINGS THAT iM SUPPOSE TO RECEIVE 
-
-
-            };
-
+                    csv.WriteRecords(csvFileInfo.Records);
+                }
+            }
         }
 
 
-
-        //Create a line with a type of header method returning a list of strings and adding that to the csvFileInformationRecords parameter
 
     }
 }

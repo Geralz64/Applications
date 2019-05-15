@@ -11,12 +11,12 @@ namespace Extensibility
     public  static class ReadCSVLayout
     {
 
-        public static List<string[]> ReadCSVFile(string filePath, List<Layout> layout)
+        public static List<string> ReadCSVFile(string filePath, List<Layout> layout)
         {
 
             string data = File.ReadAllText(filePath);
 
-            var list = new List<string[]>();
+            var list = new List<string>();
             bool isValid = true;
 
             foreach (string row in data.Split('\n'))
@@ -42,7 +42,7 @@ namespace Extensibility
 
                 if (isValid == true)
                 {
-                    list.Add(records);
+                    list.Add(row);
                 }
                 else
                 {

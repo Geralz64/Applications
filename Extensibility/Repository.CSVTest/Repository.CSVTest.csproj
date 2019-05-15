@@ -56,9 +56,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateCSVLayoutTest.cs" />
+    <Compile Include="CreateCSVTest.cs" />
     <Compile Include="LayoutTest.cs" />
     <Compile Include="ReadCSVLocalTest.cs" />
-    <Compile Include="WriteCSVFileTest.cs" />
     <Compile Include="ReadCSVTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

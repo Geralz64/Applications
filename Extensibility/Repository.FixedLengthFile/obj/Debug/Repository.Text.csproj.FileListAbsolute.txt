@@ -8,3 +8,4 @@ D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Reposi
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.Text.csproj.CoreCompileInputs.cache
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.FixedLengthFile.dll
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.FixedLengthFile.pdb
+D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.Text.csprojAssemblyReference.cache

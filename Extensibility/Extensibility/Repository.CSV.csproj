@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateCSV.cs" />
+    <Compile Include="CreateCSVLayout.cs" />
+    <Compile Include="CSVFileInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadCSV.cs" />
     <Compile Include="Layout.cs" />
