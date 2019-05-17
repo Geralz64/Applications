@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLConsole", "FileProcessor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLDataProcessor", "SQLDataProcessor\SQLDataProcessor.csproj", "{A0E27F69-8A88-4535-A87F-FFA6DD9955E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.FileManager", "Repository.FileManager\Repository.FileManager.csproj", "{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{A0E27F69-8A88-4535-A87F-FFA6DD9955E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0E27F69-8A88-4535-A87F-FFA6DD9955E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0E27F69-8A88-4535-A87F-FFA6DD9955E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

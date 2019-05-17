@@ -47,18 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateCSV.cs" />
     <Compile Include="CreateCSVLayout.cs" />
-    <Compile Include="CSVFileInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadCSV.cs" />
-    <Compile Include="Layout.cs" />
     <Compile Include="ReadCSVLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Repository.FileManager\Repository.FileManager.csproj">
+      <Project>{ae392f07-30d6-4fba-b0bc-6c74af6d52ee}</Project>
+      <Name>Repository.FileManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repository.Interface\Repository.Interface.csproj">
       <Project>{423a96ca-a776-4dc8-a84f-764973be1fc7}</Project>
       <Name>Repository.Interface</Name>

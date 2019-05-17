@@ -8,22 +8,21 @@ using System.Threading.Tasks;
 
 namespace Extensibility
 {
-    public static class CreateCSVLayout<T>
+    public static class CreateCSV<T>
     {
-
-        public static void CreateCSVLayoutFile(CSVFileInformation<T> csvFileInfo)
+        public static void CreateFile(FileInformation<T> fileInfo)
         {
 
-            string fileFullPath = csvFileInfo.FileLocation + csvFileInfo.FileName;
+            string fileFullPath = fileInfo.FileLocation + fileInfo.FileName;
 
             using (var writer = new StreamWriter(fileFullPath))
             {
                 using (var csv = new CsvWriter(writer))
                 {
-                    csv.Configuration.HasHeaderRecord = csvFileInfo.HasHeader;
-                    csv.Configuration.Delimiter = csvFileInfo.Delimiter;
+                    csv.Configuration.HasHeaderRecord = fileInfo.HasHeader;
+                    csv.Configuration.Delimiter = fileInfo.Delimiter;
 
-                    csv.WriteRecords(csvFileInfo.Records);
+                    csv.WriteRecords(fileInfo.Records);
                 }
             }
         }

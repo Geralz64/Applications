@@ -13,4 +13,3 @@ D:\Applications\CSharp\Extensibility\Utilities\bin\Debug\Utilities.pdb
 D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
 D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.dll
 D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.pdb
-D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
