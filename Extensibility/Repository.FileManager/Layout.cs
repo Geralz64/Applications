@@ -13,6 +13,8 @@ namespace Extensibility
         public string RecordName { get; set; }
         public int LengthOfRecord { get; set; }
         public string TypeofRecord { get; set; }
+
+
         public static List<Layout> ReadLayoutCSV(string filePath)
         {
 

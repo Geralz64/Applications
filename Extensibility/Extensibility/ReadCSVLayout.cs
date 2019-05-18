@@ -11,7 +11,7 @@ namespace Extensibility
     public  static class ReadCSVLayout
     {
 
-        public static List<string> ReadCSVFile(string filePath, List<Layout> layout)
+        public static List<string> ReadFile(string filePath, List<Layout> layout)
         {
 
             string data = File.ReadAllText(filePath);
