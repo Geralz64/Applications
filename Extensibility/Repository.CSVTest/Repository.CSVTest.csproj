@@ -59,7 +59,7 @@
     <Compile Include="CreateCSVLayoutTest.cs" />
     <Compile Include="CreateCSVTest.cs" />
     <Compile Include="LayoutTest.cs" />
-    <Compile Include="ReadCSVLocalTest.cs" />
+    <Compile Include="ReadCSVLayoutTest.cs" />
     <Compile Include="ReadCSVTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +70,10 @@
     <ProjectReference Include="..\Extensibility\Repository.CSV.csproj">
       <Project>{66bf89e0-a6bc-46bd-80f4-0fafc9c499aa}</Project>
       <Name>Repository.CSV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.FileManager\Repository.FileManager.csproj">
+      <Project>{ae392f07-30d6-4fba-b0bc-6c74af6d52ee}</Project>
+      <Name>Repository.FileManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repository.SQL\Repository.SQL.csproj">
       <Project>{9a710f61-49c5-42c7-9101-63aac55b8eab}</Project>

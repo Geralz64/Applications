@@ -28,7 +28,7 @@ namespace Repository.CSVTest
 
             };
 
-            var fileInformation = new CSVFileInformation<Layout>
+            var fileInformation = new FileInformation<Layout>
             {
                 FileLocation = @"D:\Applications\TestFiles\",
 
@@ -41,7 +41,7 @@ namespace Repository.CSVTest
                 Records = layout
             };
 
-            CreateCSVLayout<Layout>.CreateCSVLayoutFile(fileInformation);
+            CreateCSV<Layout>.CreateFile(fileInformation);
 
             bool success = File.Exists(fileInformation.FileLocation + fileInformation.FileName);
 

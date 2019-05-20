@@ -4,7 +4,7 @@ using CsvHelper;
 using Extensibility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Repository.SQL;
-
+using System.Linq;
 namespace Repository.CSVTest
 {
     [TestClass]
@@ -12,61 +12,28 @@ namespace Repository.CSVTest
     {
 
         [TestMethod]
-        public void ReadFileTestWithSQL()
+        public void ReadFileTest()
         {
-            string FileLocation = "D:\\TestFiles\\NewMembers.csv";
+            string FileLocation = @"D:\TestFiles\MemberLocal.csv";
             bool HasHeader = true;
             string Delimiter = ",";
 
 
-            ReadCSV<Member> test = new ReadCSV<Member>(FileLocation, HasHeader, Delimiter);
+            ReadCSV<MemberTest> readCSV = new ReadCSV<MemberTest>(FileLocation, HasHeader, Delimiter);
 
 
-            var Person = test.ReadFile();
+            var member = readCSV.ReadFile();
 
-            foreach (var item in Person)
-            {
+            string result = member.Select(m => m.Name).First();
 
-                Console.WriteLine($"Person Name: {item.BirthDate}");
+            string expected = "100";
 
-            }
-            Assert.AreEqual(1, 2);
+            Assert.AreEqual(result, expected);
         }
-
-
-
-        [TestMethod]
-        public void ReadFileLocalNoDataBase()
-        {
-            string FileLocation = "D:\\TestFiles\\MemberLocal.csv";
-            bool HasHeader = true;
-            string Delimiter = ",";
-
-
-            ReadCSV<MemberTest> test = new ReadCSV<MemberTest>(FileLocation, HasHeader, Delimiter);
-
-
-            var Person = test.ReadFile();
-
-            foreach (var item in Person)
-            {
-
-                Console.WriteLine($"Person Name: {item.Name}");
-
-            }
-
-            Assert.AreEqual(1, 2);
-        }
-
-
-
-
-
     }
 
 
 }
-
 
 public class MemberTest
     {

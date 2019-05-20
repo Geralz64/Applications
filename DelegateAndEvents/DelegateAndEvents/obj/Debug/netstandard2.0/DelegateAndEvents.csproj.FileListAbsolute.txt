@@ -1,0 +1,9 @@
+D:\Applications\CSharp\DelegateAndEvents\DelegateAndEvents\bin\Debug\netstandard2.0\DelegateAndEvents.deps.json
+D:\Applications\CSharp\DelegateAndEvents\DelegateAndEvents\bin\Debug\netstandard2.0\DelegateAndEvents.dll
+D:\Applications\CSharp\DelegateAndEvents\DelegateAndEvents\bin\Debug\netstandard2.0\DelegateAndEvents.pdb
+D:\Applications\CSharp\DelegateAndEvents\DelegateAndEvents\obj\Debug\netstandard2.0\DelegateAndEvents.csprojAssemblyReference.cache
+D:\Applications\CSharp\DelegateAndEvents\DelegateAndEvents\obj\Debug\netstandard2.0\DelegateAndEvents.csproj.CoreCompileInputs.cache
+D:\Applications\CSharp\DelegateAndEvents\DelegateAndEvents\obj\Debug\netstandard2.0\DelegateAndEvents.AssemblyInfoInputs.cache
+D:\Applications\CSharp\DelegateAndEvents\DelegateAndEvents\obj\Debug\netstandard2.0\DelegateAndEvents.AssemblyInfo.cs
+D:\Applications\CSharp\DelegateAndEvents\DelegateAndEvents\obj\Debug\netstandard2.0\DelegateAndEvents.dll
+D:\Applications\CSharp\DelegateAndEvents\DelegateAndEvents\obj\Debug\netstandard2.0\DelegateAndEvents.pdb
