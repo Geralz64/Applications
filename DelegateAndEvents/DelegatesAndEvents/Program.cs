@@ -1,5 +1,5 @@
 ﻿using System;
-
+using DelegatesAndEvents;
 namespace DelegatesAndEvents
 {
     class Program
@@ -23,9 +23,6 @@ namespace DelegatesAndEvents
             var del2 = new PerformWork(GenerateFile);
             var del3 = new PerformWork(NotifyUsers);
 
-
-            var del4 = new Work();
-
             del1(DateTime.Now);
 
             //Running the delegate by adding multiple methods to the same pipeline
@@ -34,6 +31,68 @@ namespace DelegatesAndEvents
 
             del1(DateTime.Now);
 
+            /*************************************************************************************************************************/
+
+            var work = new Worker();
+
+            //work.WorkPerformed += new EventHandler<WorkPerformedEventArgs>(worker_WorkPerformed);
+            work.WorkCompleted += new EventHandler(worker_Completed);
+
+            work.WorkPerformed += delegate (object sender, WorkPerformedEventArgs e)            
+            {
+
+                Console.WriteLine(e.ToString());
+
+            };
+
+            work.WorkPerformed += (s, e) => Console.WriteLine(DateTime.Now);
+
+
+            work.WorkPerformed += (s, e) =>
+            {
+                Console.WriteLine(DateTime.Now);
+                Console.WriteLine("New Line");
+            };
+
+            work.DoSomething(DateTime.Now);
+
+
+            BusinessRules addDelete = (x, y) => x + y;
+            BusinessRules mult = (x, y) => x * y;
+
+            //With this you can pass the business rules thorught a delegate to a method
+            var processData = new ProcessData();
+            processData.Process(2, 3, addDelete);
+            processData.Process(2, 3, mult);
+
+
+            Action<int, int> myAction = (x, y) => Console.WriteLine(x + y);
+            Action<int, int> myMultAction = (x, y) => Console.WriteLine(x * y);
+
+
+            var data = new ProcessData();
+
+
+            data.ProcessAction(2, 3, myAction);
+
+
+            Func<int, int, int> funcAddDel = (x, y) => x + y;
+            Func<int, int, int> funcMultDel = (x, y) => x * y;
+            data.ProcessFunc(3, 2, funcAddDel);
+
+
+        }
+
+        static void worker_WorkPerformed(object sender, WorkPerformedEventArgs e)
+        {
+
+            Console.WriteLine(e.ToString());
+        }
+
+        static void worker_Completed(object sender, EventArgs e)
+        {
+
+            Console.WriteLine(e.ToString());
         }
 
         public delegate void PerformWork(DateTime timeStamp);

@@ -5,7 +5,7 @@ using System.Text;
 namespace DelegatesAndEvents
 {
     //public delegate int WorkPerformedHander(object sender, WorkPerformedEventArgs e);
-    class Work        
+    public class Worker        
     {
         public event EventHandler<WorkPerformedEventArgs> WorkPerformed;
         public event EventHandler WorkCompleted;
