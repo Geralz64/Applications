@@ -23,7 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLConsole", "FileProcessor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLDataProcessor", "SQLDataProcessor\SQLDataProcessor.csproj", "{A0E27F69-8A88-4535-A87F-FFA6DD9955E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.FileManager", "Repository.FileManager\Repository.FileManager.csproj", "{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository.FileManager", "Repository.FileManager\Repository.FileManager.csproj", "{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.TextTest", "Repository.TextTest\Repository.TextTest.csproj", "{F02BE18E-2367-4D8A-BE08-209FB9A1F1D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F02BE18E-2367-4D8A-BE08-209FB9A1F1D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F02BE18E-2367-4D8A-BE08-209FB9A1F1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F02BE18E-2367-4D8A-BE08-209FB9A1F1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F02BE18E-2367-4D8A-BE08-209FB9A1F1D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{281F9162-95D9-4745-A0E1-900261FFECE9} = {20F20855-44FA-4476-90EF-7B5E3084C548}
 		{80A65FCB-B25B-4728-828B-2256B055E544} = {20F20855-44FA-4476-90EF-7B5E3084C548}
+		{F02BE18E-2367-4D8A-BE08-209FB9A1F1D0} = {20F20855-44FA-4476-90EF-7B5E3084C548}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58B8C0DE-165A-492C-9D9F-D8A8A2C9DC9B}

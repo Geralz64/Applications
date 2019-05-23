@@ -80,7 +80,6 @@
     <Compile Include="BusinessEntityContact.cs">
       <DependentUpon>AdventureWorkds.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="ContactType.cs">
       <DependentUpon>AdventureWorkds.tt</DependentUpon>
     </Compile>
