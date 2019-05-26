@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "JSON/1.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Json.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Json.dll": {}
-        }
-      },
       "Microsoft.NETCore.App/2.1.0": {
         "type": "package",
         "dependencies": {
@@ -220,28 +211,6 @@
     }
   },
   "libraries": {
-    "JSON/1.0.1": {
-      "sha512": "n387Xh1oDWolCIVb2oMV1bWkEKBBk5iLkMuaiAQuLUaAZwowyym2s/6b/hFnmS5J3bzINmZ7I2WEbBAZMQd2dg==",
-      "type": "package",
-      "path": "json/1.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "json.1.0.1.nupkg.sha512",
-        "json.nuspec",
-        "lib/net35/Json.Net35.dll",
-        "lib/net35/Json.Net35.pdb",
-        "lib/net40/Json.dll",
-        "lib/net40/Json.pdb",
-        "lib/sl3/Json.Silverlight.dll",
-        "lib/sl3/Json.Silverlight.pdb",
-        "lib/sl4/Json.Silverlight4.dll",
-        "lib/sl4/Json.Silverlight4.pdb",
-        "lib/wp/Json.WindowsPhone.dll",
-        "lib/wp/Json.WindowsPhone.pdb"
-      ]
-    },
     "Microsoft.NETCore.App/2.1.0": {
       "sha512": "JNHhG+j5eIhG26+H721IDmwswGUznTwwSuJMFe/08h0X2YarHvA15sVAvUkA/2Sp3W0ENNm48t+J7KTPRqEpfA==",
       "type": "package",
@@ -715,7 +684,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "JSON >= 1.0.1",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -726,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Applications\\CSharp\\DelegateAndEvents\\DelegatesAndEvents\\DelegatesAndEvents.csproj",
-      "projectName": "DelegatesAndEvents",
-      "projectPath": "D:\\Applications\\CSharp\\DelegateAndEvents\\DelegatesAndEvents\\DelegatesAndEvents.csproj",
+      "projectUniqueName": "D:\\Applications\\CSharp\\ExtensionMethods\\ExtensionMethods\\ExtensionMethods.csproj",
+      "projectName": "ExtensionMethods",
+      "projectPath": "D:\\Applications\\CSharp\\ExtensionMethods\\ExtensionMethods\\ExtensionMethods.csproj",
       "packagesPath": "C:\\Users\\geraldo\\.nuget\\packages\\",
-      "outputPath": "D:\\Applications\\CSharp\\DelegateAndEvents\\DelegatesAndEvents\\obj\\",
+      "outputPath": "D:\\Applications\\CSharp\\ExtensionMethods\\ExtensionMethods\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -760,10 +728,6 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "JSON": {
-            "target": "Package",
-            "version": "[1.0.1, )"
-          },
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "[2.1.0, )",
@@ -777,17 +741,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'JSON 1.0.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
-      "libraryId": "JSON",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.1"
-      ]
-    }
-  ]
+  }
 }

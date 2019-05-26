@@ -14,22 +14,6 @@ namespace Repository.FixedLengthFile
 
         /*
          What do I want to do:
-
-        Create Fixed length file
-        - Create file by using a layout already established
-                -Use a layout that's already stablished
-                -Write the record using the layout
-                -Write the line into the file
-
-        - Create a file by reading a layout and writing those values in the file
-        - Fill the records with spaces or 0s depending on the value type
-
-        Read fixed length 
-        - Read file
-        - Validate data with layout already established
-              
-       Read file
-       -Read the file by separting the file and using an expected delmiter
               
         Create single line fixed length file
         - Create a file thats multiple records in one single line one after the other like the standards in some companies
@@ -137,6 +121,14 @@ namespace Repository.FixedLengthFile
      => I consolidated some code so that this part is no longer needed in this class or it would be duplicated code
      
 
+        Create Fixed length file
+        - Create file by using a layout already established
+                -Use a layout that's already stablished
+                -Write the record using the layout
+                -Write the line into the file
+
+        - Create a file by reading a layout and writing those values in the file
+        - Fill the records with spaces or 0s depending on the value type
 
 
 

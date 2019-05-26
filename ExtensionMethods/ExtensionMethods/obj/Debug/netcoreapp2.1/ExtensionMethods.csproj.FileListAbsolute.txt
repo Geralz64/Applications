@@ -1,0 +1,10 @@
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\bin\Debug\netcoreapp2.1\ExtensionMethods.deps.json
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\bin\Debug\netcoreapp2.1\ExtensionMethods.runtimeconfig.json
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\bin\Debug\netcoreapp2.1\ExtensionMethods.runtimeconfig.dev.json
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\bin\Debug\netcoreapp2.1\ExtensionMethods.dll
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\bin\Debug\netcoreapp2.1\ExtensionMethods.pdb
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\obj\Debug\netcoreapp2.1\ExtensionMethods.csproj.CoreCompileInputs.cache
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\obj\Debug\netcoreapp2.1\ExtensionMethods.AssemblyInfoInputs.cache
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\obj\Debug\netcoreapp2.1\ExtensionMethods.AssemblyInfo.cs
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\obj\Debug\netcoreapp2.1\ExtensionMethods.dll
+D:\Applications\CSharp\ExtensionMethods\ExtensionMethods\obj\Debug\netcoreapp2.1\ExtensionMethods.pdb

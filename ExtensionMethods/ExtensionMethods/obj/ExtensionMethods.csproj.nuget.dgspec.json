@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Applications\\CSharp\\DelegateAndEvents\\DelegatesAndEvents\\DelegatesAndEvents.csproj": {}
+    "D:\\Applications\\CSharp\\ExtensionMethods\\ExtensionMethods\\ExtensionMethods.csproj": {}
   },
   "projects": {
-    "D:\\Applications\\CSharp\\DelegateAndEvents\\DelegatesAndEvents\\DelegatesAndEvents.csproj": {
+    "D:\\Applications\\CSharp\\ExtensionMethods\\ExtensionMethods\\ExtensionMethods.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Applications\\CSharp\\DelegateAndEvents\\DelegatesAndEvents\\DelegatesAndEvents.csproj",
-        "projectName": "DelegatesAndEvents",
-        "projectPath": "D:\\Applications\\CSharp\\DelegateAndEvents\\DelegatesAndEvents\\DelegatesAndEvents.csproj",
+        "projectUniqueName": "D:\\Applications\\CSharp\\ExtensionMethods\\ExtensionMethods\\ExtensionMethods.csproj",
+        "projectName": "ExtensionMethods",
+        "projectPath": "D:\\Applications\\CSharp\\ExtensionMethods\\ExtensionMethods\\ExtensionMethods.csproj",
         "packagesPath": "C:\\Users\\geraldo\\.nuget\\packages\\",
-        "outputPath": "D:\\Applications\\CSharp\\DelegateAndEvents\\DelegatesAndEvents\\obj\\",
+        "outputPath": "D:\\Applications\\CSharp\\ExtensionMethods\\ExtensionMethods\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,10 +41,6 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
-            "JSON": {
-              "target": "Package",
-              "version": "[1.0.1, )"
-            },
             "Microsoft.NETCore.App": {
               "target": "Package",
               "version": "[2.1.0, )",

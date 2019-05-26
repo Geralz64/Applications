@@ -80,6 +80,19 @@ namespace DelegatesAndEvents
             Func<int, int, int> funcMultDel = (x, y) => x * y;
             data.ProcessFunc(3, 2, funcAddDel);
 
+            /*****************************************************************************************/
+
+            var sources = new IReferenceDataSource[] { new SqlReferenceDataSource(), new XmlReferenceDataSource(), new ApiReferenceDataSource() };
+
+            sources.GetAllItemsByCode("Blue");
+
+            var obj1 = int.MaxValue;
+
+            Console.WriteLine("obj1" + obj1.ToJsonString());
+
+            var obj2 = DateTime.Now;
+
+            Console.WriteLine("obj2" + obj2.ToJsonString());
 
         }
 
