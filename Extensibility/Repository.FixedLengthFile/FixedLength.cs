@@ -28,7 +28,15 @@ namespace Repository.FixedLengthFile
 
          */
 
-        public static bool CreateFile(FileInformation<T> fileInfo, List<Layout> layout)
+        public static void CreateFile(FileInformation<T> fileInfo, List<Layout> layout)
+        {
+            List<string> formatedRecords = FormatRecords(fileInfo, layout);
+
+            WriteFile(fileInfo, formatedRecords);
+
+        }
+
+        private static List<string> FormatRecords(FileInformation<T> fileInfo, List<Layout> layout)
         {
             var formatedRecords = new List<string>();
 
@@ -46,13 +54,18 @@ namespace Repository.FixedLengthFile
 
                     string formatedSegment = (typeOfRecord == "AN") ? FillWithSpaces(segment, lenghtOfRecord) : FillWithZeros(segment, lenghtOfRecord);
 
-                    formatedLine +=  formatedSegment;
+                    formatedLine += formatedSegment;
 
                 }
 
                 formatedRecords.Add(formatedLine);
             }
 
+            return formatedRecords;
+        }
+
+        private static void WriteFile(FileInformation<T> fileInfo, List<string> formatedRecords)
+        {
             using (var writer = new StreamWriter(fileInfo.FileLocation + fileInfo.FileName))
             {
                 foreach (var record in formatedRecords)
@@ -62,13 +75,7 @@ namespace Repository.FixedLengthFile
                 writer.Close();
 
             }
-
-            bool isValid = File.Exists(fileInfo.FileLocation + fileInfo.FileName);
-
-            return isValid;
         }
-
-
 
         private static string FillWithSpaces(string segment, int padding)
         {
@@ -89,48 +96,4 @@ namespace Repository.FixedLengthFile
 
     }
 
-    public class TestFileInformation {
-
-        public string ID { get; set; }
-
-        public string Name { get; set; }
-
-        public string LastName { get; set; }
-
-        public int BirthDate { get; set; }
-
-        public int MyProperty { get; set; }
-
-
-
-
-    }
-
-
-
-
-
-
-
-    /*
-     Complete tasks:
-
-       1.  Create file (no layout)
-                -Create a txt file by using a list from strings (simplest method just loop through the list and write it in a file and 
-                 expect the data to already be formated with )
-     => I consolidated some code so that this part is no longer needed in this class or it would be duplicated code
-     
-
-        Create Fixed length file
-        - Create file by using a layout already established
-                -Use a layout that's already stablished
-                -Write the record using the layout
-                -Write the line into the file
-
-        - Create a file by reading a layout and writing those values in the file
-        - Fill the records with spaces or 0s depending on the value type
-
-
-
-     */
 }
