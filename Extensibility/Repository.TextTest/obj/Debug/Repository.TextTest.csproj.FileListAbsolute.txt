@@ -16,3 +16,5 @@ D:\Applications\CSharp\Extensibility\Repository.TextTest\obj\Debug\Repository.Te
 D:\Applications\CSharp\Extensibility\Repository.TextTest\obj\Debug\Repository.TextTest.csproj.CopyComplete
 D:\Applications\CSharp\Extensibility\Repository.TextTest\obj\Debug\Repository.TextTest.dll
 D:\Applications\CSharp\Extensibility\Repository.TextTest\obj\Debug\Repository.TextTest.pdb
+D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Utilities.dll
+D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Utilities.pdb

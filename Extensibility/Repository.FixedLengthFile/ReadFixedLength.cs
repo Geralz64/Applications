@@ -10,7 +10,7 @@ namespace Repository.FixedLengthFile
     public class ReadFixedLength<T>
     {
 
-        public static List<string> ReadFixedLengthFile(FileInformation<T> fileInformation) {
+        public static List<string> ReadFile(FileInformation<T> fileInformation) {
 
             var records = new List<string>();
             

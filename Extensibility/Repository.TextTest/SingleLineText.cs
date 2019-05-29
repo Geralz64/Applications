@@ -1,18 +1,25 @@
-﻿using System;
+﻿using Extensibility;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using Extensibility;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Repository.FixedLengthFile;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Repository.TextTest
 {
+
     [TestClass]
-    public class FixedLengthTest
+    public class SingleLineText
     {
+
+
         [TestMethod]
-        public void CreateFileTest()
+        public void CrateFileTest()
         {
+
+
             var layout = new List<Layout>() {
 
                 new Layout { RecordName = "MemberID", LengthOfRecord = 10, TypeofRecord = "N" },
@@ -22,6 +29,7 @@ namespace Repository.TextTest
                 new Layout { RecordName = "SSN", LengthOfRecord = 10, TypeofRecord = "N" }
 
             };
+
 
             var list = new List<string> {
 
@@ -40,15 +48,20 @@ namespace Repository.TextTest
             fileInfo.Records = list;
 
             fileInfo.FileLocation = @"D:\Applications\TestFiles\";
-            fileInfo.FileName = "FixedLengthTest.txt";
-          
-            FixedLength<string>.CreateFile(fileInfo, layout);
+            fileInfo.FileName = "SingleLineTest.txt";
+
+
+
+            SingleLine<string>.CreateFile(fileInfo, list, layout);
 
             var expected = true;
 
             var result = File.Exists(fileInfo.FileLocation + fileInfo.FileName);
 
-            Assert.AreEqual(expected, result);
+
+            Assert.AreEqual(result, expected);
+
         }
+
     }
 }

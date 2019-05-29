@@ -52,6 +52,7 @@
     <Compile Include="FixedLengthTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadFixedLengthTest.cs" />
+    <Compile Include="SingleLineText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -12,3 +12,5 @@ D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\obj\Debug\Reposi
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Repository.FileManager.dll
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Repository.FileManager.pdb
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.Text.csproj.CopyComplete
+D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Utilities.dll
+D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Utilities.pdb

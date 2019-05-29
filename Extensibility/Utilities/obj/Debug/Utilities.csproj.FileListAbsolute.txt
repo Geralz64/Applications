@@ -14,3 +14,6 @@ D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.csproj.CoreCo
 D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.dll
 D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.pdb
 D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+D:\Applications\CSharp\Extensibility\Utilities\bin\Debug\Repository.FileManager.dll
+D:\Applications\CSharp\Extensibility\Utilities\bin\Debug\Repository.FileManager.pdb
+D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.csproj.CopyComplete
