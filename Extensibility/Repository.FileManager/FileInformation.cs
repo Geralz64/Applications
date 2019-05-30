@@ -12,6 +12,9 @@ namespace Extensibility
         public string FileName { get; set; }
         public bool HasHeader { get; set; }
         public string Delimiter { get; set; }
+
+        public int RecordCount { get; set; }
+
         public IEnumerable<T> Records { get; set; }
 
 

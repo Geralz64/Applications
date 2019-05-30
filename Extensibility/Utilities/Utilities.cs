@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Utilities
@@ -24,7 +25,6 @@ namespace Utilities
 
         }
 
-
         public static void LogInfoEnd()
         {
 
@@ -38,14 +38,6 @@ namespace Utilities
 
         #region PresentInformation
 
-        public static void BackupFile(string sourceFileName, string destinationFileName)
-        {
-            File.Copy(sourceFileName, destinationFileName);
-
-        }
-
-
-
         public static void ShowFiles(IEnumerable<string> files)
         {
 
@@ -56,17 +48,36 @@ namespace Utilities
             }
         }
 
+        //public static void ShowFilesWithInfo(List<FileInformation<T>> files)
+        //{
+
+        //    foreach (var file in files)
+        //    {
+
+        //        Console.Write($"Name: {file.FileName} Count: {file.RecordCount}");
+
+        //    }
+
+        //}
+
         #endregion
 
         #region FileManagement
         public static IEnumerable<string> FilesToProcess(string path, string fileExtension)
         {
 
-            IEnumerable<string> filesInFolder = Directory.GetFiles(path, fileExtension);
+            IEnumerable<string> filesInFolder = Directory.GetFiles(path, "*." + fileExtension);
 
 
             return filesInFolder;
         }
+
+        public static void BackupFile(string sourceFileName, string destinationFileName)
+        {
+            File.Copy(sourceFileName, destinationFileName);
+
+        }
+
         #endregion
 
         #region DataManagement
@@ -114,6 +125,74 @@ namespace Utilities
             return formatedRecords;
         }
 
+        public static string RemoveSpecialCharacters(string item)
+        {
+
+            item = item.Replace("ñ", "n");
+            item = item.Replace("Ñ", "N");
+            item = item.Replace("'", "");
+            item = item.Replace(",", "");
+
+            return item;
+
+
+        }
+
+        public static List<string> GetRecordInformationByPosition(FileInformation<string> fileInformation, List<Layout> layout)
+        {
+
+            var records = fileInformation.Records;
+
+            var segments = new List<string>();
+
+            foreach (var line in records)
+            {
+                int start = 0;
+                int length = 0;
+
+                foreach (var lenghtOfRecord in layout)
+                {
+
+                    length = lenghtOfRecord.LengthOfRecord;
+                    string segment = line.ToString().Substring(start, length);
+
+                    segments.Add(segment);
+
+                    start = length;
+                }
+            }
+
+            return segments;
+
+        }
+
+        public static bool ValidateRecord(string record, Layout recordLayout)
+        {
+
+            bool isValid = true;
+
+            int length = recordLayout.LengthOfRecord;
+            string recordType = recordLayout.TypeofRecord;
+
+
+            if (record.Length > length)
+            {
+                isValid = false;
+            }
+
+            if (recordType == "N")
+            {
+                int check = Regex.Matches(record, @"[a-zA-Z]").Count;
+
+                isValid = check > 0 ? false : true;
+            }
+
+            return isValid;
+        }
+
         #endregion
+
+
+
     }
 }

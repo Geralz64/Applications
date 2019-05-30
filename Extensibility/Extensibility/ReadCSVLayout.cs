@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using Utilities;
 namespace Extensibility
 {
     public  static class ReadCSVLayout
@@ -30,7 +30,7 @@ namespace Extensibility
                 {
 
                     layoutLine = layout.ElementAt(count);
-                    isValid = ValidateRecord(item, layoutLine);
+                    isValid = Utilities.Utilities.ValidateRecord(item, layoutLine);
 
                     if (isValid == false)
                     {
@@ -44,39 +44,12 @@ namespace Extensibility
                 {
                     list.Add(row);
                 }
-                else
-                {
-                    //Insert records into other file, into db or into another file for verification 
-                }
 
             }
 
             return list;
         }
-        public static bool ValidateRecord(string record, Layout recordLayout)
-        {
 
-            bool isValid = true;
-
-            int length = recordLayout.LengthOfRecord;
-            string recordType = recordLayout.TypeofRecord;
-
-
-            if (record.Length > length)
-            {
-                isValid = false;
-            }
-
-            if (recordType == "N")
-            {
-                int check = Regex.Matches(record, @"[a-zA-Z]").Count;
-
-                isValid = check > 0 ? false : true;
-            }
-
-
-            return isValid;
-        }
 
        
 

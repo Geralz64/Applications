@@ -11,23 +11,6 @@ namespace Repository.FixedLengthFile
     public class FixedLength<T>
     {
 
-
-        /*
-         What do I want to do:
-              
-        Create single line fixed length file
-        - Create a file thats multiple records in one single line one after the other like the standards in some companies
-
-        Read single line fixed length file
-        -Divide by counting the amount of spaces between each line and then separating OR by a specific segment
-
-        As a final note consolidate some of the code I used on the CSV classes maybe instead of a csv file I can use it to create any
-        type of file by using the extension and that way I have less code to maintain. Probably create a FileManagement class 
-        instead and add the CSV file classes inside this way I'll have less project libraries 
-
-
-         */
-
         public static void CreateFile(FileInformation<T> fileInfo, List<Layout> layout)
         {
             List<string> formatedRecords = FormatRecords(fileInfo, layout);
