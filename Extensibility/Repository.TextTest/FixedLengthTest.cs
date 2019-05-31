@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Extensibility;
+using Utilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Repository.FixedLengthFile;
 
@@ -41,8 +41,10 @@ namespace Repository.TextTest
 
             fileInfo.FileLocation = @"D:\Applications\TestFiles\";
             fileInfo.FileName = "FixedLengthTest.txt";
-          
-            FixedLength<string>.CreateFile(fileInfo, layout);
+
+            
+
+            //FixedLength<string>.CreateFile(fileInfo, layout);
 
             var expected = true;
 

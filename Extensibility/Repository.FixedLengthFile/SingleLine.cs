@@ -10,15 +10,15 @@ using Utilities;
 public class SingleLine<T>
 {
 
-    public static void CreateFile(FileInformation<T> fileInfo, List<string> records, List<Layout> layout)
+    public static void CreateFile(Utilities.FileInformation<T> fileInfo, List<string> records, List<Utilities.Layout> layout)
     {
-        List<string> formatedRecords = Utilities.Utilities.FormatRecords(records, layout);
+        List<string> formatedRecords = Utilities.DataManagement.FormatRecords(records, layout);
 
         WriteFile(fileInfo, formatedRecords);
 
     }
 
-    private static void WriteFile(FileInformation<T> fileInfo, List<string> formatedRecords)
+    private static void WriteFile(Utilities.FileInformation<T> fileInfo, List<string> formatedRecords)
     {
         using (var writer = new StreamWriter(fileInfo.FileLocation + fileInfo.FileName))
         {

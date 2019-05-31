@@ -58,13 +58,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Repository.FileManager\Repository.FileManager.csproj">
-      <Project>{ae392f07-30d6-4fba-b0bc-6c74af6d52ee}</Project>
-      <Name>Repository.FileManager</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Repository.FixedLengthFile\Repository.Text.csproj">
       <Project>{0372CAE5-650B-4737-AC2F-886066FDED7F}</Project>
       <Name>Repository.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{8f8584cb-47cc-44b5-9ce3-eedf4c36a570}</Project>
+      <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

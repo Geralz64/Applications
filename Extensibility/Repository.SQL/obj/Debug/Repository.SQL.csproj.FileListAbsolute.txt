@@ -24,4 +24,3 @@ D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.csp
 D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.csproj.CopyComplete
 D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.dll
 D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.pdb
-D:\Applications\CSharp\Extensibility\Repository.SQL\obj\Debug\Repository.SQL.csprojAssemblyReference.cache

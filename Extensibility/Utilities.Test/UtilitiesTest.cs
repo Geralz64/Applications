@@ -10,7 +10,7 @@ namespace Utilities.Test
         public void LogInfoStartTest()
         {
             var expected = "LogInfoStartTest";
-            string result = Utilities.LogInfoStart();
+            string result = Utilities.LogInformation.LogInfoStart();
 
             Assert.AreEqual(result, expected);
 

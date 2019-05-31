@@ -5,58 +5,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Extensibility;
+using Utilities;
 namespace Repository.CSVTest
 {
     [TestClass]
     public class ReadCSVLayoutTest
     {
 
-        [TestMethod]
-        public void ValidateRecordAlphaNumericTest()
-        {
+        //Both of these tests should be place in a new test class for the utilities project
 
-            string record = "768254873";
 
-            var layout = new Layout
+        //[TestMethod]
+        //public void ValidateRecordAlphaNumericTest()
+        //{
 
-            {
+        //    string record = "768254873";
 
-                RecordName = "ID",
-                LengthOfRecord = 9,
-                TypeofRecord = "A\\N"
+        //    var layout = new Layout
 
-            };
+        //    {
 
-            var expected = true;
+        //        RecordName = "ID",
+        //        LengthOfRecord = 9,
+        //        TypeofRecord = "A\\N"
 
-            var result = ReadCSVLayout.ValidateRecord(record, layout);
+        //    };
 
-            Assert.AreEqual(expected, result);
+        //    var expected = true;
 
-        }
-        [TestMethod]
-        public void ValidateRecordNumericTest()
-        {
+        //    var result = Utilit ValidateRecord(record, layout);
 
-            string record = "20180101";
+        //    Assert.AreEqual(expected, result);
 
-            var layout = new Layout
+        //}
 
-            {
 
-                RecordName = "BirthDate",
-                LengthOfRecord = 8,
-                TypeofRecord = "N"
+        //[TestMethod]
+        //public void ValidateRecordNumericTest()
+        //{
 
-            };
+        //    string record = "20180101";
 
-            var expected = true;
+        //    var layout = new Layout
 
-            var result = ReadCSVLayout.ValidateRecord(record, layout);
+        //    {
 
-            Assert.AreEqual(expected, result);
+        //        RecordName = "BirthDate",
+        //        LengthOfRecord = 8,
+        //        TypeofRecord = "N"
 
-        }
+        //    };
+
+        //    var expected = true;
+
+        //    var result = ReadCSVLayout.ValidateRecord(record, layout);
+
+        //    Assert.AreEqual(expected, result);
+
+        //}
+
 
         [TestMethod]
         public void ReadCSVFileTest()

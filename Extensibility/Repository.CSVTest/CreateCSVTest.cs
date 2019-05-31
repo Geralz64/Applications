@@ -17,7 +17,7 @@ namespace Repository.CSVTest
         public void CreateCSVFileTest()
         {
 
-            var fileInformation = new FileInformation<MemberInfo>();
+            var fileInformation = new Utilities.FileInformation<MemberInfo>();
 
             fileInformation.FileLocation = @"D:\Applications\TestFiles\";
 

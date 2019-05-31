@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Utilities.cs" />
+    <Compile Include="DataManagement.cs" />
+    <Compile Include="FileInfoRecordCount.cs" />
+    <Compile Include="FileInformation.cs" />
+    <Compile Include="FileManagement.cs" />
+    <Compile Include="Layout.cs" />
+    <Compile Include="LogInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

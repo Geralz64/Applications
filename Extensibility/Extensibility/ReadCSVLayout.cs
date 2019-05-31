@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 using Utilities;
 namespace Extensibility
 {
-    public  static class ReadCSVLayout
+    public static class ReadCSVLayout
     {
 
-        public static List<string> ReadFile(string filePath, List<Layout> layout)
+        public static List<string> ReadFile(string filePath, List<Utilities.Layout> layout)
         {
 
             string data = File.ReadAllText(filePath);
@@ -30,7 +30,9 @@ namespace Extensibility
                 {
 
                     layoutLine = layout.ElementAt(count);
-                    isValid = Utilities.Utilities.ValidateRecord(item, layoutLine);
+
+                    //layoutLine = layout.ElementAt(count);
+                    isValid = Utilities.DataManagement.ValidateRecord(item, layoutLine);
 
                     if (isValid == false)
                     {

@@ -14,15 +14,15 @@ namespace Repository.CSVTest
         [TestMethod]
         public void ReadFileTest()
         {
-            string FileLocation = @"D:\TestFiles\MemberLocal.csv";
-            bool HasHeader = true;
-            string Delimiter = ",";
 
+            var fileInfo = new Utilities.FileInformation<MemberTest>();
+     
+            fileInfo.FileLocation = @"D:\TestFiles\MemberLocal.csv";
+            fileInfo.FileLocation = "MemberLocal.csv";
+            fileInfo.HasHeader = true;
+            fileInfo.Delimiter = ",";
 
-            ReadCSV<MemberTest> readCSV = new ReadCSV<MemberTest>(FileLocation, HasHeader, Delimiter);
-
-
-            var member = readCSV.ReadFile();
+            var member = ReadCSV<MemberTest>.ReadFile(fileInfo);
 
             string result = member.Select(m => m.Name).First();
 
@@ -31,7 +31,6 @@ namespace Repository.CSVTest
             Assert.AreEqual(result, expected);
         }
     }
-
 
 }
 

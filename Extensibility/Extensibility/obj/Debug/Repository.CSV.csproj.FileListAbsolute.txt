@@ -38,5 +38,3 @@ D:\Applications\CSharp\Extensibility\Extensibility\obj\Debug\Repository.CSV.cspr
 D:\Applications\CSharp\Extensibility\Extensibility\obj\Debug\Repository.CSV.csproj.CopyComplete
 D:\Applications\CSharp\Extensibility\Extensibility\obj\Debug\Extensibility.dll
 D:\Applications\CSharp\Extensibility\Extensibility\obj\Debug\Extensibility.pdb
-D:\Applications\CSharp\Extensibility\Extensibility\bin\Debug\Repository.FileManager.dll
-D:\Applications\CSharp\Extensibility\Extensibility\bin\Debug\Repository.FileManager.pdb

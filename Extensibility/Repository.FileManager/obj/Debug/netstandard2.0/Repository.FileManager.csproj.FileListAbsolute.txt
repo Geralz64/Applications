@@ -6,4 +6,3 @@ D:\Applications\CSharp\Extensibility\Repository.FileManager\obj\Debug\netstandar
 D:\Applications\CSharp\Extensibility\Repository.FileManager\obj\Debug\netstandard2.0\Repository.FileManager.AssemblyInfo.cs
 D:\Applications\CSharp\Extensibility\Repository.FileManager\obj\Debug\netstandard2.0\Repository.FileManager.dll
 D:\Applications\CSharp\Extensibility\Repository.FileManager\obj\Debug\netstandard2.0\Repository.FileManager.pdb
-D:\Applications\CSharp\Extensibility\Repository.FileManager\obj\Debug\netstandard2.0\Repository.FileManager.csprojAssemblyReference.cache

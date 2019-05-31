@@ -1,86 +1,17 @@
 ﻿using Extensibility;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Utilities
 {
-    public static class Utilities
+    public class DataManagement
     {
 
-        #region LogInformation
-
-        public static string LogInfoStart()
-        {
-
-            StackTrace stack = new StackTrace();
-
-            return stack.GetFrame(1).GetMethod().Name.ToString();
-
-        }
-
-        public static void LogInfoEnd()
-        {
-
-            Utilities.LogInfoStart();
-
-            Console.WriteLine($"Process completed at {DateTime.Now}");
-
-        }
-
-        #endregion
-
-        #region PresentInformation
-
-        public static void ShowFiles(IEnumerable<string> files)
-        {
-
-            foreach (var file in files)
-            {
-                Console.WriteLine(file);
-
-            }
-        }
-
-        //public static void ShowFilesWithInfo(List<FileInformation<T>> files)
-        //{
-
-        //    foreach (var file in files)
-        //    {
-
-        //        Console.Write($"Name: {file.FileName} Count: {file.RecordCount}");
-
-        //    }
-
-        //}
-
-        #endregion
-
-        #region FileManagement
-        public static IEnumerable<string> FilesToProcess(string path, string fileExtension)
-        {
-
-            IEnumerable<string> filesInFolder = Directory.GetFiles(path, "*." + fileExtension);
-
-
-            return filesInFolder;
-        }
-
-        public static void BackupFile(string sourceFileName, string destinationFileName)
-        {
-            File.Copy(sourceFileName, destinationFileName);
-
-        }
-
-        #endregion
-
-        #region DataManagement
+        #region Methods
         public static string FillWithSpaces(string segment, int padding)
         {
 
