@@ -49,11 +49,5 @@
     <Compile Include="LogInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Repository.FileManager\Repository.FileManager.csproj">
-      <Project>{AE392F07-30D6-4FBA-B0BC-6C74AF6D52EE}</Project>
-      <Name>Repository.FileManager</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

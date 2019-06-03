@@ -1,10 +1,10 @@
-﻿using Extensibility;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities;
 
 namespace Repository.FixedLengthFile
 {
@@ -35,7 +35,7 @@ namespace Repository.FixedLengthFile
                     int lenghtOfRecord = layout.ElementAt(i).LengthOfRecord;
                     string typeOfRecord = layout.ElementAt(i).TypeofRecord;
 
-                    string formatedSegment = (typeOfRecord == "AN") ? FillWithSpaces(segment, lenghtOfRecord) : FillWithZeros(segment, lenghtOfRecord);
+                    string formatedSegment = (typeOfRecord == "AN") ? DataManagement.FillWithSpaces(segment, lenghtOfRecord) : DataManagement.FillWithZeros(segment, lenghtOfRecord);
 
                     formatedLine += formatedSegment;
 
@@ -59,23 +59,6 @@ namespace Repository.FixedLengthFile
 
             }
         }
-
-        private static string FillWithSpaces(string segment, int padding)
-        {
-
-            segment = segment.PadLeft(padding);
-
-            return segment;
-
-        }
-        public static string FillWithZeros(string segment, int padding)
-        {
-
-            segment = segment.PadLeft(padding, '0');
-
-            return segment;
-        }
-
 
     }
 

@@ -5,9 +5,7 @@ D:\Applications\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.Fi
 D:\Applications\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.FixedLengthFile.pdb
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Repository.FixedLengthFile.dll
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Repository.FixedLengthFile.pdb
-D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Repository.FileManager.dll
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Utilities.dll
-D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Repository.FileManager.pdb
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\bin\Debug\Utilities.pdb
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.Text.csprojAssemblyReference.cache
 D:\Applications\CSharp\Extensibility\Repository.FixedLengthFile\obj\Debug\Repository.Text.csproj.CoreCompileInputs.cache

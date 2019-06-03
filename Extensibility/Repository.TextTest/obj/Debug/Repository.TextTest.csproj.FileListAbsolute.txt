@@ -7,14 +7,14 @@ D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Microsoft.Vis
 D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Repository.FixedLengthFile.dll
 D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Utilities.dll
-D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Repository.FileManager.dll
 D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Repository.FixedLengthFile.pdb
 D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Utilities.pdb
 D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Repository.FileManager.pdb
 D:\Applications\CSharp\Extensibility\Repository.TextTest\obj\Debug\Repository.TextTest.csprojAssemblyReference.cache
 D:\Applications\CSharp\Extensibility\Repository.TextTest\obj\Debug\Repository.TextTest.csproj.CoreCompileInputs.cache
 D:\Applications\CSharp\Extensibility\Repository.TextTest\obj\Debug\Repository.TextTest.csproj.CopyComplete
 D:\Applications\CSharp\Extensibility\Repository.TextTest\obj\Debug\Repository.TextTest.dll
 D:\Applications\CSharp\Extensibility\Repository.TextTest\obj\Debug\Repository.TextTest.pdb
+D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Repository.TestData.dll
+D:\Applications\CSharp\Extensibility\Repository.TextTest\bin\Debug\Repository.TestData.pdb

@@ -10,9 +10,6 @@ D:/Applications/Extensibility/Utilities/obj/Debug/Utilities.csprojAssemblyRefere
 /Volumes/USB/Applications/Applications/Extensibility/Utilities/obj/Debug/Utilities.pdb
 D:\Applications\CSharp\Extensibility\Utilities\bin\Debug\Utilities.dll
 D:\Applications\CSharp\Extensibility\Utilities\bin\Debug\Utilities.pdb
-D:\Applications\CSharp\Extensibility\Utilities\bin\Debug\Repository.FileManager.dll
-D:\Applications\CSharp\Extensibility\Utilities\bin\Debug\Repository.FileManager.pdb
 D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
-D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.csproj.CopyComplete
 D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.dll
 D:\Applications\CSharp\Extensibility\Utilities\obj\Debug\Utilities.pdb

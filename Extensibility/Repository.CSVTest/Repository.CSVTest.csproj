@@ -56,9 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateCSVLayoutTest.cs" />
     <Compile Include="CreateCSVTest.cs" />
-    <Compile Include="LayoutTest.cs" />
     <Compile Include="ReadCSVLayoutTest.cs" />
     <Compile Include="ReadCSVTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +72,10 @@
     <ProjectReference Include="..\Repository.SQL\Repository.SQL.csproj">
       <Project>{9a710f61-49c5-42c7-9101-63aac55b8eab}</Project>
       <Name>Repository.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.TestData\Repository.TestData.csproj">
+      <Project>{82adddc3-36d7-4ad7-8311-a4ce3a9bb963}</Project>
+      <Name>Repository.TestData</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{8f8584cb-47cc-44b5-9ce3-eedf4c36a570}</Project>

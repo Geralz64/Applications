@@ -17,3 +17,5 @@ D:\Applications\CSharp\Extensibility\FileProcessor\obj\Debug\XMLConsole.csproj.C
 D:\Applications\CSharp\Extensibility\FileProcessor\obj\Debug\XMLConsole.csproj.CopyComplete
 D:\Applications\CSharp\Extensibility\FileProcessor\obj\Debug\FileProcessor.exe
 D:\Applications\CSharp\Extensibility\FileProcessor\obj\Debug\FileProcessor.pdb
+D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Repository.TestData.dll
+D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Repository.TestData.pdb

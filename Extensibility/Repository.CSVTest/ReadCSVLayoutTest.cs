@@ -6,76 +6,37 @@ using System.Text;
 using System.Threading.Tasks;
 using Extensibility;
 using Utilities;
+using Repository.TestData;
+
 namespace Repository.CSVTest
 {
     [TestClass]
     public class ReadCSVLayoutTest
     {
-
-        //Both of these tests should be place in a new test class for the utilities project
-
-
-        //[TestMethod]
-        //public void ValidateRecordAlphaNumericTest()
-        //{
-
-        //    string record = "768254873";
-
-        //    var layout = new Layout
-
-        //    {
-
-        //        RecordName = "ID",
-        //        LengthOfRecord = 9,
-        //        TypeofRecord = "A\\N"
-
-        //    };
-
-        //    var expected = true;
-
-        //    var result = Utilit ValidateRecord(record, layout);
-
-        //    Assert.AreEqual(expected, result);
-
-        //}
-
-
-        //[TestMethod]
-        //public void ValidateRecordNumericTest()
-        //{
-
-        //    string record = "20180101";
-
-        //    var layout = new Layout
-
-        //    {
-
-        //        RecordName = "BirthDate",
-        //        LengthOfRecord = 8,
-        //        TypeofRecord = "N"
-
-        //    };
-
-        //    var expected = true;
-
-        //    var result = ReadCSVLayout.ValidateRecord(record, layout);
-
-        //    Assert.AreEqual(expected, result);
-
-        //}
-
-
         [TestMethod]
         public void ReadCSVFileTest()
         {
 
-            string filePath  = @"D:\Applications\TestFiles\UserList.csv";
+            string filePath  = @"D:\Applications\TestFiles\CreateCSVLayoutFile.csv";
 
             var layout = Layout.ReadLayoutCSV(@"D:\Applications\TestFiles\CompanyLayout.csv");
 
-            var records = ReadCSVLayout.ReadFile(filePath, layout);
+            var memberInfo = MembershipTestData.TestData().OrderBy(x => x.MemberID);
 
-            Assert.AreEqual(9, records.Count);
+            var list = new List<string>();
+            foreach (var item in memberInfo)
+            {
+
+                list.Add(item.MemberID + "," + item.FirstName + "," + item.LastName + "," + item.SSN + "," + item.BirthDate + "," + item.StartDate + "," + item.EndDate);
+                
+            }
+
+            var expected = list.First();
+
+            var result = ReadCSVLayout.ReadFile(filePath, layout).First();
+
+            Assert.AreEqual(expected, result);
+
         }
 
 

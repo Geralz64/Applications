@@ -8,6 +8,7 @@ using Extensibility;
 using Repository.SQL;
 using System.IO;
 using System.Xml.Linq;
+using Repository.TestData;
 namespace FileProcessor
 {
     class Program
@@ -15,6 +16,17 @@ namespace FileProcessor
         static void Main()
         {
 
+
+            var testData = MembershipTestData.TestData();
+
+            foreach (var record in testData)
+            {
+
+                Console.WriteLine(record.FirstName);
+
+            }
+
+            var test = 0;
 
             //string FileLocation = "D:\\TestFiles\\NewMembers.csv";
             //bool HasHeader = true;

@@ -1,0 +1,9 @@
+D:\Applications\CSharp\Extensibility\Repository.TestData\bin\Debug\Repository.TestData.dll
+D:\Applications\CSharp\Extensibility\Repository.TestData\bin\Debug\Repository.TestData.pdb
+D:\Applications\CSharp\Extensibility\Repository.TestData\obj\Debug\Repository.TestData.csprojAssemblyReference.cache
+D:\Applications\CSharp\Extensibility\Repository.TestData\obj\Debug\Repository.TestData.csproj.CoreCompileInputs.cache
+D:\Applications\CSharp\Extensibility\Repository.TestData\obj\Debug\Repository.TestData.dll
+D:\Applications\CSharp\Extensibility\Repository.TestData\obj\Debug\Repository.TestData.pdb
+D:\Applications\CSharp\Extensibility\Repository.TestData\bin\Debug\Utilities.dll
+D:\Applications\CSharp\Extensibility\Repository.TestData\bin\Debug\Utilities.pdb
+D:\Applications\CSharp\Extensibility\Repository.TestData\obj\Debug\Repository.TestData.csproj.CopyComplete

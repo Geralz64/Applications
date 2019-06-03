@@ -30,8 +30,6 @@ namespace Extensibility
                 {
 
                     layoutLine = layout.ElementAt(count);
-
-                    //layoutLine = layout.ElementAt(count);
                     isValid = Utilities.DataManagement.ValidateRecord(item, layoutLine);
 
                     if (isValid == false)
@@ -44,7 +42,7 @@ namespace Extensibility
 
                 if (isValid == true)
                 {
-                    list.Add(row);
+                    list.Add(row.Replace("\r",""));
                 }
 
             }

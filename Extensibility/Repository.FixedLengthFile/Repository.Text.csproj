@@ -48,10 +48,6 @@
     <Compile Include="SingleLine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Repository.FileManager\Repository.FileManager.csproj">
-      <Project>{ae392f07-30d6-4fba-b0bc-6c74af6d52ee}</Project>
-      <Name>Repository.FileManager</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{8F8584CB-47CC-44B5-9CE3-EEDF4C36A570}</Project>
       <Name>Utilities</Name>

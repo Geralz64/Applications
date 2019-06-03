@@ -4,27 +4,22 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Extensibility;
+using Utilities;
+
 namespace Repository.FixedLengthFile
 {
-    public class ReadFixedLength<T>
+    public static class ReadFixedLength<T>
     {
 
-        public static IEnumerable<string> ReadFile(FileInformation<T> fileInformation) {
+        public static IEnumerable<string> ReadFile(FileInformation<T> fileInformation)
+        {
 
             var records = new List<string>();
-            
-            using(var reader = new StreamReader(fileInformation.FileLocation + fileInformation.FileName))
+
+            foreach (var line in File.ReadLines(fileInformation.FileLocation + fileInformation.FileName))
             {
-                reader.ReadToEnd();
-
-                foreach (var record in reader.ToString())
-                {
-                    records.Add(record.ToString());
-                    
-                }
+                records.Add(line);
             }
-
             return records;
         }
 

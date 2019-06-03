@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Repository.TestData;
 namespace Repository.CSVTest
 {
 
@@ -17,7 +17,7 @@ namespace Repository.CSVTest
         public void CreateCSVFileTest()
         {
 
-            var fileInformation = new Utilities.FileInformation<MemberInfo>();
+            var fileInformation = new Utilities.FileInformation<MembershipTestData>();
 
             fileInformation.FileLocation = @"D:\Applications\TestFiles\";
 
@@ -25,42 +25,17 @@ namespace Repository.CSVTest
 
             fileInformation.Delimiter = ",";
 
-            fileInformation.Records = new List<MemberInfo>() {
+            var testData = MembershipTestData.TestData();
 
-                new MemberInfo { MemberId = "768254873" ,Name = "Samuel" },
-                new MemberInfo { MemberId = "561752142", Name = "Ignác" },
-                new MemberInfo { MemberId = "456272089", Name = "Hermes" },
-                new MemberInfo { MemberId = "861487492", Name = "Ulric" },
-                new MemberInfo { MemberId = "468440653", Name = "Andrea" },
-                new MemberInfo { MemberId = "464570109", Name = "Lykos" },
-                new MemberInfo { MemberId = "728413373", Name = "Dustin" },
-                new MemberInfo { MemberId = "103634937", Name = "Andela" },
-                new MemberInfo { MemberId = "741060277", Name = "Paul" }
+            fileInformation.Records = testData;
 
-
-            };
-
-            CreateCSV<MemberInfo>.CreateFile(fileInformation);
+            CreateCSV<MembershipTestData>.CreateFile(fileInformation);
 
             bool success = File.Exists(fileInformation.FileLocation + fileInformation.FileName);
 
             Assert.IsTrue(success);
 
         }
-
-
-        public class MemberInfo {
-
-            public string MemberId { get; set; }
-
-            public string Name { get; set; }
-
-
-
-        }
-
-
-
 
     }
 }

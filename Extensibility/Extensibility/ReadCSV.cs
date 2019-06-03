@@ -11,7 +11,6 @@ using Utilities;
 namespace Extensibility
 {
     public static class ReadCSV<T>
-
     {
         public static IEnumerable<T> ReadFile(FileInformation<T> fileInfo)
         {

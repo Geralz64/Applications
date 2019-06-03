@@ -1,5 +1,4 @@
-﻿using Extensibility;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,7 +9,7 @@ using Utilities;
 public class SingleLine<T>
 {
 
-    public static void CreateFile(Utilities.FileInformation<T> fileInfo, List<string> records, List<Utilities.Layout> layout)
+    public static void CreateFile(FileInformation<T> fileInfo, List<string> records, List<Utilities.Layout> layout)
     {
         List<string> formatedRecords = Utilities.DataManagement.FormatRecords(records, layout);
 

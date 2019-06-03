@@ -1,10 +1,10 @@
-﻿using Extensibility;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities;
 
 namespace Repository.FixedLengthFile
 {
@@ -14,16 +14,14 @@ namespace Repository.FixedLengthFile
         public static string ReadFile(FileInformation<T> fileInformation)
         {
 
-            var singleLineInfo = string.Empty;
+            var records = new List<string>();
 
-            using (var reader = new StreamReader(fileInformation.FileLocation + fileInformation.FileName))
+            foreach (var line in File.ReadLines(fileInformation.FileLocation + fileInformation.FileName))
             {
-                reader.ReadToEnd();
+                records.Add(line);
+            }
 
-                singleLineInfo = reader.ToString();
-            };
-
-            return singleLineInfo;
+            return records.First();
         }
 
 
@@ -54,8 +52,8 @@ namespace Repository.FixedLengthFile
 
                 start += recordLength;
             }
-          
-            return new  List<string>();
+
+            return new List<string>();
         }
 
 
