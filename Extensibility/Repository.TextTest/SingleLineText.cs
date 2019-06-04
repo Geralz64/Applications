@@ -16,7 +16,7 @@ namespace Repository.TextTest
 
 
         [TestMethod]
-        public void CrateFileTest()
+        public void CreateFileTest()
         {
 
             var layout = LayoutTestData.TestData();

@@ -30,3 +30,5 @@ D:\Applications\CSharp\Extensibility\Utilities.Test\obj\Debug\Utilities.Test.csp
 D:\Applications\CSharp\Extensibility\Utilities.Test\obj\Debug\Utilities.Test.csproj.CopyComplete
 D:\Applications\CSharp\Extensibility\Utilities.Test\obj\Debug\Utilities.Test.dll
 D:\Applications\CSharp\Extensibility\Utilities.Test\obj\Debug\Utilities.Test.pdb
+D:\Applications\CSharp\Extensibility\Utilities.Test\bin\Debug\Repository.TestData.dll
+D:\Applications\CSharp\Extensibility\Utilities.Test\bin\Debug\Repository.TestData.pdb

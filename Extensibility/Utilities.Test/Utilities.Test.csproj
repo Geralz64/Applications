@@ -49,13 +49,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UtilitiesTest.cs" />
+    <Compile Include="DataManagementTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Repository.TestData\Repository.TestData.csproj">
+      <Project>{82adddc3-36d7-4ad7-8311-a4ce3a9bb963}</Project>
+      <Name>Repository.TestData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{8f8584cb-47cc-44b5-9ce3-eedf4c36a570}</Project>
       <Name>Utilities</Name>
