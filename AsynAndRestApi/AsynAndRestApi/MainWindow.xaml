@@ -12,11 +12,11 @@
             <ColumnDefinition Width="151*"/>
             <ColumnDefinition Width="623*"/>
         </Grid.ColumnDefinitions>
-        <Button Name="btnButton" Content="Search" HorizontalAlignment="Left" Margin="330,322,0,0" VerticalAlignment="Top" Width="137" Click="Button_Click" Height="63" FontSize="24" Grid.Column="2"/>
+        <Button Name="btnButton" Content="Search" HorizontalAlignment="Left" Margin="0,322,0,0" VerticalAlignment="Top" Width="137" Click="Button_Click" Height="63" FontSize="24" Grid.Column="2"/>
         <DataGrid Name="dgInfo" HorizontalAlignment="Left" Height="307" Margin="97,10,0,0" VerticalAlignment="Top" Width="667" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <TextBox Name="textBox" HorizontalAlignment="Left" Height="63" Margin="10,322,0,0" TextWrapping="Wrap" Text="Write your text here" VerticalAlignment="Top" Width="484" MouseDoubleClick="TextBox_MouseDoubleClick" Grid.ColumnSpan="3"/>
+        <TextBox Name="textBox" HorizontalAlignment="Left" Height="63" Margin="10,322,0,0" TextWrapping="Wrap" Text="Write your text here" VerticalAlignment="Top" Width="100" MouseDoubleClick="TextBox_MouseDoubleClick" Grid.ColumnSpan="2"/>
         <Image Name="imgUser" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="472,322,0,0" VerticalAlignment="Top" Width="141" Height="63" FontSize="24" Grid.Column="2" Click="Button_Click_1"/>
-
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="142,322,0,0" VerticalAlignment="Top" Width="141" Height="63" FontSize="24" Grid.Column="2" Click="Clear_Click_1"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="288,322,0,0" VerticalAlignment="Top" Width="141" Height="63" FontSize="24" Grid.Column="2" Click="Cancel_Click_1"/>
     </Grid>
 </Window>
