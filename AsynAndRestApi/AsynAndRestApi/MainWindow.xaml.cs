@@ -16,8 +16,7 @@ namespace AsynAndRestApi
 
     public partial class MainWindow : Window
     {
-        CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-
+        public static CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +28,7 @@ namespace AsynAndRestApi
 
             try
             {
+
                 var userInfo = GetTwitterInfo();
 
                 var tweets = await LongTakingProcess(userInfo, cancellationTokenSource.Token);
@@ -41,6 +41,7 @@ namespace AsynAndRestApi
                 dgInfo.ItemsSource = tweets;
 
             }
+
             catch (OperationCanceledException ex)
 
             {
@@ -80,7 +81,7 @@ namespace AsynAndRestApi
 
                 return task;
             }
-            catch(OperationCanceledException ex)
+            catch (OperationCanceledException ex)
             {
 
                 throw;
@@ -126,6 +127,77 @@ namespace AsynAndRestApi
         {
             cancellationTokenSource.Cancel();
 
+        }
+
+        public void Parallel_Click_1(object sender, RoutedEventArgs e)
+        {
+            //ParallelMethodBlocksUIThread();
+
+            ParallelMethodNotBlockingUIThread();
+
+            textBox.Text = "Operation was completed";
+
+        }
+
+        //Parallel example that blocks UI thread
+        public void ParallelMethodBlocksUIThread()
+        {
+            var parallelLoopOptions = new ParallelOptions()
+            {
+                CancellationToken = cancellationTokenSource.Token,
+                MaxDegreeOfParallelism = 2
+            };
+
+            Parallel.Invoke(parallelLoopOptions,
+
+                () => { AddNumbers(1, 2); },
+
+                () => { SubstractNumbers(1, 2); },
+
+                () => { MultiplyNumbers(1, 2); },
+
+                () => { DivideNumbers(1, 2); }
+
+                );
+
+            textBox.Text = "Process completed";
+
+        }
+
+        public async void ParallelMethodNotBlockingUIThread()
+        {
+
+            Task addNumbers = new Task(() => AddNumbers(1, 2));
+            Task substractNumbers = new Task(() => SubstractNumbers(1, 2));
+            Task multiplyNumbers = new Task(() => MultiplyNumbers(1, 2));
+            Task divideNumbers = new Task(() => DivideNumbers(1, 2));
+
+            await Task.WhenAll(addNumbers, substractNumbers, multiplyNumbers, divideNumbers);
+
+        }
+
+
+
+        public static void AddNumbers(int x, int y)
+        {
+                Thread.Sleep(3000);
+        }
+
+        public static void SubstractNumbers(int x, int y)
+        {
+                Thread.Sleep(5000);
+        }
+
+        public static void MultiplyNumbers(int x, int y)
+        {
+                Thread.Sleep(2000);
+            
+        }
+        public static void DivideNumbers(int x, int y)
+        {
+
+                Thread.Sleep(1000);
+            
         }
 
 

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynAndRestApi", "AsynAndRe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.TestData", "..\Extensibility\Repository.TestData\Repository.TestData.csproj", "{82ADDDC3-36D7-4AD7-8311-A4CE3A9BB963}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcurrentCollectioins", "ConcurrentCollectioins\ConcurrentCollectioins.csproj", "{01636A36-320A-4A1B-8F25-04A5C12CCB0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{82ADDDC3-36D7-4AD7-8311-A4CE3A9BB963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82ADDDC3-36D7-4AD7-8311-A4CE3A9BB963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82ADDDC3-36D7-4AD7-8311-A4CE3A9BB963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01636A36-320A-4A1B-8F25-04A5C12CCB0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01636A36-320A-4A1B-8F25-04A5C12CCB0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01636A36-320A-4A1B-8F25-04A5C12CCB0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01636A36-320A-4A1B-8F25-04A5C12CCB0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

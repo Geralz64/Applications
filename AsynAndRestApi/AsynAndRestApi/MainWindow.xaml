@@ -18,5 +18,6 @@
         <Image Name="imgUser" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
         <Button Content="Clear" HorizontalAlignment="Left" Margin="142,322,0,0" VerticalAlignment="Top" Width="141" Height="63" FontSize="24" Grid.Column="2" Click="Clear_Click_1"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="288,322,0,0" VerticalAlignment="Top" Width="141" Height="63" FontSize="24" Grid.Column="2" Click="Cancel_Click_1"/>
+        <Button Content="Parallel" HorizontalAlignment="Left" Margin="434,322,0,0" VerticalAlignment="Top" Width="141" Height="63" FontSize="24" Grid.Column="2" Click="Parallel_Click_1"/>
     </Grid>
 </Window>
