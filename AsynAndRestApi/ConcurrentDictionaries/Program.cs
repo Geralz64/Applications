@@ -100,5 +100,71 @@ namespace ConcurrentDictionaries
 
             }
         }
+
+
+        public static void QueueTestMethod()
+        {
+
+            var queue = new Queue<string>();
+
+            queue.Enqueue("Stickers");
+            queue.Enqueue("Pokeball");
+            queue.Enqueue("Shirts");
+            queue.Enqueue("Games");
+
+            Console.WriteLine(queue.Count);
+
+
+            string firstItem = queue.Dequeue();
+            Console.WriteLine(firstItem);
+
+            string item = queue.Peek();
+            Console.WriteLine(item);
+
+        }
+
+
+        public static void ConcurrentQueueTestMethod()
+        {
+
+            var queue = new ConcurrentQueue<string>();
+
+            queue.Enqueue("Stickers");
+            queue.Enqueue("Pokeball");
+            queue.Enqueue("Shirts");
+            queue.Enqueue("Games");
+
+            Console.WriteLine(queue.Count);
+
+
+            string firstItem = "";
+
+            bool success = queue.TryDequeue(out firstItem);
+            if (success)
+            {
+                Console.WriteLine(firstItem);
+            }
+            else
+            {
+
+                Console.WriteLine("No item found ");
+
+            }
+            string item = "";
+
+            success = queue.TryPeek(out item);
+            if (success)
+            {
+                Console.WriteLine(item);
+
+            } else
+            {
+                Console.WriteLine("No item found ");
+
+            }
+        }
+
+
+
     }
 }
