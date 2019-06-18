@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentCollectioins\\ConcurrentCollections.csproj",
-      "projectName": "ConcurrentCollections",
-      "projectPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentCollectioins\\ConcurrentCollections.csproj",
+      "projectUniqueName": "D:\\Applications\\CSharp\\AsynAndRestApi\\ThreadingApp\\ThreadingApp.csproj",
+      "projectName": "ThreadingApp",
+      "projectPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ThreadingApp\\ThreadingApp.csproj",
       "packagesPath": "C:\\Users\\geraldo\\.nuget\\packages\\",
-      "outputPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentCollectioins\\obj\\",
+      "outputPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ThreadingApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\ConcurrentDictionaries.csproj": {}
+    "D:\\Applications\\CSharp\\AsynAndRestApi\\ThreadingApp\\ThreadingApp.csproj": {}
   },
   "projects": {
-    "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\ConcurrentDictionaries.csproj": {
+    "D:\\Applications\\CSharp\\AsynAndRestApi\\ThreadingApp\\ThreadingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\ConcurrentDictionaries.csproj",
-        "projectName": "ConcurrentDictionaries",
-        "projectPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\ConcurrentDictionaries.csproj",
+        "projectUniqueName": "D:\\Applications\\CSharp\\AsynAndRestApi\\ThreadingApp\\ThreadingApp.csproj",
+        "projectName": "ThreadingApp",
+        "projectPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ThreadingApp\\ThreadingApp.csproj",
         "packagesPath": "C:\\Users\\geraldo\\.nuget\\packages\\",
-        "outputPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\obj\\",
+        "outputPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ThreadingApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

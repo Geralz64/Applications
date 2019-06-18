@@ -1,0 +1,66 @@
+﻿
+**********************************************************************************************************************************
+Multy threading app with the concurrent collections
+**********************************************************************************************************************************
+
+Ideas for the app
+1. Console app 
+2. Make it a props stock app 
+	Pokeballs
+	Poke incubators
+	Swords
+	PolygonCharmander
+	PolygonSquirtle
+	PolygonBulbasaur
+
+3. Make an example using the normal dictionary and the ConcurrentDictionary
+4. Take time between each run to see how each type behaves
+5. Make multiple methods to see how each one behaves on the thread
+	Loop add
+	Loop subtract
+	Loop Multiply
+	Loop Divide
+	Loop add and subtract
+	Loop add and multiply 
+6. To all methods add a sleep that way they will take longer and I can see how each type behaves
+7. Check between reads to see if I get locks on threads 
+8. Once all the processes are done show the final result
+
+
+**********************************************************************************************************************************
+Flow of application
+This describes in a simple matter what the application does in the same order as it's intended
+**********************************************************************************************************************************
+
+Test 1: Normal dictionary
+1. Set up a normal dictionary
+2. Run the methods that I decided on above for each of the items in the dictionary 
+3. Present the final information
+4. Present the amount of time it took to process all the information without using threading 
+Notes: 
+-Since I don't get to code a lot of them I want to practice it a bit. Help it stay on my head better. 
+-Also since this part is the one that won't require threading this will be my benchmark to beat when running the other processes
+
+Test 2: Using the task and wait all method from the threading library to run the same processes
+1. Set up normal dictionary
+2. Add the same methods to an individual task 
+3. Use the wait all 
+4. Present the amount of time it took to process all the information 
+
+Test 3: Use the concurrent dictionary
+1. Set up normal dictionary
+2. Add the same methods to an individual task 
+3. Use the wait all 
+4. Present the amount of time it took to process all the information 
+
+Test 4: See if I can set up the concurrent bag and check if I can make it work around the same logic 
+1. Set up normal dictionary
+2. Add the same methods to an individual task 
+3. Use the wait all 
+4. Present the amount of time it took to process all the information 
+
+Test 5: Locking the thread
+1. Set up a count of the dictionary to force a thread lock and see how the app behaves in this case 
+
+
+
