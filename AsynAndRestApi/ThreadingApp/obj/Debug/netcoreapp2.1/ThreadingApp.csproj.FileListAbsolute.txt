@@ -1,0 +1,11 @@
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\bin\Debug\netcoreapp2.1\ThreadingApp.deps.json
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\bin\Debug\netcoreapp2.1\ThreadingApp.runtimeconfig.json
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\bin\Debug\netcoreapp2.1\ThreadingApp.runtimeconfig.dev.json
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\bin\Debug\netcoreapp2.1\ThreadingApp.dll
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\bin\Debug\netcoreapp2.1\ThreadingApp.pdb
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\obj\Debug\netcoreapp2.1\ThreadingApp.csprojAssemblyReference.cache
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\obj\Debug\netcoreapp2.1\ThreadingApp.csproj.CoreCompileInputs.cache
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\obj\Debug\netcoreapp2.1\ThreadingApp.AssemblyInfoInputs.cache
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\obj\Debug\netcoreapp2.1\ThreadingApp.AssemblyInfo.cs
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\obj\Debug\netcoreapp2.1\ThreadingApp.dll
+D:\Applications\CSharp\AsynAndRestApi\ThreadingApp\obj\Debug\netcoreapp2.1\ThreadingApp.pdb
