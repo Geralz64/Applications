@@ -49,10 +49,11 @@ DONE			3. Use the wait all
 DONE			4. Present the amount of time it took to process all the information 
 				
 				Test 3: Use the concurrent dictionary
-				1. Create a concurrent dictionary
-				2. Add values to the dictionary
-				3. Run multiple tasks with data from the concurrent dictionary that also processes the values and updates the dictionary
-				4. Present the amount of time it took to process all the information 
+DONE			1. Create a concurrent dictionary
+DONE			2. Add values to the dictionary
+DONE			3. Run multiple tasks with data from the concurrent dictionary that also processes the values and updates the dictionary
+DONE			4. Present the amount of time it took to process all the information 
+				5. Also added one last test to show data while data is running successfully without locking the dictionary
 				
 				Test 4: See if I can set up the concurrent bag and check if I can make it work around the same logic 
 				1. Set up normal dictionary
