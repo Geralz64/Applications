@@ -96,7 +96,7 @@ namespace ThreadingApp
 
             }
 
-            var test5 = true;
+            var test5 = false;
             if (test5)
             {
                 //Test 5 Using the concurrent stack
@@ -113,6 +113,64 @@ namespace ThreadingApp
 
             }
 
+
+            var test6 = true;
+            if (test6)
+            {
+                //Test 5 Using the concurrent stack
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                Console.WriteLine($"Test 6:");
+
+                ConcurrentQueue();
+
+                watch.Stop();
+                var elapsedMs = watch.ElapsedMilliseconds;
+
+                Console.WriteLine($"Test 6 Execution Time Total: {elapsedMs}");
+                Console.WriteLine("");
+
+            }
+
+        }
+
+        private static void ConcurrentQueue()
+        {
+            ConcurrentQueue<string> queue = new ConcurrentQueue<string>();
+
+            queue.Enqueue("Pokeballs");
+            queue.Enqueue("Incubators");
+            queue.Enqueue("Swords");
+            queue.Enqueue("PolygonCharmander");
+            queue.Enqueue("PolygonSquirtle");
+            queue.Enqueue("PolygonBulbasaur");
+
+            Console.WriteLine($"Items in queue: {queue.Count}");
+            Console.WriteLine("");
+
+            string item;
+
+            //item is take from the queue
+            var isValid = false;
+            isValid = queue.TryDequeue(out item);
+            if (isValid)
+                Console.WriteLine($"Item in queue: {item}");
+
+            Console.WriteLine("");
+            //item is only viewed from the queue
+            isValid = queue.TryPeek(out item);
+            if (isValid)
+                Console.WriteLine($"Item in queue: {item}");
+
+            Console.WriteLine("");
+
+
+            Console.WriteLine($"View values from concurrent queue: {queue.Count}");
+            foreach (var prop in queue)
+            {
+
+                Console.WriteLine(prop);
+
+            }
 
 
         }
