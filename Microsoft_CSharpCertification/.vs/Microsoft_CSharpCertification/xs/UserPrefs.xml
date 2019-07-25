@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{BB2FEC51-07C6-4B3B-BBFF-2DFE17A96E74}|Default">
+  <MonoDevelop.Ide.ItemProperties.Microsoft__CSharpCertification PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Microsoft_CSharpCertification/Program.cs">
+    <Files>
+      <File FileName="Microsoft_CSharpCertification/Program.cs" Line="131" Column="41" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Microsoft_CSharpCertification" expanded="True" selected="True">
+            <Node name="Microsoft_CSharpCertification" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
