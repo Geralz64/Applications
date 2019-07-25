@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.TestData", "..\E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcurrentCollections", "ConcurrentCollectioins\ConcurrentCollections.csproj", "{01636A36-320A-4A1B-8F25-04A5C12CCB0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcurrentDictionaries", "ConcurrentDictionaries\ConcurrentDictionaries.csproj", "{73323A64-F777-4146-BDC3-55E2EFE04E52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcurrentDictionaries", "ConcurrentDictionaries\ConcurrentDictionaries.csproj", "{73323A64-F777-4146-BDC3-55E2EFE04E52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadingApp", "ThreadingApp\ThreadingApp.csproj", "{B7759742-448E-49E1-8160-53ED5D4B9F19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{73323A64-F777-4146-BDC3-55E2EFE04E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73323A64-F777-4146-BDC3-55E2EFE04E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73323A64-F777-4146-BDC3-55E2EFE04E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7759742-448E-49E1-8160-53ED5D4B9F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7759742-448E-49E1-8160-53ED5D4B9F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7759742-448E-49E1-8160-53ED5D4B9F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7759742-448E-49E1-8160-53ED5D4B9F19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,11 @@
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\bin\Debug\netcoreapp2.1\ConcurrentCollections.deps.json
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\bin\Debug\netcoreapp2.1\ConcurrentCollections.runtimeconfig.json
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\bin\Debug\netcoreapp2.1\ConcurrentCollections.runtimeconfig.dev.json
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\bin\Debug\netcoreapp2.1\ConcurrentCollections.dll
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\bin\Debug\netcoreapp2.1\ConcurrentCollections.pdb
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\obj\Debug\netcoreapp2.1\ConcurrentCollections.csprojAssemblyReference.cache
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\obj\Debug\netcoreapp2.1\ConcurrentCollections.csproj.CoreCompileInputs.cache
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\obj\Debug\netcoreapp2.1\ConcurrentCollections.AssemblyInfoInputs.cache
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\obj\Debug\netcoreapp2.1\ConcurrentCollections.AssemblyInfo.cs
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\obj\Debug\netcoreapp2.1\ConcurrentCollections.dll
+D:\Applications\CSharp\AsynAndRestApi\ConcurrentCollectioins\obj\Debug\netcoreapp2.1\ConcurrentCollections.pdb

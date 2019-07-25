@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Volumes/USB/Applications/Applications/CSharp/AsynAndRestApi/ConcurrentDictionaries/ConcurrentDictionaries.csproj": {}
+    "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\ConcurrentDictionaries.csproj": {}
   },
   "projects": {
-    "/Volumes/USB/Applications/Applications/CSharp/AsynAndRestApi/ConcurrentDictionaries/ConcurrentDictionaries.csproj": {
+    "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\ConcurrentDictionaries.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Volumes/USB/Applications/Applications/CSharp/AsynAndRestApi/ConcurrentDictionaries/ConcurrentDictionaries.csproj",
+        "projectUniqueName": "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\ConcurrentDictionaries.csproj",
         "projectName": "ConcurrentDictionaries",
-        "projectPath": "/Volumes/USB/Applications/Applications/CSharp/AsynAndRestApi/ConcurrentDictionaries/ConcurrentDictionaries.csproj",
-        "packagesPath": "/Users/geraldoduran/.nuget/packages/",
-        "outputPath": "/Volumes/USB/Applications/Applications/CSharp/AsynAndRestApi/ConcurrentDictionaries/obj/",
+        "projectPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\ConcurrentDictionaries.csproj",
+        "packagesPath": "C:\\Users\\geraldo\\.nuget\\packages\\",
+        "outputPath": "D:\\Applications\\CSharp\\AsynAndRestApi\\ConcurrentDictionaries\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/geraldoduran/.config/NuGet/NuGet.Config"
+          "C:\\Users\\geraldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
