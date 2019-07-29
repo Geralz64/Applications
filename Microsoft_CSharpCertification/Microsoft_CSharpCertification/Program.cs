@@ -10,7 +10,8 @@ namespace Microsoft_CSharpCertification
     {
         static void Main(string[] args)
         {
-            //Part 1.1
+            //Part 1.1 Parallel Invoke
+            
             Parallel.Invoke(() => ShowOne(), () => ShowTwo(), () => ShowThree(), () => ShowFour());
 
             /*
@@ -23,7 +24,8 @@ namespace Microsoft_CSharpCertification
              */
 
 
-            //Part 1.2
+            //Part 1.2 Parallel For Each
+            
             var items = Enumerable.Range(0, 500);
 
             var list = new List<string>() {
@@ -44,7 +46,7 @@ namespace Microsoft_CSharpCertification
 
             */
 
-            //Part 1.3
+            //Part 1.3 Parallel For
 
             Parallel.For(0, items.Count(), i =>
              {
@@ -61,7 +63,7 @@ namespace Microsoft_CSharpCertification
             })
              */
 
-            //Part 1.4
+            //Part 1.4 Break and stop 
             Console.WriteLine("Part 1.4");
             var parallelLoop = Parallel.For(0, items.Count(), (int i, ParallelLoopState loopState) =>
               {
@@ -108,7 +110,7 @@ namespace Microsoft_CSharpCertification
             //Stop will exit the loop as soon as its convenient for the program
 
             /*Notes:
-            -You can use the ParallelLoopResult to control the flow of the thread 
+            -You can use the ParallelLoopState to control the flow of the thread 
             -This will stop the thread from running more iterations BUT it will not stop the ones that are currently running
              */
 
@@ -160,6 +162,15 @@ namespace Microsoft_CSharpCertification
             -AsSequencial => identify the parts of a query that must be sequentially executed. It executes the query in order
             -AsOrdered => returns the sorted result but does not necessarily run the query in order
 
+/*
+
+AsOrdered instructs the Parallel LINQ engine to preserve ordering, but still executes the query in parallel.
+This has the effect of hindering performance as the engine must carefully merge the results after parallel execution.
+
+AsSequential instructs the Parallel LINQ engine to execute the query sequentially, that is, not in parallel.
+
+*/
+
              */
 
 
@@ -210,20 +221,20 @@ namespace Microsoft_CSharpCertification
              */
 
 
-            //Part 1.11
+            //Part 1.11 Tasks
             var task = new Task(() => ShowOne());
 
             task.Start();
             task.Wait();
 
-            //Part 1.12
+            //Part 1.12 task 1.2
             //Simple task creating method
 
             var task2 = Task.Run(() => ShowOne());
 
             task2.Wait();
 
-            //Part 1.13
+            //Part 1.13 tasks that return values
 
             var task3 = Task<string>.Run(() => ReturnOne());
 
@@ -237,7 +248,7 @@ namespace Microsoft_CSharpCertification
              */
 
 
-            //Past 1.14
+            //Past 1.14 Task.WaitAll and WaitAny
 
             var taskArray = new Task[10];
 
@@ -260,7 +271,7 @@ namespace Microsoft_CSharpCertification
              */
 
 
-            //List 1.15
+            //List 1.15 ContinueWith 
             var task1_15 = Task.Run(() => ShowOne());
 
             task.ContinueWith((prevTask) => ShowTwo());
@@ -308,7 +319,9 @@ namespace Microsoft_CSharpCertification
             parent.Wait();
 
             /*Notes:
-            -The parent class will not complete until all the child classes have ended
+            -The parent class will not complete until all the child classes have ended HOWEVER by default the child
+             is independente from the parent unless you use the taskcreationoptiojns.AttachedToParent
+            OR the child is returning a value that the parent is waiting for
             -You can also use the option TaskCreationOptions.DenyChildAttach to that the parent and child are independent
             -If you use task.run instead of factory the childs will be created with the DenychildAttach option set
 
@@ -454,18 +467,32 @@ namespace Microsoft_CSharpCertification
 
             //1-25 Thread syncronization and using the join instead of the continue
 
-            var thread25 = new Thread(() =>
-            {
-                ShowOne();
+                  public static void Main()
+                   {
+                      thread1 = new Thread(ThreadProc);
+                      thread1.Name = "Thread1";
+                      thread1.Start();
 
-            });
+                      thread2 = new Thread(ThreadProc);
+                      thread2.Name = "Thread2";
+                      thread2.Start();   
+                   }
 
+                   private static void ThreadProc()
+                   {
+                      Console.WriteLine("\nCurrent thread: {0}", Thread.CurrentThread.Name);
+                      if (Thread.CurrentThread.Name == "Thread1" && 
+                          thread2.ThreadState != ThreadState.Unstarted)
+                         thread2.Join();
 
-            thread25.Start();
-            thread25.Join();
+                      Thread.Sleep(4000);
+                      Console.WriteLine("\nCurrent thread: {0}", Thread.CurrentThread.Name);
+                      Console.WriteLine("Thread1: {0}", thread1.ThreadState);
+                      Console.WriteLine("Thread2: {0}\n", thread2.ThreadState);
+                   }
 
             /*Notes
-             -The caller of the join is held until the called is completed
+             -The caller of the join is held until the called is completed. This has to be done on the thread level
 
             IMPORTANT
             -If you want each thread to have it's own copy of a variable when you are using a shared variable
@@ -489,8 +516,23 @@ namespace Microsoft_CSharpCertification
 
             });
 
+            
+            
 
             /*Notes:
+           
+            Something the blog post noted in the comments doesn't make explicit, but I find to be very important, is that [ThreadStatic] doesn't automatically initialize things for every thread. For example, say you have this:
+            
+            [ThreadStatic]
+            private static int Foo = 42;
+            The first thread that uses this will see Foo initialized to 42. But subsequent threads will not. The initializer works for the first thread only. So you end up having to write code to check if it's initialized.
+            
+            ThreadLocal<T> solves that problem by letting you supply an initialization function (as Reed's blog shows) that's run before the first time the item is accessed.
+            
+            In my opinion, there is no advantage to using [ThreadStatic] instead of ThreadLocal<T>.
+            
+            Also on the other threads the variable is set to it's default values
+            
             -Threadstatic attribute will create a new variable for each thread
             -Instanciation a ThreadLocal will create a new variable that will be used for all threads in this case the
              random number is created and used using the the same seed for all threads
@@ -498,9 +540,6 @@ namespace Microsoft_CSharpCertification
 
 
             //1-27 Thread execution context
-
-
-
 
             /*Notes:
             - Just some examples of thread information that you can display like thread level, current culture among others
@@ -515,7 +554,8 @@ namespace Microsoft_CSharpCertification
                 int stateNumber = i;
 
                 ThreadPool.QueueUserWorkItem(state => ShowObject(stateNumber));
-
+                
+                //Also ThreadPool.QueueUserWorkItem(Method that expects a parameter i, i)
 
             }
 
