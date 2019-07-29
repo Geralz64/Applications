@@ -573,8 +573,30 @@ AsSequential instructs the Parallel LINQ engine to execute the query sequentiall
             -Local thread variables are not cleared so DON'T USE THEM in a threadpool 
              */
 
+        //1-29 Blocking the user interface
+            
+            /*Notes:
+            -Using a task to run in the background is a good way to keep the user interface from locking when performing an action
+             */
+            
+        //1-30 Using a task
+            
+            
+            
+             /*Notes:
+             -You can't just set the value of the return property from inside the task it will cause an error on the display component
+             Like the text property of a textbox
+             -You could use the RunAsync property on the component BUT they will run asynchroniously 
+             
+             ResultTextBlock.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+            ResultTextBlock.Text = "Result: " + result.ToString();
+                });
 
-
+            Miles, Rob. Exam Ref 70-483 Programming in C# (p. 25). Pearson Education. Kindle Edition. 
+             */    
+            
+            
 
         }
 
