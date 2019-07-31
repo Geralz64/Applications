@@ -126,38 +126,6 @@ namespace Repository.TestData
 
         }
 
-        public static Task<List<MembershipTestData>> TestDataAsync()
-        {
-
-            Task<List<MembershipTestData>> task = null;
-            
-            task = Task.Run(() =>
-            {
-                var results = TestData();
-                return results;
-
-            });
-
-            return task;
-
-        }
-
-        public static Task<List<MembershipTestData>> TestDataAsync(string memberID)
-        {
-
-            Task<List<MembershipTestData>> task = null;
-
-            task = Task.Run(() =>
-            {
-                var results = TestData().Where(t => t.MemberID == memberID).ToList<MembershipTestData>();
-                return results;
-
-            });
-
-            return task;
-
-        }
-
         public static List<string> FixedLengthTestData()
         {
             var list = new List<string>

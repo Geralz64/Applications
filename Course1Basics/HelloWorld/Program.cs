@@ -11,6 +11,10 @@ namespace HelloWorld
         static void Main(string[] args)
         {
 
+
+            var result = Repository.SQL.Classes.ProductionProduct.GetProducts();
+
+
             Console.WriteLine("Write down your name");
 
             string name = Console.ReadLine();

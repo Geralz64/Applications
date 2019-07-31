@@ -1,0 +1,53 @@
+﻿@*@model IEnumerable<OdeToFood.Models.RestaurantListViewModel>*@
+
+@model IPagedList<RestaurantListViewModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<p>
+
+    @if (User.IsInRole("admin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+
+
+@*<form  method="get">
+
+        <input type="search" name="searchTerm"  />
+        <input type="submit" value="Search by Name" />
+
+    </form>*@
+
+
+@*@using (Ajax.BeginForm(
+        new AjaxOptions
+        {
+            HttpMethod = "get",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "restaurantList"
+        }))
+
+    {
+
+        <input type="search" name="searchTerm" />
+        <input type="submit" name="Search by Name" />
+    }*@
+
+<div>
+   @OdeToFood.Views.Home.Resources.Greeting
+</div>
+
+
+<form method="get" action="@Url.Action("Index")" data-otf-ajax="true" data-otf-targe="#restaurantList">
+    <input type="search" name="searchTerm" data-otf-autocomplete="@Url.Action("Autocomplete")" />
+    <input type="submit" name="Search by Name" />
+</form>
+
+@*@Html.Action("SayHello")*@
+
+
+@Html.Partial("_Restaurants", Model)

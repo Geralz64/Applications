@@ -1,14 +1,16 @@
-D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\EntityFramework.dll
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\FileProcessor.exe.config
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\FileProcessor.exe
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\FileProcessor.pdb
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Extensibility.dll
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Repository.SQL.dll
+D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Repository.TestData.dll
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Utilities.dll
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\CsvHelper.dll
+D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\EntityFramework.dll
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Extensibility.pdb
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Repository.SQL.pdb
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Repository.SQL.dll.config
+D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Repository.TestData.pdb
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Utilities.pdb
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\CsvHelper.xml
 D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\EntityFramework.xml
@@ -17,5 +19,3 @@ D:\Applications\CSharp\Extensibility\FileProcessor\obj\Debug\XMLConsole.csproj.C
 D:\Applications\CSharp\Extensibility\FileProcessor\obj\Debug\XMLConsole.csproj.CopyComplete
 D:\Applications\CSharp\Extensibility\FileProcessor\obj\Debug\FileProcessor.exe
 D:\Applications\CSharp\Extensibility\FileProcessor\obj\Debug\FileProcessor.pdb
-D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Repository.TestData.dll
-D:\Applications\CSharp\Extensibility\FileProcessor\bin\Debug\Repository.TestData.pdb

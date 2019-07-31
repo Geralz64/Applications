@@ -1,0 +1,15 @@
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\BL.TestDB.dll.config
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\BL.TestDB.dll
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\BL.TestDB.pdb
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\EntityFramework.dll
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\EntityFramework.SqlServer.dll
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\Repository.SQL.dll
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\Repository.SQL.pdb
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\Repository.SQL.dll.config
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\EntityFramework.xml
+D:\Applications\CSharp\Extensibility\BL.TestDB\bin\Debug\EntityFramework.SqlServer.xml
+D:\Applications\CSharp\Extensibility\BL.TestDB\obj\Debug\BL.TestDB.csprojAssemblyReference.cache
+D:\Applications\CSharp\Extensibility\BL.TestDB\obj\Debug\BL.TestDB.csproj.CoreCompileInputs.cache
+D:\Applications\CSharp\Extensibility\BL.TestDB\obj\Debug\BL.TestDB.csproj.CopyComplete
+D:\Applications\CSharp\Extensibility\BL.TestDB\obj\Debug\BL.TestDB.dll
+D:\Applications\CSharp\Extensibility\BL.TestDB\obj\Debug\BL.TestDB.pdb

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Applications\Extensibility\Repository.SQL\AdventureWorkds.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Applications\CSharp\Extensibility\Repository.SQL\AdventureWorkds.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

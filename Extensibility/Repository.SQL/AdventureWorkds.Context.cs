@@ -38,5 +38,36 @@ namespace Repository.SQL
         public virtual DbSet<PersonPhone> PersonPhones { get; set; }
         public virtual DbSet<PhoneNumberType> PhoneNumberTypes { get; set; }
         public virtual DbSet<StateProvince> StateProvinces { get; set; }
+        public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<EmployeeDepartmentHistory> EmployeeDepartmentHistories { get; set; }
+        public virtual DbSet<EmployeePayHistory> EmployeePayHistories { get; set; }
+        public virtual DbSet<JobCandidate> JobCandidates { get; set; }
+        public virtual DbSet<Shift> Shifts { get; set; }
+        public virtual DbSet<BillOfMaterial> BillOfMaterials { get; set; }
+        public virtual DbSet<Culture> Cultures { get; set; }
+        public virtual DbSet<Illustration> Illustrations { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+        public virtual DbSet<ProductCostHistory> ProductCostHistories { get; set; }
+        public virtual DbSet<ProductDescription> ProductDescriptions { get; set; }
+        public virtual DbSet<ProductInventory> ProductInventories { get; set; }
+        public virtual DbSet<ProductListPriceHistory> ProductListPriceHistories { get; set; }
+        public virtual DbSet<ProductModel> ProductModels { get; set; }
+        public virtual DbSet<ProductModelIllustration> ProductModelIllustrations { get; set; }
+        public virtual DbSet<ProductModelProductDescriptionCulture> ProductModelProductDescriptionCultures { get; set; }
+        public virtual DbSet<ProductPhoto> ProductPhotoes { get; set; }
+        public virtual DbSet<ProductProductPhoto> ProductProductPhotoes { get; set; }
+        public virtual DbSet<ProductReview> ProductReviews { get; set; }
+        public virtual DbSet<ProductSubcategory> ProductSubcategories { get; set; }
+        public virtual DbSet<ScrapReason> ScrapReasons { get; set; }
+        public virtual DbSet<TransactionHistory> TransactionHistories { get; set; }
+        public virtual DbSet<TransactionHistoryArchive> TransactionHistoryArchives { get; set; }
+        public virtual DbSet<UnitMeasure> UnitMeasures { get; set; }
+        public virtual DbSet<WorkOrder> WorkOrders { get; set; }
+        public virtual DbSet<WorkOrderRouting> WorkOrderRoutings { get; set; }
+        public virtual DbSet<ProductDocument> ProductDocuments { get; set; }
     }
 }

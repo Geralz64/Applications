@@ -5,3 +5,16 @@ D:\Applications\Course1Basics\HelloWorld\obj\Debug\HelloWorld.csproj.CoreCompile
 D:\Applications\Course1Basics\HelloWorld\obj\Debug\HelloWorld.exe
 D:\Applications\Course1Basics\HelloWorld\obj\Debug\HelloWorld.pdb
 D:\Applications\Course1Basics\HelloWorld\obj\Debug\HelloWorld.csprojAssemblyReference.cache
+D:\Applications\CSharp\Course1Basics\HelloWorld\bin\Debug\HelloWorld.exe.config
+D:\Applications\CSharp\Course1Basics\HelloWorld\bin\Debug\HelloWorld.exe
+D:\Applications\CSharp\Course1Basics\HelloWorld\bin\Debug\HelloWorld.pdb
+D:\Applications\CSharp\Course1Basics\HelloWorld\bin\Debug\Repository.SQL.dll
+D:\Applications\CSharp\Course1Basics\HelloWorld\bin\Debug\EntityFramework.dll
+D:\Applications\CSharp\Course1Basics\HelloWorld\bin\Debug\Repository.SQL.pdb
+D:\Applications\CSharp\Course1Basics\HelloWorld\bin\Debug\Repository.SQL.dll.config
+D:\Applications\CSharp\Course1Basics\HelloWorld\bin\Debug\EntityFramework.xml
+D:\Applications\CSharp\Course1Basics\HelloWorld\obj\Debug\HelloWorld.csprojAssemblyReference.cache
+D:\Applications\CSharp\Course1Basics\HelloWorld\obj\Debug\HelloWorld.csproj.CoreCompileInputs.cache
+D:\Applications\CSharp\Course1Basics\HelloWorld\obj\Debug\HelloWorld.csproj.CopyComplete
+D:\Applications\CSharp\Course1Basics\HelloWorld\obj\Debug\HelloWorld.exe
+D:\Applications\CSharp\Course1Basics\HelloWorld\obj\Debug\HelloWorld.pdb

@@ -14,6 +14,81 @@
           <Property Name="BirthDate" Type="int" />
           <Property Name="SSN" Type="int" />
         </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6005: The data type 'hierarchyid' is currently not supported for the target Entity Framework version; the column 'OrganizationNode' in the table 'AdventureWorks2012.HumanResources.Employee' was excluded.-->
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="BusinessEntityID" />
+          </Key>
+          <Property Name="BusinessEntityID" Type="int" Nullable="false" />
+          <Property Name="NationalIDNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="LoginID" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="OrganizationLevel" Type="smallint" StoreGeneratedPattern="Computed" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="MaritalStatus" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Gender" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="HireDate" Type="date" Nullable="false" />
+          <Property Name="SalariedFlag" Type="bit" Nullable="false" />
+          <Property Name="VacationHours" Type="smallint" Nullable="false" />
+          <Property Name="SickLeaveHours" Type="smallint" Nullable="false" />
+          <Property Name="CurrentFlag" Type="bit" Nullable="false" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeDepartmentHistory">
+          <Key>
+            <PropertyRef Name="BusinessEntityID" />
+            <PropertyRef Name="DepartmentID" />
+            <PropertyRef Name="ShiftID" />
+            <PropertyRef Name="StartDate" />
+          </Key>
+          <Property Name="BusinessEntityID" Type="int" Nullable="false" />
+          <Property Name="DepartmentID" Type="smallint" Nullable="false" />
+          <Property Name="ShiftID" Type="tinyint" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeePayHistory">
+          <Key>
+            <PropertyRef Name="BusinessEntityID" />
+            <PropertyRef Name="RateChangeDate" />
+          </Key>
+          <Property Name="BusinessEntityID" Type="int" Nullable="false" />
+          <Property Name="RateChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="Rate" Type="money" Nullable="false" />
+          <Property Name="PayFrequency" Type="tinyint" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JobCandidate">
+          <Key>
+            <PropertyRef Name="JobCandidateID" />
+          </Key>
+          <Property Name="JobCandidateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessEntityID" Type="int" />
+          <Property Name="Resume" Type="xml" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="ShiftID" />
+          </Key>
+          <Property Name="ShiftID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressID" />
@@ -156,6 +231,310 @@
           <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="BillOfMaterials">
+          <Key>
+            <PropertyRef Name="BillOfMaterialsID" />
+          </Key>
+          <Property Name="BillOfMaterialsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductAssemblyID" Type="int" />
+          <Property Name="ComponentID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="UnitMeasureCode" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="BOMLevel" Type="smallint" Nullable="false" />
+          <Property Name="PerAssemblyQty" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Culture">
+          <Key>
+            <PropertyRef Name="CultureID" />
+          </Key>
+          <Property Name="CultureID" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6005: The data type 'hierarchyid' is currently not supported for the target Entity Framework version; the column 'DocumentNode' in the table 'AdventureWorks2012.Production.Document' was excluded.
+warning 6031: The column 'DocumentNode' on the table/view 'AdventureWorks2012.Production.Document' was excluded, and is a key column.  The table/view has been excluded.  Please fix the entity in the schema file, and uncomment.
+        <EntityType Name="Document">
+          <Property Name="DocumentLevel" Type="smallint" StoreGeneratedPattern="Computed" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Owner" Type="int" Nullable="false" />
+          <Property Name="FolderFlag" Type="bit" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="FileExtension" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Revision" Type="nchar" MaxLength="5" Nullable="false" />
+          <Property Name="ChangeNumber" Type="int" Nullable="false" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="DocumentSummary" Type="nvarchar(max)" />
+          <Property Name="Document" Type="varbinary(max)" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>-->
+        <EntityType Name="Illustration">
+          <Key>
+            <PropertyRef Name="IllustrationID" />
+          </Key>
+          <Property Name="IllustrationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Diagram" Type="xml" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CostRate" Type="smallmoney" Nullable="false" />
+          <Property Name="Availability" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductNumber" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="MakeFlag" Type="bit" Nullable="false" />
+          <Property Name="FinishedGoodsFlag" Type="bit" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="15" />
+          <Property Name="SafetyStockLevel" Type="smallint" Nullable="false" />
+          <Property Name="ReorderPoint" Type="smallint" Nullable="false" />
+          <Property Name="StandardCost" Type="money" Nullable="false" />
+          <Property Name="ListPrice" Type="money" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="5" />
+          <Property Name="SizeUnitMeasureCode" Type="nchar" MaxLength="3" />
+          <Property Name="WeightUnitMeasureCode" Type="nchar" MaxLength="3" />
+          <Property Name="Weight" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="DaysToManufacture" Type="int" Nullable="false" />
+          <Property Name="ProductLine" Type="nchar" MaxLength="2" />
+          <Property Name="Class" Type="nchar" MaxLength="2" />
+          <Property Name="Style" Type="nchar" MaxLength="2" />
+          <Property Name="ProductSubcategoryID" Type="int" />
+          <Property Name="ProductModelID" Type="int" />
+          <Property Name="SellStartDate" Type="datetime" Nullable="false" />
+          <Property Name="SellEndDate" Type="datetime" />
+          <Property Name="DiscontinuedDate" Type="datetime" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="ProductCategoryID" />
+          </Key>
+          <Property Name="ProductCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCostHistory">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="StartDate" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="StandardCost" Type="money" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductDescription">
+          <Key>
+            <PropertyRef Name="ProductDescriptionID" />
+          </Key>
+          <Property Name="ProductDescriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6005: The data type 'hierarchyid' is currently not supported for the target Entity Framework version; the column 'DocumentNode' in the table 'AdventureWorks2012.Production.ProductDocument' was excluded.
+warning 6031: The column 'DocumentNode' on the table/view 'AdventureWorks2012.Production.ProductDocument' was excluded, and is a key column.  The remaining key(s) were used and table/view has been created as read-only.-->
+        <EntityType Name="ProductDocument">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductInventory">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="LocationID" Type="smallint" Nullable="false" />
+          <Property Name="Shelf" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Bin" Type="tinyint" Nullable="false" />
+          <Property Name="Quantity" Type="smallint" Nullable="false" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductListPriceHistory">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="StartDate" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="ListPrice" Type="money" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductModel">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+          </Key>
+          <Property Name="ProductModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CatalogDescription" Type="xml" />
+          <Property Name="Instructions" Type="xml" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductModelIllustration">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+            <PropertyRef Name="IllustrationID" />
+          </Key>
+          <Property Name="ProductModelID" Type="int" Nullable="false" />
+          <Property Name="IllustrationID" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductModelProductDescriptionCulture">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+            <PropertyRef Name="ProductDescriptionID" />
+            <PropertyRef Name="CultureID" />
+          </Key>
+          <Property Name="ProductModelID" Type="int" Nullable="false" />
+          <Property Name="ProductDescriptionID" Type="int" Nullable="false" />
+          <Property Name="CultureID" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductPhoto">
+          <Key>
+            <PropertyRef Name="ProductPhotoID" />
+          </Key>
+          <Property Name="ProductPhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThumbNailPhoto" Type="varbinary(max)" />
+          <Property Name="ThumbnailPhotoFileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LargePhoto" Type="varbinary(max)" />
+          <Property Name="LargePhotoFileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductProductPhoto">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ProductPhotoID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ProductPhotoID" Type="int" Nullable="false" />
+          <Property Name="Primary" Type="bit" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductReview">
+          <Key>
+            <PropertyRef Name="ProductReviewID" />
+          </Key>
+          <Property Name="ProductReviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ReviewerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReviewDate" Type="datetime" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="3850" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductSubcategory">
+          <Key>
+            <PropertyRef Name="ProductSubcategoryID" />
+          </Key>
+          <Property Name="ProductSubcategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductCategoryID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScrapReason">
+          <Key>
+            <PropertyRef Name="ScrapReasonID" />
+          </Key>
+          <Property Name="ScrapReasonID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionHistory">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ReferenceOrderID" Type="int" Nullable="false" />
+          <Property Name="ReferenceOrderLineID" Type="int" Nullable="false" />
+          <Property Name="TransactionDate" Type="datetime" Nullable="false" />
+          <Property Name="TransactionType" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="ActualCost" Type="money" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionHistoryArchive">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ReferenceOrderID" Type="int" Nullable="false" />
+          <Property Name="ReferenceOrderLineID" Type="int" Nullable="false" />
+          <Property Name="TransactionDate" Type="datetime" Nullable="false" />
+          <Property Name="TransactionType" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="ActualCost" Type="money" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitMeasure">
+          <Key>
+            <PropertyRef Name="UnitMeasureCode" />
+          </Key>
+          <Property Name="UnitMeasureCode" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkOrder">
+          <Key>
+            <PropertyRef Name="WorkOrderID" />
+          </Key>
+          <Property Name="WorkOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="OrderQty" Type="int" Nullable="false" />
+          <Property Name="StockedQty" Type="int" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ScrappedQty" Type="smallint" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="DueDate" Type="datetime" Nullable="false" />
+          <Property Name="ScrapReasonID" Type="smallint" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkOrderRouting">
+          <Key>
+            <PropertyRef Name="WorkOrderID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="OperationSequence" />
+          </Key>
+          <Property Name="WorkOrderID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="OperationSequence" Type="smallint" Nullable="false" />
+          <Property Name="LocationID" Type="smallint" Nullable="false" />
+          <Property Name="ScheduledStartDate" Type="datetime" Nullable="false" />
+          <Property Name="ScheduledEndDate" Type="datetime" Nullable="false" />
+          <Property Name="ActualStartDate" Type="datetime" />
+          <Property Name="ActualEndDate" Type="datetime" />
+          <Property Name="ActualResourceHrs" Type="decimal" Precision="9" Scale="4" />
+          <Property Name="PlannedCost" Type="money" Nullable="false" />
+          <Property Name="ActualCost" Type="money" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Address_StateProvince_StateProvinceID">
           <End Role="StateProvince" Type="Self.StateProvince" Multiplicity="1" />
           <End Role="Address" Type="Self.Address" Multiplicity="*" />
@@ -165,6 +544,42 @@
             </Principal>
             <Dependent Role="Address">
               <PropertyRef Name="StateProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillOfMaterials_Product_ComponentID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="BillOfMaterials" Type="Self.BillOfMaterials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BillOfMaterials">
+              <PropertyRef Name="ComponentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillOfMaterials_Product_ProductAssemblyID">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="BillOfMaterials" Type="Self.BillOfMaterials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BillOfMaterials">
+              <PropertyRef Name="ProductAssemblyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillOfMaterials_UnitMeasure_UnitMeasureCode">
+          <End Role="UnitMeasure" Type="Self.UnitMeasure" Multiplicity="1" />
+          <End Role="BillOfMaterials" Type="Self.BillOfMaterials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitMeasure">
+              <PropertyRef Name="UnitMeasureCode" />
+            </Principal>
+            <Dependent Role="BillOfMaterials">
+              <PropertyRef Name="UnitMeasureCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -240,6 +655,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'AdventureWorks2012.Production.Document' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_Document_Employee_Owner" />-->
         <Association Name="FK_EmailAddress_Person_BusinessEntityID">
           <End Role="Person" Type="Self.Person" Multiplicity="1" />
           <End Role="EmailAddress" Type="Self.EmailAddress" Multiplicity="*" />
@@ -248,6 +666,78 @@
               <PropertyRef Name="BusinessEntityID" />
             </Principal>
             <Dependent Role="EmailAddress">
+              <PropertyRef Name="BusinessEntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Person_BusinessEntityID">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="BusinessEntityID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="BusinessEntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeDepartmentHistory_Department_DepartmentID">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="EmployeeDepartmentHistory" Type="Self.EmployeeDepartmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentHistory">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeDepartmentHistory_Employee_BusinessEntityID">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeeDepartmentHistory" Type="Self.EmployeeDepartmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="BusinessEntityID" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentHistory">
+              <PropertyRef Name="BusinessEntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeDepartmentHistory_Shift_ShiftID">
+          <End Role="Shift" Type="Self.Shift" Multiplicity="1" />
+          <End Role="EmployeeDepartmentHistory" Type="Self.EmployeeDepartmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentHistory">
+              <PropertyRef Name="ShiftID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePayHistory_Employee_BusinessEntityID">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeePayHistory" Type="Self.EmployeePayHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="BusinessEntityID" />
+            </Principal>
+            <Dependent Role="EmployeePayHistory">
+              <PropertyRef Name="BusinessEntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobCandidate_Employee_BusinessEntityID">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="JobCandidate" Type="Self.JobCandidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="BusinessEntityID" />
+            </Principal>
+            <Dependent Role="JobCandidate">
               <PropertyRef Name="BusinessEntityID" />
             </Dependent>
           </ReferentialConstraint>
@@ -300,6 +790,225 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_ProductModel_ProductModelID">
+          <End Role="ProductModel" Type="Self.ProductModel" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductSubcategory_ProductSubcategoryID">
+          <End Role="ProductSubcategory" Type="Self.ProductSubcategory" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductSubcategory">
+              <PropertyRef Name="ProductSubcategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductSubcategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_UnitMeasure_SizeUnitMeasureCode">
+          <End Role="UnitMeasure" Type="Self.UnitMeasure" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitMeasure">
+              <PropertyRef Name="UnitMeasureCode" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SizeUnitMeasureCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_UnitMeasure_WeightUnitMeasureCode">
+          <End Role="UnitMeasure" Type="Self.UnitMeasure" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitMeasure">
+              <PropertyRef Name="UnitMeasureCode" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="WeightUnitMeasureCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCostHistory_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductCostHistory" Type="Self.ProductCostHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductCostHistory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'AdventureWorks2012.Production.Document' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_ProductDocument_Document_DocumentNode" />-->
+        <Association Name="FK_ProductDocument_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductDocument" Type="Self.ProductDocument" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDocument">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInventory_Location_LocationID">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="ProductInventory" Type="Self.ProductInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="ProductInventory">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInventory_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductInventory" Type="Self.ProductInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductInventory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductListPriceHistory_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductListPriceHistory" Type="Self.ProductListPriceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductListPriceHistory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelIllustration_Illustration_IllustrationID">
+          <End Role="Illustration" Type="Self.Illustration" Multiplicity="1" />
+          <End Role="ProductModelIllustration" Type="Self.ProductModelIllustration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Illustration">
+              <PropertyRef Name="IllustrationID" />
+            </Principal>
+            <Dependent Role="ProductModelIllustration">
+              <PropertyRef Name="IllustrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelIllustration_ProductModel_ProductModelID">
+          <End Role="ProductModel" Type="Self.ProductModel" Multiplicity="1" />
+          <End Role="ProductModelIllustration" Type="Self.ProductModelIllustration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="ProductModelIllustration">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescriptionCulture_Culture_CultureID">
+          <End Role="Culture" Type="Self.Culture" Multiplicity="1" />
+          <End Role="ProductModelProductDescriptionCulture" Type="Self.ProductModelProductDescriptionCulture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="CultureID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescriptionCulture">
+              <PropertyRef Name="CultureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID">
+          <End Role="ProductDescription" Type="Self.ProductDescription" Multiplicity="1" />
+          <End Role="ProductModelProductDescriptionCulture" Type="Self.ProductModelProductDescriptionCulture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDescription">
+              <PropertyRef Name="ProductDescriptionID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescriptionCulture">
+              <PropertyRef Name="ProductDescriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID">
+          <End Role="ProductModel" Type="Self.ProductModel" Multiplicity="1" />
+          <End Role="ProductModelProductDescriptionCulture" Type="Self.ProductModelProductDescriptionCulture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescriptionCulture">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProductPhoto_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductProductPhoto" Type="Self.ProductProductPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductProductPhoto">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProductPhoto_ProductPhoto_ProductPhotoID">
+          <End Role="ProductPhoto" Type="Self.ProductPhoto" Multiplicity="1" />
+          <End Role="ProductProductPhoto" Type="Self.ProductProductPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductPhoto">
+              <PropertyRef Name="ProductPhotoID" />
+            </Principal>
+            <Dependent Role="ProductProductPhoto">
+              <PropertyRef Name="ProductPhotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductReview_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductReview" Type="Self.ProductReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductReview">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSubcategory_ProductCategory_ProductCategoryID">
+          <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="1" />
+          <End Role="ProductSubcategory" Type="Self.ProductSubcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Principal>
+            <Dependent Role="ProductSubcategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_StateProvince_CountryRegion_CountryRegionCode">
           <End Role="CountryRegion" Type="Self.CountryRegion" Multiplicity="1" />
           <End Role="StateProvince" Type="Self.StateProvince" Multiplicity="*" />
@@ -312,8 +1021,74 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TransactionHistory_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="TransactionHistory" Type="Self.TransactionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="TransactionHistory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_ScrapReason_ScrapReasonID">
+          <End Role="ScrapReason" Type="Self.ScrapReason" Multiplicity="0..1" />
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScrapReason">
+              <PropertyRef Name="ScrapReasonID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="ScrapReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrderRouting_Location_LocationID">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="WorkOrderRouting" Type="Self.WorkOrderRouting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="WorkOrderRouting">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrderRouting_WorkOrder_WorkOrderID">
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="1" />
+          <End Role="WorkOrderRouting" Type="Self.WorkOrderRouting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkOrder">
+              <PropertyRef Name="WorkOrderID" />
+            </Principal>
+            <Dependent Role="WorkOrderRouting">
+              <PropertyRef Name="WorkOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="AdventureWorks2012ModelStoreContainer">
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="HumanResources" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="HumanResources" store:Type="Tables" />
+          <EntitySet Name="EmployeeDepartmentHistory" EntityType="Self.EmployeeDepartmentHistory" Schema="HumanResources" store:Type="Tables" />
+          <EntitySet Name="EmployeePayHistory" EntityType="Self.EmployeePayHistory" Schema="HumanResources" store:Type="Tables" />
+          <EntitySet Name="JobCandidate" EntityType="Self.JobCandidate" Schema="HumanResources" store:Type="Tables" />
+          <EntitySet Name="Shift" EntityType="Self.Shift" Schema="HumanResources" store:Type="Tables" />
           <EntitySet Name="Address" EntityType="Self.Address" Schema="Person" store:Type="Tables" />
           <EntitySet Name="AddressType" EntityType="Self.AddressType" Schema="Person" store:Type="Tables" />
           <EntitySet Name="BusinessEntity" EntityType="Self.BusinessEntity" Schema="Person" store:Type="Tables" />
@@ -327,9 +1102,50 @@
           <EntitySet Name="PersonPhone" EntityType="Self.PersonPhone" Schema="Person" store:Type="Tables" />
           <EntitySet Name="PhoneNumberType" EntityType="Self.PhoneNumberType" Schema="Person" store:Type="Tables" />
           <EntitySet Name="StateProvince" EntityType="Self.StateProvince" Schema="Person" store:Type="Tables" />
+          <EntitySet Name="BillOfMaterials" EntityType="Self.BillOfMaterials" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="Culture" EntityType="Self.Culture" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="Illustration" EntityType="Self.Illustration" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductCostHistory" EntityType="Self.ProductCostHistory" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductDescription" EntityType="Self.ProductDescription" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductInventory" EntityType="Self.ProductInventory" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductListPriceHistory" EntityType="Self.ProductListPriceHistory" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductModel" EntityType="Self.ProductModel" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductModelIllustration" EntityType="Self.ProductModelIllustration" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductModelProductDescriptionCulture" EntityType="Self.ProductModelProductDescriptionCulture" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductPhoto" EntityType="Self.ProductPhoto" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductProductPhoto" EntityType="Self.ProductProductPhoto" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductReview" EntityType="Self.ProductReview" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductSubcategory" EntityType="Self.ProductSubcategory" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ScrapReason" EntityType="Self.ScrapReason" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="TransactionHistory" EntityType="Self.TransactionHistory" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="TransactionHistoryArchive" EntityType="Self.TransactionHistoryArchive" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="UnitMeasure" EntityType="Self.UnitMeasure" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="WorkOrder" EntityType="Self.WorkOrder" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="WorkOrderRouting" EntityType="Self.WorkOrderRouting" Schema="Production" store:Type="Tables" />
+          <EntitySet Name="ProductDocument" EntityType="Self.ProductDocument" store:Type="Tables" store:Schema="Production">
+            <DefiningQuery>SELECT 
+    [ProductDocument].[ProductID] AS [ProductID], 
+    [ProductDocument].[ModifiedDate] AS [ModifiedDate]
+    FROM [Production].[ProductDocument] AS [ProductDocument]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Address_StateProvince_StateProvinceID" Association="Self.FK_Address_StateProvince_StateProvinceID">
             <End Role="StateProvince" EntitySet="StateProvince" />
             <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillOfMaterials_Product_ComponentID" Association="Self.FK_BillOfMaterials_Product_ComponentID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="BillOfMaterials" EntitySet="BillOfMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillOfMaterials_Product_ProductAssemblyID" Association="Self.FK_BillOfMaterials_Product_ProductAssemblyID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="BillOfMaterials" EntitySet="BillOfMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillOfMaterials_UnitMeasure_UnitMeasureCode" Association="Self.FK_BillOfMaterials_UnitMeasure_UnitMeasureCode">
+            <End Role="UnitMeasure" EntitySet="UnitMeasure" />
+            <End Role="BillOfMaterials" EntitySet="BillOfMaterials" />
           </AssociationSet>
           <AssociationSet Name="FK_BusinessEntityAddress_Address_AddressID" Association="Self.FK_BusinessEntityAddress_Address_AddressID">
             <End Role="Address" EntitySet="Address" />
@@ -359,6 +1175,30 @@
             <End Role="Person" EntitySet="Person" />
             <End Role="EmailAddress" EntitySet="EmailAddress" />
           </AssociationSet>
+          <AssociationSet Name="FK_Employee_Person_BusinessEntityID" Association="Self.FK_Employee_Person_BusinessEntityID">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeDepartmentHistory_Department_DepartmentID" Association="Self.FK_EmployeeDepartmentHistory_Department_DepartmentID">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="EmployeeDepartmentHistory" EntitySet="EmployeeDepartmentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeDepartmentHistory_Employee_BusinessEntityID" Association="Self.FK_EmployeeDepartmentHistory_Employee_BusinessEntityID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeDepartmentHistory" EntitySet="EmployeeDepartmentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeDepartmentHistory_Shift_ShiftID" Association="Self.FK_EmployeeDepartmentHistory_Shift_ShiftID">
+            <End Role="Shift" EntitySet="Shift" />
+            <End Role="EmployeeDepartmentHistory" EntitySet="EmployeeDepartmentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePayHistory_Employee_BusinessEntityID" Association="Self.FK_EmployeePayHistory_Employee_BusinessEntityID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeePayHistory" EntitySet="EmployeePayHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobCandidate_Employee_BusinessEntityID" Association="Self.FK_JobCandidate_Employee_BusinessEntityID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="JobCandidate" EntitySet="JobCandidate" />
+          </AssociationSet>
           <AssociationSet Name="FK_Password_Person_BusinessEntityID" Association="Self.FK_Password_Person_BusinessEntityID">
             <End Role="Person" EntitySet="Person" />
             <End Role="Password" EntitySet="Password" />
@@ -375,9 +1215,101 @@
             <End Role="PhoneNumberType" EntitySet="PhoneNumberType" />
             <End Role="PersonPhone" EntitySet="PersonPhone" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="Self.FK_Product_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModel" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductSubcategory_ProductSubcategoryID" Association="Self.FK_Product_ProductSubcategory_ProductSubcategoryID">
+            <End Role="ProductSubcategory" EntitySet="ProductSubcategory" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_UnitMeasure_SizeUnitMeasureCode" Association="Self.FK_Product_UnitMeasure_SizeUnitMeasureCode">
+            <End Role="UnitMeasure" EntitySet="UnitMeasure" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_UnitMeasure_WeightUnitMeasureCode" Association="Self.FK_Product_UnitMeasure_WeightUnitMeasureCode">
+            <End Role="UnitMeasure" EntitySet="UnitMeasure" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCostHistory_Product_ProductID" Association="Self.FK_ProductCostHistory_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductCostHistory" EntitySet="ProductCostHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDocument_Product_ProductID" Association="Self.FK_ProductDocument_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductDocument" EntitySet="ProductDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInventory_Location_LocationID" Association="Self.FK_ProductInventory_Location_LocationID">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="ProductInventory" EntitySet="ProductInventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInventory_Product_ProductID" Association="Self.FK_ProductInventory_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductInventory" EntitySet="ProductInventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductListPriceHistory_Product_ProductID" Association="Self.FK_ProductListPriceHistory_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductListPriceHistory" EntitySet="ProductListPriceHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelIllustration_Illustration_IllustrationID" Association="Self.FK_ProductModelIllustration_Illustration_IllustrationID">
+            <End Role="Illustration" EntitySet="Illustration" />
+            <End Role="ProductModelIllustration" EntitySet="ProductModelIllustration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelIllustration_ProductModel_ProductModelID" Association="Self.FK_ProductModelIllustration_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModel" />
+            <End Role="ProductModelIllustration" EntitySet="ProductModelIllustration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescriptionCulture_Culture_CultureID" Association="Self.FK_ProductModelProductDescriptionCulture_Culture_CultureID">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="ProductModelProductDescriptionCulture" EntitySet="ProductModelProductDescriptionCulture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID" Association="Self.FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID">
+            <End Role="ProductDescription" EntitySet="ProductDescription" />
+            <End Role="ProductModelProductDescriptionCulture" EntitySet="ProductModelProductDescriptionCulture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID" Association="Self.FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModel" />
+            <End Role="ProductModelProductDescriptionCulture" EntitySet="ProductModelProductDescriptionCulture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProductPhoto_Product_ProductID" Association="Self.FK_ProductProductPhoto_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductProductPhoto" EntitySet="ProductProductPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProductPhoto_ProductPhoto_ProductPhotoID" Association="Self.FK_ProductProductPhoto_ProductPhoto_ProductPhotoID">
+            <End Role="ProductPhoto" EntitySet="ProductPhoto" />
+            <End Role="ProductProductPhoto" EntitySet="ProductProductPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductReview_Product_ProductID" Association="Self.FK_ProductReview_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductReview" EntitySet="ProductReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSubcategory_ProductCategory_ProductCategoryID" Association="Self.FK_ProductSubcategory_ProductCategory_ProductCategoryID">
+            <End Role="ProductCategory" EntitySet="ProductCategory" />
+            <End Role="ProductSubcategory" EntitySet="ProductSubcategory" />
+          </AssociationSet>
           <AssociationSet Name="FK_StateProvince_CountryRegion_CountryRegionCode" Association="Self.FK_StateProvince_CountryRegion_CountryRegionCode">
             <End Role="CountryRegion" EntitySet="CountryRegion" />
             <End Role="StateProvince" EntitySet="StateProvince" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionHistory_Product_ProductID" Association="Self.FK_TransactionHistory_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="TransactionHistory" EntitySet="TransactionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_Product_ProductID" Association="Self.FK_WorkOrder_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_ScrapReason_ScrapReasonID" Association="Self.FK_WorkOrder_ScrapReason_ScrapReasonID">
+            <End Role="ScrapReason" EntitySet="ScrapReason" />
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrderRouting_Location_LocationID" Association="Self.FK_WorkOrderRouting_Location_LocationID">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="WorkOrderRouting" EntitySet="WorkOrderRouting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrderRouting_WorkOrder_WorkOrderID" Association="Self.FK_WorkOrderRouting_WorkOrder_WorkOrderID">
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+            <End Role="WorkOrderRouting" EntitySet="WorkOrderRouting" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -514,6 +1446,7 @@
           <NavigationProperty Name="EmailAddresses" Relationship="Self.FK_EmailAddress_Person_BusinessEntityID" FromRole="Person" ToRole="EmailAddress" />
           <NavigationProperty Name="Password" Relationship="Self.FK_Password_Person_BusinessEntityID" FromRole="Person" ToRole="Password" />
           <NavigationProperty Name="PersonPhones" Relationship="Self.FK_PersonPhone_Person_BusinessEntityID" FromRole="Person" ToRole="PersonPhone" />
+          <NavigationProperty Name="Employee" Relationship="AdventureWorks2012Model.FK_Employee_Person_BusinessEntityID" FromRole="Person" ToRole="Employee" />
         </EntityType>
         <EntityType Name="PersonPhone">
           <Key>
@@ -775,6 +1708,164 @@
             <End Role="PersonPhone" EntitySet="PersonPhones" />
           </AssociationSet>
           <EntitySet Name="Members" EntityType="AdventureWorks2012Model.Member" />
+          <EntitySet Name="Departments" EntityType="AdventureWorks2012Model.Department" />
+          <EntitySet Name="Employees" EntityType="AdventureWorks2012Model.Employee" />
+          <EntitySet Name="EmployeeDepartmentHistories" EntityType="AdventureWorks2012Model.EmployeeDepartmentHistory" />
+          <EntitySet Name="EmployeePayHistories" EntityType="AdventureWorks2012Model.EmployeePayHistory" />
+          <EntitySet Name="JobCandidates" EntityType="AdventureWorks2012Model.JobCandidate" />
+          <EntitySet Name="Shifts" EntityType="AdventureWorks2012Model.Shift" />
+          <AssociationSet Name="FK_EmployeeDepartmentHistory_Department_DepartmentID" Association="AdventureWorks2012Model.FK_EmployeeDepartmentHistory_Department_DepartmentID">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="EmployeeDepartmentHistory" EntitySet="EmployeeDepartmentHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Person_BusinessEntityID" Association="AdventureWorks2012Model.FK_Employee_Person_BusinessEntityID">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeDepartmentHistory_Employee_BusinessEntityID" Association="AdventureWorks2012Model.FK_EmployeeDepartmentHistory_Employee_BusinessEntityID">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeeDepartmentHistory" EntitySet="EmployeeDepartmentHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePayHistory_Employee_BusinessEntityID" Association="AdventureWorks2012Model.FK_EmployeePayHistory_Employee_BusinessEntityID">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeePayHistory" EntitySet="EmployeePayHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobCandidate_Employee_BusinessEntityID" Association="AdventureWorks2012Model.FK_JobCandidate_Employee_BusinessEntityID">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="JobCandidate" EntitySet="JobCandidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeDepartmentHistory_Shift_ShiftID" Association="AdventureWorks2012Model.FK_EmployeeDepartmentHistory_Shift_ShiftID">
+            <End Role="Shift" EntitySet="Shifts" />
+            <End Role="EmployeeDepartmentHistory" EntitySet="EmployeeDepartmentHistories" />
+          </AssociationSet>
+          <EntitySet Name="BillOfMaterials" EntityType="AdventureWorks2012Model.BillOfMaterial" />
+          <EntitySet Name="Cultures" EntityType="AdventureWorks2012Model.Culture" />
+          <EntitySet Name="Illustrations" EntityType="AdventureWorks2012Model.Illustration" />
+          <EntitySet Name="Locations" EntityType="AdventureWorks2012Model.Location" />
+          <EntitySet Name="Products" EntityType="AdventureWorks2012Model.Product" />
+          <EntitySet Name="ProductCategories" EntityType="AdventureWorks2012Model.ProductCategory" />
+          <EntitySet Name="ProductCostHistories" EntityType="AdventureWorks2012Model.ProductCostHistory" />
+          <EntitySet Name="ProductDescriptions" EntityType="AdventureWorks2012Model.ProductDescription" />
+          <EntitySet Name="ProductInventories" EntityType="AdventureWorks2012Model.ProductInventory" />
+          <EntitySet Name="ProductListPriceHistories" EntityType="AdventureWorks2012Model.ProductListPriceHistory" />
+          <EntitySet Name="ProductModels" EntityType="AdventureWorks2012Model.ProductModel" />
+          <EntitySet Name="ProductModelIllustrations" EntityType="AdventureWorks2012Model.ProductModelIllustration" />
+          <EntitySet Name="ProductModelProductDescriptionCultures" EntityType="AdventureWorks2012Model.ProductModelProductDescriptionCulture" />
+          <EntitySet Name="ProductPhotoes" EntityType="AdventureWorks2012Model.ProductPhoto" />
+          <EntitySet Name="ProductProductPhotoes" EntityType="AdventureWorks2012Model.ProductProductPhoto" />
+          <EntitySet Name="ProductReviews" EntityType="AdventureWorks2012Model.ProductReview" />
+          <EntitySet Name="ProductSubcategories" EntityType="AdventureWorks2012Model.ProductSubcategory" />
+          <EntitySet Name="ScrapReasons" EntityType="AdventureWorks2012Model.ScrapReason" />
+          <EntitySet Name="TransactionHistories" EntityType="AdventureWorks2012Model.TransactionHistory" />
+          <EntitySet Name="TransactionHistoryArchives" EntityType="AdventureWorks2012Model.TransactionHistoryArchive" />
+          <EntitySet Name="UnitMeasures" EntityType="AdventureWorks2012Model.UnitMeasure" />
+          <EntitySet Name="WorkOrders" EntityType="AdventureWorks2012Model.WorkOrder" />
+          <EntitySet Name="WorkOrderRoutings" EntityType="AdventureWorks2012Model.WorkOrderRouting" />
+          <EntitySet Name="ProductDocuments" EntityType="AdventureWorks2012Model.ProductDocument" />
+          <AssociationSet Name="FK_BillOfMaterials_Product_ComponentID" Association="AdventureWorks2012Model.FK_BillOfMaterials_Product_ComponentID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="BillOfMaterial" EntitySet="BillOfMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillOfMaterials_Product_ProductAssemblyID" Association="AdventureWorks2012Model.FK_BillOfMaterials_Product_ProductAssemblyID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="BillOfMaterial" EntitySet="BillOfMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillOfMaterials_UnitMeasure_UnitMeasureCode" Association="AdventureWorks2012Model.FK_BillOfMaterials_UnitMeasure_UnitMeasureCode">
+            <End Role="UnitMeasure" EntitySet="UnitMeasures" />
+            <End Role="BillOfMaterial" EntitySet="BillOfMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescriptionCulture_Culture_CultureID" Association="AdventureWorks2012Model.FK_ProductModelProductDescriptionCulture_Culture_CultureID">
+            <End Role="Culture" EntitySet="Cultures" />
+            <End Role="ProductModelProductDescriptionCulture" EntitySet="ProductModelProductDescriptionCultures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelIllustration_Illustration_IllustrationID" Association="AdventureWorks2012Model.FK_ProductModelIllustration_Illustration_IllustrationID">
+            <End Role="Illustration" EntitySet="Illustrations" />
+            <End Role="ProductModelIllustration" EntitySet="ProductModelIllustrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInventory_Location_LocationID" Association="AdventureWorks2012Model.FK_ProductInventory_Location_LocationID">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="ProductInventory" EntitySet="ProductInventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrderRouting_Location_LocationID" Association="AdventureWorks2012Model.FK_WorkOrderRouting_Location_LocationID">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="WorkOrderRouting" EntitySet="WorkOrderRoutings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="AdventureWorks2012Model.FK_Product_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModels" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductSubcategory_ProductSubcategoryID" Association="AdventureWorks2012Model.FK_Product_ProductSubcategory_ProductSubcategoryID">
+            <End Role="ProductSubcategory" EntitySet="ProductSubcategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_UnitMeasure_SizeUnitMeasureCode" Association="AdventureWorks2012Model.FK_Product_UnitMeasure_SizeUnitMeasureCode">
+            <End Role="UnitMeasure" EntitySet="UnitMeasures" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_UnitMeasure_WeightUnitMeasureCode" Association="AdventureWorks2012Model.FK_Product_UnitMeasure_WeightUnitMeasureCode">
+            <End Role="UnitMeasure" EntitySet="UnitMeasures" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCostHistory_Product_ProductID" Association="AdventureWorks2012Model.FK_ProductCostHistory_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductCostHistory" EntitySet="ProductCostHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDocument_Product_ProductID" Association="AdventureWorks2012Model.FK_ProductDocument_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductDocument" EntitySet="ProductDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInventory_Product_ProductID" Association="AdventureWorks2012Model.FK_ProductInventory_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductInventory" EntitySet="ProductInventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductListPriceHistory_Product_ProductID" Association="AdventureWorks2012Model.FK_ProductListPriceHistory_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductListPriceHistory" EntitySet="ProductListPriceHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProductPhoto_Product_ProductID" Association="AdventureWorks2012Model.FK_ProductProductPhoto_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductProductPhoto" EntitySet="ProductProductPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductReview_Product_ProductID" Association="AdventureWorks2012Model.FK_ProductReview_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductReview" EntitySet="ProductReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionHistory_Product_ProductID" Association="AdventureWorks2012Model.FK_TransactionHistory_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="TransactionHistory" EntitySet="TransactionHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_Product_ProductID" Association="AdventureWorks2012Model.FK_WorkOrder_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSubcategory_ProductCategory_ProductCategoryID" Association="AdventureWorks2012Model.FK_ProductSubcategory_ProductCategory_ProductCategoryID">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="ProductSubcategory" EntitySet="ProductSubcategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID" Association="AdventureWorks2012Model.FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID">
+            <End Role="ProductDescription" EntitySet="ProductDescriptions" />
+            <End Role="ProductModelProductDescriptionCulture" EntitySet="ProductModelProductDescriptionCultures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelIllustration_ProductModel_ProductModelID" Association="AdventureWorks2012Model.FK_ProductModelIllustration_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModels" />
+            <End Role="ProductModelIllustration" EntitySet="ProductModelIllustrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID" Association="AdventureWorks2012Model.FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModels" />
+            <End Role="ProductModelProductDescriptionCulture" EntitySet="ProductModelProductDescriptionCultures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProductPhoto_ProductPhoto_ProductPhotoID" Association="AdventureWorks2012Model.FK_ProductProductPhoto_ProductPhoto_ProductPhotoID">
+            <End Role="ProductPhoto" EntitySet="ProductPhotoes" />
+            <End Role="ProductProductPhoto" EntitySet="ProductProductPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_ScrapReason_ScrapReasonID" Association="AdventureWorks2012Model.FK_WorkOrder_ScrapReason_ScrapReasonID">
+            <End Role="ScrapReason" EntitySet="ScrapReasons" />
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrderRouting_WorkOrder_WorkOrderID" Association="AdventureWorks2012Model.FK_WorkOrderRouting_WorkOrder_WorkOrderID">
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+            <End Role="WorkOrderRouting" EntitySet="WorkOrderRoutings" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Member">
           <Key>
@@ -785,6 +1876,809 @@
           <Property Name="BirthDate" Type="Int32" />
           <Property Name="SSN" Type="Int32" />
         </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="EmployeeDepartmentHistories" Relationship="AdventureWorks2012Model.FK_EmployeeDepartmentHistory_Department_DepartmentID" FromRole="Department" ToRole="EmployeeDepartmentHistory" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="BusinessEntityID" />
+          </Key>
+          <Property Name="BusinessEntityID" Type="Int32" Nullable="false" />
+          <Property Name="NationalIDNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LoginID" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationLevel" Type="Int16" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MaritalStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SalariedFlag" Type="Boolean" Nullable="false" />
+          <Property Name="VacationHours" Type="Int16" Nullable="false" />
+          <Property Name="SickLeaveHours" Type="Int16" Nullable="false" />
+          <Property Name="CurrentFlag" Type="Boolean" Nullable="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Person" Relationship="AdventureWorks2012Model.FK_Employee_Person_BusinessEntityID" FromRole="Employee" ToRole="Person" />
+          <NavigationProperty Name="EmployeeDepartmentHistories" Relationship="AdventureWorks2012Model.FK_EmployeeDepartmentHistory_Employee_BusinessEntityID" FromRole="Employee" ToRole="EmployeeDepartmentHistory" />
+          <NavigationProperty Name="EmployeePayHistories" Relationship="AdventureWorks2012Model.FK_EmployeePayHistory_Employee_BusinessEntityID" FromRole="Employee" ToRole="EmployeePayHistory" />
+          <NavigationProperty Name="JobCandidates" Relationship="AdventureWorks2012Model.FK_JobCandidate_Employee_BusinessEntityID" FromRole="Employee" ToRole="JobCandidate" />
+        </EntityType>
+        <EntityType Name="EmployeeDepartmentHistory">
+          <Key>
+            <PropertyRef Name="BusinessEntityID" />
+            <PropertyRef Name="DepartmentID" />
+            <PropertyRef Name="ShiftID" />
+            <PropertyRef Name="StartDate" />
+          </Key>
+          <Property Name="BusinessEntityID" Type="Int32" Nullable="false" />
+          <Property Name="DepartmentID" Type="Int16" Nullable="false" />
+          <Property Name="ShiftID" Type="Byte" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Department" Relationship="AdventureWorks2012Model.FK_EmployeeDepartmentHistory_Department_DepartmentID" FromRole="EmployeeDepartmentHistory" ToRole="Department" />
+          <NavigationProperty Name="Employee" Relationship="AdventureWorks2012Model.FK_EmployeeDepartmentHistory_Employee_BusinessEntityID" FromRole="EmployeeDepartmentHistory" ToRole="Employee" />
+          <NavigationProperty Name="Shift" Relationship="AdventureWorks2012Model.FK_EmployeeDepartmentHistory_Shift_ShiftID" FromRole="EmployeeDepartmentHistory" ToRole="Shift" />
+        </EntityType>
+        <EntityType Name="EmployeePayHistory">
+          <Key>
+            <PropertyRef Name="BusinessEntityID" />
+            <PropertyRef Name="RateChangeDate" />
+          </Key>
+          <Property Name="BusinessEntityID" Type="Int32" Nullable="false" />
+          <Property Name="RateChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="PayFrequency" Type="Byte" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="AdventureWorks2012Model.FK_EmployeePayHistory_Employee_BusinessEntityID" FromRole="EmployeePayHistory" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="JobCandidate">
+          <Key>
+            <PropertyRef Name="JobCandidateID" />
+          </Key>
+          <Property Name="JobCandidateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessEntityID" Type="Int32" />
+          <Property Name="Resume" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="AdventureWorks2012Model.FK_JobCandidate_Employee_BusinessEntityID" FromRole="JobCandidate" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="ShiftID" />
+          </Key>
+          <Property Name="ShiftID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="EmployeeDepartmentHistories" Relationship="AdventureWorks2012Model.FK_EmployeeDepartmentHistory_Shift_ShiftID" FromRole="Shift" ToRole="EmployeeDepartmentHistory" />
+        </EntityType>
+        <Association Name="FK_EmployeeDepartmentHistory_Department_DepartmentID">
+          <End Type="AdventureWorks2012Model.Department" Role="Department" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.EmployeeDepartmentHistory" Role="EmployeeDepartmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentHistory">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Person_BusinessEntityID">
+          <End Type="AdventureWorks2012Model.Person" Role="Person" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.Employee" Role="Employee" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="BusinessEntityID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="BusinessEntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeDepartmentHistory_Employee_BusinessEntityID">
+          <End Type="AdventureWorks2012Model.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.EmployeeDepartmentHistory" Role="EmployeeDepartmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="BusinessEntityID" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentHistory">
+              <PropertyRef Name="BusinessEntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePayHistory_Employee_BusinessEntityID">
+          <End Type="AdventureWorks2012Model.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.EmployeePayHistory" Role="EmployeePayHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="BusinessEntityID" />
+            </Principal>
+            <Dependent Role="EmployeePayHistory">
+              <PropertyRef Name="BusinessEntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobCandidate_Employee_BusinessEntityID">
+          <End Type="AdventureWorks2012Model.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="AdventureWorks2012Model.JobCandidate" Role="JobCandidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="BusinessEntityID" />
+            </Principal>
+            <Dependent Role="JobCandidate">
+              <PropertyRef Name="BusinessEntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeDepartmentHistory_Shift_ShiftID">
+          <End Type="AdventureWorks2012Model.Shift" Role="Shift" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.EmployeeDepartmentHistory" Role="EmployeeDepartmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentHistory">
+              <PropertyRef Name="ShiftID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BillOfMaterial">
+          <Key>
+            <PropertyRef Name="BillOfMaterialsID" />
+          </Key>
+          <Property Name="BillOfMaterialsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductAssemblyID" Type="Int32" />
+          <Property Name="ComponentID" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="UnitMeasureCode" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="BOMLevel" Type="Int16" Nullable="false" />
+          <Property Name="PerAssemblyQty" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorks2012Model.FK_BillOfMaterials_Product_ComponentID" FromRole="BillOfMaterial" ToRole="Product" />
+          <NavigationProperty Name="Product1" Relationship="AdventureWorks2012Model.FK_BillOfMaterials_Product_ProductAssemblyID" FromRole="BillOfMaterial" ToRole="Product" />
+          <NavigationProperty Name="UnitMeasure" Relationship="AdventureWorks2012Model.FK_BillOfMaterials_UnitMeasure_UnitMeasureCode" FromRole="BillOfMaterial" ToRole="UnitMeasure" />
+        </EntityType>
+        <EntityType Name="Culture">
+          <Key>
+            <PropertyRef Name="CultureID" />
+          </Key>
+          <Property Name="CultureID" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductModelProductDescriptionCultures" Relationship="AdventureWorks2012Model.FK_ProductModelProductDescriptionCulture_Culture_CultureID" FromRole="Culture" ToRole="ProductModelProductDescriptionCulture" />
+        </EntityType>
+        <EntityType Name="Illustration">
+          <Key>
+            <PropertyRef Name="IllustrationID" />
+          </Key>
+          <Property Name="IllustrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Diagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductModelIllustrations" Relationship="AdventureWorks2012Model.FK_ProductModelIllustration_Illustration_IllustrationID" FromRole="Illustration" ToRole="ProductModelIllustration" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostRate" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="Availability" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductInventories" Relationship="AdventureWorks2012Model.FK_ProductInventory_Location_LocationID" FromRole="Location" ToRole="ProductInventory" />
+          <NavigationProperty Name="WorkOrderRoutings" Relationship="AdventureWorks2012Model.FK_WorkOrderRouting_Location_LocationID" FromRole="Location" ToRole="WorkOrderRouting" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductNumber" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="MakeFlag" Type="Boolean" Nullable="false" />
+          <Property Name="FinishedGoodsFlag" Type="Boolean" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="SafetyStockLevel" Type="Int16" Nullable="false" />
+          <Property Name="ReorderPoint" Type="Int16" Nullable="false" />
+          <Property Name="StandardCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ListPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Size" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="SizeUnitMeasureCode" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="WeightUnitMeasureCode" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Weight" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="DaysToManufacture" Type="Int32" Nullable="false" />
+          <Property Name="ProductLine" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Style" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="ProductSubcategoryID" Type="Int32" />
+          <Property Name="ProductModelID" Type="Int32" />
+          <Property Name="SellStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SellEndDate" Type="DateTime" Precision="3" />
+          <Property Name="DiscontinuedDate" Type="DateTime" Precision="3" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="BillOfMaterials" Relationship="AdventureWorks2012Model.FK_BillOfMaterials_Product_ComponentID" FromRole="Product" ToRole="BillOfMaterial" />
+          <NavigationProperty Name="BillOfMaterials1" Relationship="AdventureWorks2012Model.FK_BillOfMaterials_Product_ProductAssemblyID" FromRole="Product" ToRole="BillOfMaterial" />
+          <NavigationProperty Name="ProductModel" Relationship="AdventureWorks2012Model.FK_Product_ProductModel_ProductModelID" FromRole="Product" ToRole="ProductModel" />
+          <NavigationProperty Name="ProductSubcategory" Relationship="AdventureWorks2012Model.FK_Product_ProductSubcategory_ProductSubcategoryID" FromRole="Product" ToRole="ProductSubcategory" />
+          <NavigationProperty Name="UnitMeasure" Relationship="AdventureWorks2012Model.FK_Product_UnitMeasure_SizeUnitMeasureCode" FromRole="Product" ToRole="UnitMeasure" />
+          <NavigationProperty Name="UnitMeasure1" Relationship="AdventureWorks2012Model.FK_Product_UnitMeasure_WeightUnitMeasureCode" FromRole="Product" ToRole="UnitMeasure" />
+          <NavigationProperty Name="ProductCostHistories" Relationship="AdventureWorks2012Model.FK_ProductCostHistory_Product_ProductID" FromRole="Product" ToRole="ProductCostHistory" />
+          <NavigationProperty Name="ProductDocument" Relationship="AdventureWorks2012Model.FK_ProductDocument_Product_ProductID" FromRole="Product" ToRole="ProductDocument" />
+          <NavigationProperty Name="ProductInventories" Relationship="AdventureWorks2012Model.FK_ProductInventory_Product_ProductID" FromRole="Product" ToRole="ProductInventory" />
+          <NavigationProperty Name="ProductListPriceHistories" Relationship="AdventureWorks2012Model.FK_ProductListPriceHistory_Product_ProductID" FromRole="Product" ToRole="ProductListPriceHistory" />
+          <NavigationProperty Name="ProductProductPhotoes" Relationship="AdventureWorks2012Model.FK_ProductProductPhoto_Product_ProductID" FromRole="Product" ToRole="ProductProductPhoto" />
+          <NavigationProperty Name="ProductReviews" Relationship="AdventureWorks2012Model.FK_ProductReview_Product_ProductID" FromRole="Product" ToRole="ProductReview" />
+          <NavigationProperty Name="TransactionHistories" Relationship="AdventureWorks2012Model.FK_TransactionHistory_Product_ProductID" FromRole="Product" ToRole="TransactionHistory" />
+          <NavigationProperty Name="WorkOrders" Relationship="AdventureWorks2012Model.FK_WorkOrder_Product_ProductID" FromRole="Product" ToRole="WorkOrder" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="ProductCategoryID" />
+          </Key>
+          <Property Name="ProductCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductSubcategories" Relationship="AdventureWorks2012Model.FK_ProductSubcategory_ProductCategory_ProductCategoryID" FromRole="ProductCategory" ToRole="ProductSubcategory" />
+        </EntityType>
+        <EntityType Name="ProductCostHistory">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="StartDate" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="StandardCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorks2012Model.FK_ProductCostHistory_Product_ProductID" FromRole="ProductCostHistory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductDescription">
+          <Key>
+            <PropertyRef Name="ProductDescriptionID" />
+          </Key>
+          <Property Name="ProductDescriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductModelProductDescriptionCultures" Relationship="AdventureWorks2012Model.FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID" FromRole="ProductDescription" ToRole="ProductModelProductDescriptionCulture" />
+        </EntityType>
+        <EntityType Name="ProductInventory">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="LocationID" Type="Int16" Nullable="false" />
+          <Property Name="Shelf" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Bin" Type="Byte" Nullable="false" />
+          <Property Name="Quantity" Type="Int16" Nullable="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Location" Relationship="AdventureWorks2012Model.FK_ProductInventory_Location_LocationID" FromRole="ProductInventory" ToRole="Location" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorks2012Model.FK_ProductInventory_Product_ProductID" FromRole="ProductInventory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductListPriceHistory">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="StartDate" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="ListPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorks2012Model.FK_ProductListPriceHistory_Product_ProductID" FromRole="ProductListPriceHistory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductModel">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+          </Key>
+          <Property Name="ProductModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CatalogDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Instructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Products" Relationship="AdventureWorks2012Model.FK_Product_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="Product" />
+          <NavigationProperty Name="ProductModelIllustrations" Relationship="AdventureWorks2012Model.FK_ProductModelIllustration_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="ProductModelIllustration" />
+          <NavigationProperty Name="ProductModelProductDescriptionCultures" Relationship="AdventureWorks2012Model.FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="ProductModelProductDescriptionCulture" />
+        </EntityType>
+        <EntityType Name="ProductModelIllustration">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+            <PropertyRef Name="IllustrationID" />
+          </Key>
+          <Property Name="ProductModelID" Type="Int32" Nullable="false" />
+          <Property Name="IllustrationID" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Illustration" Relationship="AdventureWorks2012Model.FK_ProductModelIllustration_Illustration_IllustrationID" FromRole="ProductModelIllustration" ToRole="Illustration" />
+          <NavigationProperty Name="ProductModel" Relationship="AdventureWorks2012Model.FK_ProductModelIllustration_ProductModel_ProductModelID" FromRole="ProductModelIllustration" ToRole="ProductModel" />
+        </EntityType>
+        <EntityType Name="ProductModelProductDescriptionCulture">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+            <PropertyRef Name="ProductDescriptionID" />
+            <PropertyRef Name="CultureID" />
+          </Key>
+          <Property Name="ProductModelID" Type="Int32" Nullable="false" />
+          <Property Name="ProductDescriptionID" Type="Int32" Nullable="false" />
+          <Property Name="CultureID" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Culture" Relationship="AdventureWorks2012Model.FK_ProductModelProductDescriptionCulture_Culture_CultureID" FromRole="ProductModelProductDescriptionCulture" ToRole="Culture" />
+          <NavigationProperty Name="ProductDescription" Relationship="AdventureWorks2012Model.FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID" FromRole="ProductModelProductDescriptionCulture" ToRole="ProductDescription" />
+          <NavigationProperty Name="ProductModel" Relationship="AdventureWorks2012Model.FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID" FromRole="ProductModelProductDescriptionCulture" ToRole="ProductModel" />
+        </EntityType>
+        <EntityType Name="ProductPhoto">
+          <Key>
+            <PropertyRef Name="ProductPhotoID" />
+          </Key>
+          <Property Name="ProductPhotoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThumbNailPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ThumbnailPhotoFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LargePhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="LargePhotoFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductProductPhotoes" Relationship="AdventureWorks2012Model.FK_ProductProductPhoto_ProductPhoto_ProductPhotoID" FromRole="ProductPhoto" ToRole="ProductProductPhoto" />
+        </EntityType>
+        <EntityType Name="ProductProductPhoto">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ProductPhotoID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ProductPhotoID" Type="Int32" Nullable="false" />
+          <Property Name="Primary" Type="Boolean" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorks2012Model.FK_ProductProductPhoto_Product_ProductID" FromRole="ProductProductPhoto" ToRole="Product" />
+          <NavigationProperty Name="ProductPhoto" Relationship="AdventureWorks2012Model.FK_ProductProductPhoto_ProductPhoto_ProductPhotoID" FromRole="ProductProductPhoto" ToRole="ProductPhoto" />
+        </EntityType>
+        <EntityType Name="ProductReview">
+          <Key>
+            <PropertyRef Name="ProductReviewID" />
+          </Key>
+          <Property Name="ProductReviewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ReviewerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="3850" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorks2012Model.FK_ProductReview_Product_ProductID" FromRole="ProductReview" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductSubcategory">
+          <Key>
+            <PropertyRef Name="ProductSubcategoryID" />
+          </Key>
+          <Property Name="ProductSubcategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Products" Relationship="AdventureWorks2012Model.FK_Product_ProductSubcategory_ProductSubcategoryID" FromRole="ProductSubcategory" ToRole="Product" />
+          <NavigationProperty Name="ProductCategory" Relationship="AdventureWorks2012Model.FK_ProductSubcategory_ProductCategory_ProductCategoryID" FromRole="ProductSubcategory" ToRole="ProductCategory" />
+        </EntityType>
+        <EntityType Name="ScrapReason">
+          <Key>
+            <PropertyRef Name="ScrapReasonID" />
+          </Key>
+          <Property Name="ScrapReasonID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="WorkOrders" Relationship="AdventureWorks2012Model.FK_WorkOrder_ScrapReason_ScrapReasonID" FromRole="ScrapReason" ToRole="WorkOrder" />
+        </EntityType>
+        <EntityType Name="TransactionHistory">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ReferenceOrderID" Type="Int32" Nullable="false" />
+          <Property Name="ReferenceOrderLineID" Type="Int32" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TransactionType" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ActualCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorks2012Model.FK_TransactionHistory_Product_ProductID" FromRole="TransactionHistory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="TransactionHistoryArchive">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ReferenceOrderID" Type="Int32" Nullable="false" />
+          <Property Name="ReferenceOrderLineID" Type="Int32" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TransactionType" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ActualCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UnitMeasure">
+          <Key>
+            <PropertyRef Name="UnitMeasureCode" />
+          </Key>
+          <Property Name="UnitMeasureCode" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="BillOfMaterials" Relationship="AdventureWorks2012Model.FK_BillOfMaterials_UnitMeasure_UnitMeasureCode" FromRole="UnitMeasure" ToRole="BillOfMaterial" />
+          <NavigationProperty Name="Products" Relationship="AdventureWorks2012Model.FK_Product_UnitMeasure_SizeUnitMeasureCode" FromRole="UnitMeasure" ToRole="Product" />
+          <NavigationProperty Name="Products1" Relationship="AdventureWorks2012Model.FK_Product_UnitMeasure_WeightUnitMeasureCode" FromRole="UnitMeasure" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="WorkOrder">
+          <Key>
+            <PropertyRef Name="WorkOrderID" />
+          </Key>
+          <Property Name="WorkOrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="OrderQty" Type="Int32" Nullable="false" />
+          <Property Name="StockedQty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ScrappedQty" Type="Int16" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ScrapReasonID" Type="Int16" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorks2012Model.FK_WorkOrder_Product_ProductID" FromRole="WorkOrder" ToRole="Product" />
+          <NavigationProperty Name="ScrapReason" Relationship="AdventureWorks2012Model.FK_WorkOrder_ScrapReason_ScrapReasonID" FromRole="WorkOrder" ToRole="ScrapReason" />
+          <NavigationProperty Name="WorkOrderRoutings" Relationship="AdventureWorks2012Model.FK_WorkOrderRouting_WorkOrder_WorkOrderID" FromRole="WorkOrder" ToRole="WorkOrderRouting" />
+        </EntityType>
+        <EntityType Name="WorkOrderRouting">
+          <Key>
+            <PropertyRef Name="WorkOrderID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="OperationSequence" />
+          </Key>
+          <Property Name="WorkOrderID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="OperationSequence" Type="Int16" Nullable="false" />
+          <Property Name="LocationID" Type="Int16" Nullable="false" />
+          <Property Name="ScheduledStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ScheduledEndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActualStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ActualEndDate" Type="DateTime" Precision="3" />
+          <Property Name="ActualResourceHrs" Type="Decimal" Precision="9" Scale="4" />
+          <Property Name="PlannedCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ActualCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Location" Relationship="AdventureWorks2012Model.FK_WorkOrderRouting_Location_LocationID" FromRole="WorkOrderRouting" ToRole="Location" />
+          <NavigationProperty Name="WorkOrder" Relationship="AdventureWorks2012Model.FK_WorkOrderRouting_WorkOrder_WorkOrderID" FromRole="WorkOrderRouting" ToRole="WorkOrder" />
+        </EntityType>
+        <EntityType Name="ProductDocument">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorks2012Model.FK_ProductDocument_Product_ProductID" FromRole="ProductDocument" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_BillOfMaterials_Product_ComponentID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.BillOfMaterial" Role="BillOfMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BillOfMaterial">
+              <PropertyRef Name="ComponentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillOfMaterials_Product_ProductAssemblyID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="AdventureWorks2012Model.BillOfMaterial" Role="BillOfMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BillOfMaterial">
+              <PropertyRef Name="ProductAssemblyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillOfMaterials_UnitMeasure_UnitMeasureCode">
+          <End Type="AdventureWorks2012Model.UnitMeasure" Role="UnitMeasure" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.BillOfMaterial" Role="BillOfMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitMeasure">
+              <PropertyRef Name="UnitMeasureCode" />
+            </Principal>
+            <Dependent Role="BillOfMaterial">
+              <PropertyRef Name="UnitMeasureCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescriptionCulture_Culture_CultureID">
+          <End Type="AdventureWorks2012Model.Culture" Role="Culture" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductModelProductDescriptionCulture" Role="ProductModelProductDescriptionCulture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="CultureID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescriptionCulture">
+              <PropertyRef Name="CultureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelIllustration_Illustration_IllustrationID">
+          <End Type="AdventureWorks2012Model.Illustration" Role="Illustration" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductModelIllustration" Role="ProductModelIllustration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Illustration">
+              <PropertyRef Name="IllustrationID" />
+            </Principal>
+            <Dependent Role="ProductModelIllustration">
+              <PropertyRef Name="IllustrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInventory_Location_LocationID">
+          <End Type="AdventureWorks2012Model.Location" Role="Location" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductInventory" Role="ProductInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="ProductInventory">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrderRouting_Location_LocationID">
+          <End Type="AdventureWorks2012Model.Location" Role="Location" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.WorkOrderRouting" Role="WorkOrderRouting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="WorkOrderRouting">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductModel_ProductModelID">
+          <End Type="AdventureWorks2012Model.ProductModel" Role="ProductModel" Multiplicity="0..1" />
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductSubcategory_ProductSubcategoryID">
+          <End Type="AdventureWorks2012Model.ProductSubcategory" Role="ProductSubcategory" Multiplicity="0..1" />
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductSubcategory">
+              <PropertyRef Name="ProductSubcategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductSubcategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_UnitMeasure_SizeUnitMeasureCode">
+          <End Type="AdventureWorks2012Model.UnitMeasure" Role="UnitMeasure" Multiplicity="0..1" />
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitMeasure">
+              <PropertyRef Name="UnitMeasureCode" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SizeUnitMeasureCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_UnitMeasure_WeightUnitMeasureCode">
+          <End Type="AdventureWorks2012Model.UnitMeasure" Role="UnitMeasure" Multiplicity="0..1" />
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitMeasure">
+              <PropertyRef Name="UnitMeasureCode" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="WeightUnitMeasureCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCostHistory_Product_ProductID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductCostHistory" Role="ProductCostHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductCostHistory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDocument_Product_ProductID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductDocument" Role="ProductDocument" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDocument">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInventory_Product_ProductID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductInventory" Role="ProductInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductInventory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductListPriceHistory_Product_ProductID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductListPriceHistory" Role="ProductListPriceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductListPriceHistory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProductPhoto_Product_ProductID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductProductPhoto" Role="ProductProductPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductProductPhoto">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductReview_Product_ProductID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductReview" Role="ProductReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductReview">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionHistory_Product_ProductID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.TransactionHistory" Role="TransactionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="TransactionHistory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_Product_ProductID">
+          <End Type="AdventureWorks2012Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.WorkOrder" Role="WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSubcategory_ProductCategory_ProductCategoryID">
+          <End Type="AdventureWorks2012Model.ProductCategory" Role="ProductCategory" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductSubcategory" Role="ProductSubcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Principal>
+            <Dependent Role="ProductSubcategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID">
+          <End Type="AdventureWorks2012Model.ProductDescription" Role="ProductDescription" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductModelProductDescriptionCulture" Role="ProductModelProductDescriptionCulture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDescription">
+              <PropertyRef Name="ProductDescriptionID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescriptionCulture">
+              <PropertyRef Name="ProductDescriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelIllustration_ProductModel_ProductModelID">
+          <End Type="AdventureWorks2012Model.ProductModel" Role="ProductModel" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductModelIllustration" Role="ProductModelIllustration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="ProductModelIllustration">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID">
+          <End Type="AdventureWorks2012Model.ProductModel" Role="ProductModel" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductModelProductDescriptionCulture" Role="ProductModelProductDescriptionCulture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescriptionCulture">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProductPhoto_ProductPhoto_ProductPhotoID">
+          <End Type="AdventureWorks2012Model.ProductPhoto" Role="ProductPhoto" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.ProductProductPhoto" Role="ProductProductPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductPhoto">
+              <PropertyRef Name="ProductPhotoID" />
+            </Principal>
+            <Dependent Role="ProductProductPhoto">
+              <PropertyRef Name="ProductPhotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_ScrapReason_ScrapReasonID">
+          <End Type="AdventureWorks2012Model.ScrapReason" Role="ScrapReason" Multiplicity="0..1" />
+          <End Type="AdventureWorks2012Model.WorkOrder" Role="WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScrapReason">
+              <PropertyRef Name="ScrapReasonID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="ScrapReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrderRouting_WorkOrder_WorkOrderID">
+          <End Type="AdventureWorks2012Model.WorkOrder" Role="WorkOrder" Multiplicity="1" />
+          <End Type="AdventureWorks2012Model.WorkOrderRouting" Role="WorkOrderRouting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkOrder">
+              <PropertyRef Name="WorkOrderID" />
+            </Principal>
+            <Dependent Role="WorkOrderRouting">
+              <PropertyRef Name="WorkOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -946,6 +2840,379 @@
                 <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
                 <ScalarProperty Name="MemberIdentifier" ColumnName="MemberIdentifier" />
                 <ScalarProperty Name="MemberNumber" ColumnName="MemberNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="CurrentFlag" ColumnName="CurrentFlag" />
+                <ScalarProperty Name="SickLeaveHours" ColumnName="SickLeaveHours" />
+                <ScalarProperty Name="VacationHours" ColumnName="VacationHours" />
+                <ScalarProperty Name="SalariedFlag" ColumnName="SalariedFlag" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="OrganizationLevel" ColumnName="OrganizationLevel" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="NationalIDNumber" ColumnName="NationalIDNumber" />
+                <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeDepartmentHistories">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.EmployeeDepartmentHistory">
+              <MappingFragment StoreEntitySet="EmployeeDepartmentHistory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeePayHistories">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.EmployeePayHistory">
+              <MappingFragment StoreEntitySet="EmployeePayHistory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="PayFrequency" ColumnName="PayFrequency" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="RateChangeDate" ColumnName="RateChangeDate" />
+                <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCandidates">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.JobCandidate">
+              <MappingFragment StoreEntitySet="JobCandidate">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Resume" ColumnName="Resume" />
+                <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
+                <ScalarProperty Name="JobCandidateID" ColumnName="JobCandidateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shifts">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.Shift">
+              <MappingFragment StoreEntitySet="Shift">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillOfMaterials">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.BillOfMaterial">
+              <MappingFragment StoreEntitySet="BillOfMaterials">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="PerAssemblyQty" ColumnName="PerAssemblyQty" />
+                <ScalarProperty Name="BOMLevel" ColumnName="BOMLevel" />
+                <ScalarProperty Name="UnitMeasureCode" ColumnName="UnitMeasureCode" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+                <ScalarProperty Name="ProductAssemblyID" ColumnName="ProductAssemblyID" />
+                <ScalarProperty Name="BillOfMaterialsID" ColumnName="BillOfMaterialsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cultures">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.Culture">
+              <MappingFragment StoreEntitySet="Culture">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CultureID" ColumnName="CultureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Illustrations">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.Illustration">
+              <MappingFragment StoreEntitySet="Illustration">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Diagram" ColumnName="Diagram" />
+                <ScalarProperty Name="IllustrationID" ColumnName="IllustrationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="CostRate" ColumnName="CostRate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="DiscontinuedDate" ColumnName="DiscontinuedDate" />
+                <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+                <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+                <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+                <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="ProductLine" ColumnName="ProductLine" />
+                <ScalarProperty Name="DaysToManufacture" ColumnName="DaysToManufacture" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="WeightUnitMeasureCode" ColumnName="WeightUnitMeasureCode" />
+                <ScalarProperty Name="SizeUnitMeasureCode" ColumnName="SizeUnitMeasureCode" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+                <ScalarProperty Name="ReorderPoint" ColumnName="ReorderPoint" />
+                <ScalarProperty Name="SafetyStockLevel" ColumnName="SafetyStockLevel" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="FinishedGoodsFlag" ColumnName="FinishedGoodsFlag" />
+                <ScalarProperty Name="MakeFlag" ColumnName="MakeFlag" />
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCostHistories">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductCostHistory">
+              <MappingFragment StoreEntitySet="ProductCostHistory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDescriptions">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductDescription">
+              <MappingFragment StoreEntitySet="ProductDescription">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProductDescriptionID" ColumnName="ProductDescriptionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductInventories">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductInventory">
+              <MappingFragment StoreEntitySet="ProductInventory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Bin" ColumnName="Bin" />
+                <ScalarProperty Name="Shelf" ColumnName="Shelf" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductListPriceHistories">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductListPriceHistory">
+              <MappingFragment StoreEntitySet="ProductListPriceHistory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductModels">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductModel">
+              <MappingFragment StoreEntitySet="ProductModel">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="CatalogDescription" ColumnName="CatalogDescription" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductModelIllustrations">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductModelIllustration">
+              <MappingFragment StoreEntitySet="ProductModelIllustration">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="IllustrationID" ColumnName="IllustrationID" />
+                <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductModelProductDescriptionCultures">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductModelProductDescriptionCulture">
+              <MappingFragment StoreEntitySet="ProductModelProductDescriptionCulture">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CultureID" ColumnName="CultureID" />
+                <ScalarProperty Name="ProductDescriptionID" ColumnName="ProductDescriptionID" />
+                <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductPhotoes">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductPhoto">
+              <MappingFragment StoreEntitySet="ProductPhoto">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="LargePhotoFileName" ColumnName="LargePhotoFileName" />
+                <ScalarProperty Name="LargePhoto" ColumnName="LargePhoto" />
+                <ScalarProperty Name="ThumbnailPhotoFileName" ColumnName="ThumbnailPhotoFileName" />
+                <ScalarProperty Name="ThumbNailPhoto" ColumnName="ThumbNailPhoto" />
+                <ScalarProperty Name="ProductPhotoID" ColumnName="ProductPhotoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductProductPhotoes">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductProductPhoto">
+              <MappingFragment StoreEntitySet="ProductProductPhoto">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Primary" ColumnName="Primary" />
+                <ScalarProperty Name="ProductPhotoID" ColumnName="ProductPhotoID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductReviews">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductReview">
+              <MappingFragment StoreEntitySet="ProductReview">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+                <ScalarProperty Name="ReviewerName" ColumnName="ReviewerName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductReviewID" ColumnName="ProductReviewID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductSubcategories">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductSubcategory">
+              <MappingFragment StoreEntitySet="ProductSubcategory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+                <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScrapReasons">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ScrapReason">
+              <MappingFragment StoreEntitySet="ScrapReason">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ScrapReasonID" ColumnName="ScrapReasonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionHistories">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.TransactionHistory">
+              <MappingFragment StoreEntitySet="TransactionHistory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ActualCost" ColumnName="ActualCost" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="ReferenceOrderLineID" ColumnName="ReferenceOrderLineID" />
+                <ScalarProperty Name="ReferenceOrderID" ColumnName="ReferenceOrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionHistoryArchives">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.TransactionHistoryArchive">
+              <MappingFragment StoreEntitySet="TransactionHistoryArchive">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ActualCost" ColumnName="ActualCost" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="ReferenceOrderLineID" ColumnName="ReferenceOrderLineID" />
+                <ScalarProperty Name="ReferenceOrderID" ColumnName="ReferenceOrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitMeasures">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.UnitMeasure">
+              <MappingFragment StoreEntitySet="UnitMeasure">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UnitMeasureCode" ColumnName="UnitMeasureCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkOrders">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.WorkOrder">
+              <MappingFragment StoreEntitySet="WorkOrder">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ScrapReasonID" ColumnName="ScrapReasonID" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ScrappedQty" ColumnName="ScrappedQty" />
+                <ScalarProperty Name="StockedQty" ColumnName="StockedQty" />
+                <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="WorkOrderID" ColumnName="WorkOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkOrderRoutings">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.WorkOrderRouting">
+              <MappingFragment StoreEntitySet="WorkOrderRouting">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ActualCost" ColumnName="ActualCost" />
+                <ScalarProperty Name="PlannedCost" ColumnName="PlannedCost" />
+                <ScalarProperty Name="ActualResourceHrs" ColumnName="ActualResourceHrs" />
+                <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+                <ScalarProperty Name="ActualStartDate" ColumnName="ActualStartDate" />
+                <ScalarProperty Name="ScheduledEndDate" ColumnName="ScheduledEndDate" />
+                <ScalarProperty Name="ScheduledStartDate" ColumnName="ScheduledStartDate" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="OperationSequence" ColumnName="OperationSequence" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="WorkOrderID" ColumnName="WorkOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDocuments">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.ProductDocument">
+              <MappingFragment StoreEntitySet="ProductDocument">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

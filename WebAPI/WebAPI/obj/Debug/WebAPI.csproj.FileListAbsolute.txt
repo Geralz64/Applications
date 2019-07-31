@@ -51,7 +51,6 @@ D:\Applications\CSharp\WebAPI\WebAPI\bin\Antlr3.Runtime.dll
 D:\Applications\CSharp\WebAPI\WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Applications\CSharp\WebAPI\WebAPI\bin\Microsoft.Web.Infrastructure.dll
 D:\Applications\CSharp\WebAPI\WebAPI\bin\Newtonsoft.Json.dll
-D:\Applications\CSharp\WebAPI\WebAPI\bin\Repository.TestData.dll
 D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Net.Http.Formatting.dll
 D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Web.Helpers.dll
 D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Web.Http.dll
@@ -63,8 +62,6 @@ D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Web.WebPages.Deployment.dll
 D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Web.WebPages.dll
 D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Web.WebPages.Razor.dll
 D:\Applications\CSharp\WebAPI\WebAPI\bin\WebGrease.dll
-D:\Applications\CSharp\WebAPI\WebAPI\bin\Utilities.dll
-D:\Applications\CSharp\WebAPI\WebAPI\bin\Repository.TestData.pdb
 D:\Applications\CSharp\WebAPI\WebAPI\bin\Newtonsoft.Json.xml
 D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Net.Http.Formatting.xml
 D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Web.Helpers.xml
@@ -78,9 +75,13 @@ D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Web.WebPages.Deployment.xml
 D:\Applications\CSharp\WebAPI\WebAPI\bin\System.Web.WebPages.Razor.xml
 D:\Applications\CSharp\WebAPI\WebAPI\bin\Antlr3.Runtime.pdb
 D:\Applications\CSharp\WebAPI\WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Applications\CSharp\WebAPI\WebAPI\bin\Utilities.pdb
 D:\Applications\CSharp\WebAPI\WebAPI\obj\Debug\WebAPI.csprojAssemblyReference.cache
 D:\Applications\CSharp\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInputs.cache
 D:\Applications\CSharp\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
 D:\Applications\CSharp\WebAPI\WebAPI\obj\Debug\WebAPI.dll
 D:\Applications\CSharp\WebAPI\WebAPI\obj\Debug\WebAPI.pdb
+D:\Applications\CSharp\WebAPI\WebAPI\bin\Repository.TestData.dll
+D:\Applications\CSharp\WebAPI\WebAPI\bin\Utilities.dll
+D:\Applications\CSharp\WebAPI\WebAPI\bin\Repository.TestData.pdb
+D:\Applications\CSharp\WebAPI\WebAPI\bin\Repository.TestData.dll.config
+D:\Applications\CSharp\WebAPI\WebAPI\bin\Utilities.pdb

@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Applications\\Course1Basics\\Polygons.Library\\Polygons.Library.csproj",
+      "projectUniqueName": "D:\\Applications\\CSharp\\Course1Basics\\Polygons.Library\\Polygons.Library.csproj",
       "projectName": "Polygons.Library",
-      "projectPath": "D:\\Applications\\Course1Basics\\Polygons.Library\\Polygons.Library.csproj",
+      "projectPath": "D:\\Applications\\CSharp\\Course1Basics\\Polygons.Library\\Polygons.Library.csproj",
       "packagesPath": "C:\\Users\\geraldo\\.nuget\\packages\\",
-      "outputPath": "D:\\Applications\\Course1Basics\\Polygons.Library\\obj\\",
+      "outputPath": "D:\\Applications\\CSharp\\Course1Basics\\Polygons.Library\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

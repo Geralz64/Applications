@@ -10,6 +10,7 @@ D:/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interfac
 /Volumes/USB/Applications/Applications/Extensibility/Repository.Interface/obj/Debug/Repository.Interface.pdb
 D:\Applications\CSharp\Extensibility\Repository.Interface\bin\Debug\Repository.Interface.dll
 D:\Applications\CSharp\Extensibility\Repository.Interface\bin\Debug\Repository.Interface.pdb
+D:\Applications\CSharp\Extensibility\Repository.Interface\obj\Debug\Repository.Interface.csprojAssemblyReference.cache
 D:\Applications\CSharp\Extensibility\Repository.Interface\obj\Debug\Repository.Interface.csproj.CoreCompileInputs.cache
 D:\Applications\CSharp\Extensibility\Repository.Interface\obj\Debug\Repository.Interface.dll
 D:\Applications\CSharp\Extensibility\Repository.Interface\obj\Debug\Repository.Interface.pdb

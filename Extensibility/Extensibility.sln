@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.TextTest", "Repo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.TestData", "Repository.TestData\Repository.TestData.csproj", "{82ADDDC3-36D7-4AD7-8311-A4CE3A9BB963}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL.AdventureWorks", "BL.AdventureWorks\BL.AdventureWorks.csproj", "{9C6B3976-584E-46EF-A5EC-61D3E1D1F3FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{82ADDDC3-36D7-4AD7-8311-A4CE3A9BB963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82ADDDC3-36D7-4AD7-8311-A4CE3A9BB963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82ADDDC3-36D7-4AD7-8311-A4CE3A9BB963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C6B3976-584E-46EF-A5EC-61D3E1D1F3FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C6B3976-584E-46EF-A5EC-61D3E1D1F3FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C6B3976-584E-46EF-A5EC-61D3E1D1F3FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C6B3976-584E-46EF-A5EC-61D3E1D1F3FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,4 @@
-﻿using Repository.TestData;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,15 +17,17 @@ namespace WebAPI.Controllers
 
             try
             {
-                var result = await MembershipTestData.TestDataAsync();
+
+                var result = await Models.Membership.GetMembership();
+
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                InternalServerError(ex);
-            }
 
-            return null;
+                return InternalServerError(ex);
+
+            }
 
         }
 
@@ -36,16 +37,78 @@ namespace WebAPI.Controllers
 
             try
             {
-                var result = await MembershipTestData.TestDataAsync(memberID);
+                var result = await Models.Membership.GetMember(memberID);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                InternalServerError(ex);
+
+                return InternalServerError(ex);
+
+            }
+        }
+
+
+        [Route("{memberID}")]
+        public async Task<IHttpActionResult> Put(string memberID)
+        {
+
+            try
+            {
+
+                var result = await Models.Membership.UpdateMember(memberID);
+
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+
+                return InternalServerError(ex);
+
             }
 
-            return null;
         }
+
+
+        [Route("{memberID}")]
+        public async Task<IHttpActionResult> Post(string memberID)
+        {
+            try
+            {
+
+                var result = await Models.Membership.InsertMember(memberID);
+
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+
+                return InternalServerError(ex);
+            }
+        }
+
+
+
+        [Route("{memberID}")]
+        public async Task<IHttpActionResult> Delete(string memberID)
+        {
+            try
+            {
+
+                var result = await Models.Membership.DeleteMember(memberID);
+
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+
+                return InternalServerError(ex);
+            }
+        }
+
 
 
     }

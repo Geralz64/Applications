@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Extensibility\Repository.SQL\Repository.SQL.csproj">
+      <Project>{9a710f61-49c5-42c7-9101-63aac55b8eab}</Project>
+      <Name>Repository.SQL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
