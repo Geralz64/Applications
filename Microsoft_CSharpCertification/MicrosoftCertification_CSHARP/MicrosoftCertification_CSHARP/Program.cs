@@ -912,6 +912,98 @@ namespace MicrosoftCertification_CSHARP
             });
 
 
+
+
+
+
+            //List 1.36 Block Cuncurrent stack
+
+
+            BlockingCollection<int> blocking136 = new BlockingCollection<int>();
+
+            //But you can also instantiate them this sway
+            BlockingCollection<int> block2 = new BlockingCollection<int>(new ConcurrentStack<int>());
+
+            /*Notes:
+             * If you dont tell the Blocking collection which type of concurrent item to use THE DEFAULT IS ConcurrentQueue -> First IN FIRST OUT
+             * ConcurrentStack => Last in first out 
+             * 
+             
+             */
+
+            //List 1.37 Concurrent Queue
+
+            ConcurrentQueue<string> queue = new ConcurrentQueue<string>();
+
+            queue.Enqueue("Rob");
+            queue.Enqueue("Miles");
+
+            string requiredVariable = "";
+
+            if(queue.TryPeek(out requiredVariable))
+            {
+
+                Console.WriteLine(requiredVariable);
+
+            }
+
+
+            if (queue.TryDequeue(out requiredVariable))
+            {
+
+                Console.WriteLine(requiredVariable);
+
+            }
+
+
+            /*Notes:
+             * TryEnqueu 
+             * TryDequeu
+             * TryPeek - Just looks at the item
+             
+             */
+
+
+
+            //List 1.38 Concurrent stack
+
+            ConcurrentStack<string> stack = new ConcurrentStack<string>();
+
+            stack.Push("Geraldo");
+            stack.Push("Geraldo2");
+            stack.Push("Geraldo3");
+
+            var stringStack = "";
+
+            if (stack.TryPeek(out stringStack))
+            {
+                Console.WriteLine(stringStack); //Going to show Geraldo3
+
+            }
+
+            if(stack.TryPop(out stringStack))
+            {
+                Console.WriteLine(stringStack); //Going to remove Geraldo3
+
+            }
+
+            if (stack.TryPeek(out stringStack))
+            {
+                Console.WriteLine(stringStack); //Going to show Geraldo2
+
+            }
+
+
+            /*Notes:
+             * Push - Add
+             * TryPop - Remove
+             * TryPeek - Just to see the values
+             * PushRange - 
+             * TryPopRange - 
+             
+             */
+
+
         }
 
         public static void ShowObject(object obj)
