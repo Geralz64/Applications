@@ -940,7 +940,7 @@ namespace MicrosoftCertification_CSHARP
 
             string requiredVariable = "";
 
-            if(queue.TryPeek(out requiredVariable))
+            if (queue.TryPeek(out requiredVariable))
             {
 
                 Console.WriteLine(requiredVariable);
@@ -981,7 +981,7 @@ namespace MicrosoftCertification_CSHARP
 
             }
 
-            if(stack.TryPop(out stringStack))
+            if (stack.TryPop(out stringStack))
             {
                 Console.WriteLine(stringStack); //Going to remove Geraldo3
 
@@ -1002,6 +1002,138 @@ namespace MicrosoftCertification_CSHARP
              * TryPopRange - 
              
              */
+
+            //1.39 ConcurentBag
+
+            /*Notes:
+             * Add or remove order of items isn't important
+             * The tryPeek can see an item but since the items are random when you take the item it might not be the same one that you saw using the TryPeek
+             * bag.Add
+             * TryPeek
+             * TryTake
+             * 
+             
+             */
+
+
+            var conDictionary = new ConcurrentDictionary<int, string>();
+
+
+            //List 1.40 Cuncurrent Dictionary
+
+            /*Notes:
+             * Actions are performed in an atomic matter
+             * The data is stored and indexed by a key
+             * TryAdd
+             * conDictionary[89].ToString()
+             * TryUpdate(key,NewValue,OldValue)
+             * AddOrUpdate
+             * EXAMPLE:
+             * 
+             *  // Add dog with value of 5 if it does NOT exist.
+                // ... Otherwise, add one to its value.
+                con.AddOrUpdate("dog", 5, (k, v) => v + 1);
+
+             */
+
+            //LIST 1.41 Single task summing (Resource Synchronization)
+            /*Notes:
+             * Some examples of resources
+             * How multiple resources can wait for application or other resources to finish
+             * Applications being async can be slowed down by the resources available in the machine
+             */
+
+            //List 1.42 Bad task interaction
+
+            //
+
+            /*Notes:
+             * Talk about race conditions: 
+             * We don't have control over which execution takes place first
+             * 
+             * Implementing Locking:
+             *      The actions on a dictionary that can be used my mulitple processes are called ATOMIC
+             *      In other words one process cannot be interrupted the another 
+             */
+
+            //List 1.43 Locking
+
+            //static object sharedTotalLock = new object();
+            object sharedTotalLock = new object();
+
+            lock (sharedTotalLock)
+            {
+
+                //Global variable that other tasks are accesing
+            }
+
+
+            /*Notes:
+             * Locks:
+             *      You can use locking to make sure that an action is atomic
+             *      In the example when you create the object and use the Lock(Object) to stop the interruption you also removed the parallel so 
+             *         its no longer running asyncroniously
+             *     In order to fix it they add the values to a separete variable and the lock the shared variable to add the subtotal amount to it
+             *     Now the sharedvalue is only locked for one add and the application runs a lot better
+             */
+
+
+
+            //List 1.44 Sensible Locking
+
+            var subTotal = 0;
+
+            subTotal = subTotal + 10;
+
+            lock (sharedTotalLock)
+            {
+
+                //Add subtotal to global variable
+            }
+
+
+            /*Notes:
+             * Locks should be quick to complete so not use on parts that might take a long time to respond
+             * Never perform input or output operation on a lock
+             * 
+             * 
+             */
+
+
+            //1.45 Monitors
+
+            Monitor.Enter(sharedTotalLock);
+            subTotal = subTotal + subTotal;
+            Monitor.Exit(sharedTotalLock);
+
+            if (Monitor.TryEnter(sharedTotalLock))
+            {
+
+                Console.WriteLine("Entered a locks object");
+
+
+            }
+            else
+            {
+
+                Console.WriteLine("Object is being use by another process");
+            }
+
+
+
+            /*Notes:
+             * Used to make sure that only one thread accesses the object at the same time
+             * Locks release automatically on exceptions
+             * Monitors dont release on exceptions you NEED to exit them 
+             * A good practice for this is add the Monitor.Exit(object) on the finally part of a method
+             * 
+             * 
+             * Locks VS Monitors
+             * Locks exit upon exception != Monitors Dont you need to add the code to exit the monitor
+             * Locks can't check if an object is in use != Monitors Can check it by using the Monitor.TryEnter(object)
+             * 
+             * 
+            */
 
 
         }
