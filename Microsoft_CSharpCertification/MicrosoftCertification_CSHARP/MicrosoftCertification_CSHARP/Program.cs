@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -144,7 +145,8 @@ namespace MicrosoftCertification_CSHARP
 
             -You can use the ParallelLoopState to control the flow of the thread 
 
-            -This will stop the thread from running more iterations BUT it will not stop the ones that are currently running
+            -Breakd => It stops new iterations but doesn't stop all current iterations from running
+            -Stop => stops all iterations as soon as it's convenient 
 
              */
 
@@ -342,17 +344,17 @@ namespace MicrosoftCertification_CSHARP
 
              then you use the Task.WaitAll method to run all the values inside the array
 
-            -In the same wayt that WaitAll waits for all tasks to complete the WaitAny will continue when any of the
+            -In the same way that WaitAll waits for all tasks to complete the WaitAny will continue when any of the
 
-             iterations complets. However the tasks that are still running WILL continue to run
+             iterations completes. However the tasks that are still running WILL continue to run
 
              */
 
             //List 1.15 ContinueWith 
 
-            var task1_15 = Task.Run(() => ShowOne());
+            var task1_15 = Task<int>.Run(() => ShowOne());
 
-            task.ContinueWith((prevTask) => ShowTwo());
+            task1_15.ContinueWith((prevTask) => ShowObject(prevTask.ToString()));
 
             /*Notes:
 
@@ -722,9 +724,14 @@ namespace MicrosoftCertification_CSHARP
 
                 int stateNumber = i;
 
-                ThreadPool.QueueUserWorkItem(state => ShowObject(stateNumber));
+                ThreadPool.QueueUserWorkItem(ShowObject, stateNumber);
 
                 //Also ThreadPool.QueueUserWorkItem(Method that expects a parameter i, i)
+
+
+                ThreadPool.QueueUserWorkItem(state => ShowObject(stateNumber));
+                //Using a lambda expression
+
 
             }
 
@@ -768,7 +775,7 @@ namespace MicrosoftCertification_CSHARP
 
             /*Notes:
 
-            -You can't just set the value of the return property from inside the task it will cause an error on the display component
+            -You can't just set the value of a control from inside the task it will cause an error on the display component
 
             Like the text property of a textbox
 
@@ -783,8 +790,6 @@ namespace MicrosoftCertification_CSHARP
                     ResultTextBlock.Text = "Result: " + result.ToString();
 
                });
-
-           Miles, Rob. Exam Ref 70-483 Programming in C# (p. 25). Pearson Education. Kindle Edition. 
 
             */
 
@@ -834,6 +839,9 @@ namespace MicrosoftCertification_CSHARP
             //1.34 Awaiting parallel tasks
 
             // return await Task.WaitAll(some tasks);
+
+
+
 
 
             //STARING OUT WITH CONCURRENT COLLECTIONS
@@ -923,6 +931,8 @@ namespace MicrosoftCertification_CSHARP
 
             //But you can also instantiate them this sway
             BlockingCollection<int> block2 = new BlockingCollection<int>(new ConcurrentStack<int>());
+
+
 
             /*Notes:
              * If you dont tell the Blocking collection which type of concurrent item to use THE DEFAULT IS ConcurrentQueue -> First IN FIRST OUT
@@ -1120,7 +1130,6 @@ namespace MicrosoftCertification_CSHARP
             }
 
 
-
             /*Notes:
              * Used to make sure that only one thread accesses the object at the same time
              * Locks release automatically on exceptions
@@ -1136,7 +1145,380 @@ namespace MicrosoftCertification_CSHARP
             */
 
 
+
+            //List 1.46 Deadlocks
+
+
+            /*Notes:
+             * When two tasks are waiting for each other to perform an action on a share collection
+             * 
+             
+             */
+            //Sequential locking
+
+            /*Notes:
+            * Each method gets the lock objects in turn because they are running sequentially 
+            * 
+
+            */
+
+
+            //Listing 1.47 Deadlock using tasks
+            /*Notes:
+            * The example from the book uses tasks for this. This causes both of the tasks to run in parallel which causes a deadlock
+            * Try not use locks withing one another to avoid deadlocks
+            * Deadlocks are not like an infinite loop they will not consume the CPU they will just stay in memory awaiting to finish
+            
+            */
+
+
+
+            //The lock object
+            /*Notes:
+             * Any object can become your key or your lock for the rest of your tasks
+             * The scope of the object should be limited to the tasks affecting that object
+             * They recommend using an object just for the lock and not other data objects
+             * DO NOT USE A STRING AS A LOCK
+             *
+             */
+
+            var sharedTotal = 0; //Imagine this is a global variable
+
+            //List 1.48 Interlocked operations and Interlock total example
+
+            Interlocked.Add(ref sharedTotal, 6);
+
+            /*Notes:
+             *A better way to achieve thread safe access to contents of a variable is to use interlocked classs
+             *This can be performed in a variable
+             *Increment, decrement, exchange and add?????
+             *Interlocked.Add(ref lockedVariable, VariableToAdd);
+
+
+             *
+             */
+
+            //Volatile Variables
+
+            // public volatile int sharedStorage;
+
+            /*Notes:
+             * The program always looks for ways to run faster
+             * You can use the volatile keyword to make the system fetch the value of the variable from memory rather than the processor
+             * Operations using the volatile variable will not be optimized 
+             * 
+             * 
+             *
+             */
+
+            //List 1.49 Cancellation tokens and how to cancel a task
+
+            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
+            while (!cancellationTokenSource.IsCancellationRequested)
+            {
+
+            }
+
+
+
+            /*Notes:
+             * Tasks need to be cancelled by using a cancellation token not like a thread that can be cancelled at any time
+             * Using a cancellation token allows the program to tidy up and release the resources that is currently using
+             * 
+             */
+
+
+            //List 1.50 and raising an exception when a task is cancelled, Cancel with exceptions
+
+
+
+            if (cancellationTokenSource.IsCancellationRequested)
+            {
+                CancellationTokenExample(cancellationTokenSource.Token);
+
+            }
+
+
+            /*Notes:
+             * You can also throw an exception sing the token if you need to throw an exception
+             * In order to do so you need to access the token property from the cancellationTokenSource
+             * Methods are thread safe if they can be called multiple times and still provide the right results
+             * Be mindful of race conditions on global variables that remove values or update them incorrectly
+             * 
+             
+            
+             */
+
+            //One wait to stop a variable from changing values in a method is turning it into a struct type
+            //Another is to use another method to pass that value into another variable that should be our input
+
+            //Implementing program flow
+            /*While loop method
+             * 
+             */
+
+            //1.53
+
+            /*Notes:
+             *  The Do while loop will execute at least ONCE before checking if the value is false REMEMBER THAT 
+             *  
+             *  
+             */
+
+            //1.54 for loop
+            for (int i = 0; i < 10; i++)
+            {
+
+            }
+
+            /*Notes:
+             * The first iteration is always run because just like before it checks after the first run
+             
+             */
+
+            //1.55 Iterate with for
+            for (int i = 0; i < list.Count; i++)
+            {
+
+            }
+
+
+            /*Notes:
+             * Basically a for but the max is passed as the count of a list 
+             */
+
+
+            //1.56 For each
+            foreach (var item in list)
+            {
+
+            }
+            /*Notes:
+            * Loop through each of the items in the list
+            * You can also access the values 
+            * and the var is an element of the same type as the list
+            * you cant havea string of a list of ints for example it wont compile
+            */
+
+
+            //1.57 Going throught a list with a uppercase example
+
+
+            /*Notes:
+            * Just like before but this time you can use a list its the same way I always use them
+            * It uses the IEnumerable interface to get the values
+            * 
+            */
+
+            //1.58 Using a break statement to get out of a loop
+
+            foreach (var item in list)
+            {
+                if (item == "Stop")
+                {
+                    break;
+                }
+            }
+
+
+            /*Notes:
+            * As mentiones above you can use a break statement to get out of a loop and move on to a next step
+            */
+
+            //1.59 Using the oontinue statement on loops
+
+            foreach (var item in list)
+            {
+                if (item == "Geraldo")
+                {
+                    continue;
+                }
+
+                Console.WriteLine(item.ToString());
+            }
+
+
+
+            /*Notes:
+            * It doesn't cause a loop to end 
+            * It just stops the current iteration and then validates again if the loop should continue
+            * In the example above the name Geraldo will not print BUT if there are still values in the list they will print
+            * 
+            */
+
+            //1.60 if statements
+            if (true)
+            {
+                //DO STUFF
+            }
+
+            /*Notes:
+            * For real? They are using the ifs NOW after all the sync stuff? no wonder people were complaning
+            * 
+            */
+
+
+
+            //1.61 Local expressions
+
+
+            /*Notes:
+            * Things like <, >, =, <=, >= among other examples
+            * == equal to, != not equal to
+            * & and
+            *  | or
+            *  && conditional version
+            *  || conditional version 
+            *  If the first statement on a conditional version is false than the second verification will not take place 
+            *  These are the ones that are mostly used
+            *  
+            * 
+            */
+
+            //1.62 The switch statement
+
+            switch (list.ToString())
+            {
+                case "1":
+                    //Do something 
+                    break;
+                default:
+                    break;
+
+            }
+
+            /*Notes:
+            * 
+            * 
+            */
+
+
+            //1.63 Evaluation expressions
+            /*
+            i++; // monadic ++ operator increment - i now 1
+            i--; // monadic -- operator decrement - i now 0
+                 // Postfix monadic operator - perform after value given
+            Console.WriteLine(i++); // writes 0 and sets i to 1
+                                    // Prefix monadic operator - perform before value given
+            Console.WriteLine(++i); // writes 2 and sets i to 2
+                                    // Binary operators - two operands
+            i = 1 + 1; // sets i to 2
+            i = 1 + 2 * 3; // sets i to 7 because * performed first
+            i = (1 + 2) * 3; // sets i to 9 because + performed first
+          
+
+
+            i = true ? 0 : 1; // sets i to 0 because condition is true;
+            */
+
+
+            //1.64 -> 1.65 Events and callbacks, delegates, 
+
+            Action test = new Action(ShowOne);
+
+            //Check more examples about delegates
+
+
+            /*Notes:
+            * Events help send signals from one component to another
+            * Delegates can be used to create pipelines to send signals to methods
+            * You can also simplify the calling of the delate and check if the alue of it is not null: OnAlarmRaised?.Invoke();
+            * 
+            */
+
+            test?.Invoke();
+
+            //1.66 unsubscribe from a delegate
+
+
+            test += ShowOne;
+            test += ShowTwo;
+
+            test -= ShowOne;
+
+
+            /*Notes:
+            * += to add
+            * -= to remove
+            * 
+            */
+
+
+            //1.67 Using events and delegate types
+
+            /*Notes:
+            * You can create the delete in the class as an even that doesn't require to be get or set 
+            * Use the event word before the action word to do this: public event Action OnAlarmRaised = delegate {};
+            * 
+            */
+
+            //1.68 Create events with build in delegate type
+
+            /*Notes:
+            * Instead of using event action you SHOULD use event eventhandler OnAlarmRaised since this is the part of the .net framework to take values
+            * public event EventHandler OnAlarmRaised = delegate {};
+            * And when you call the event you do it like this OnAlarmRaised(this, EventArgs.Empty);
+            * When adding the delegate it MUST have the following signature private static void AlarmListener1(object sender, EventArgs e)
+
+            
+            */
+
+
+            //1.69 Using event args to deliver event information 
+
+            /*Notes:
+            * You can create a class that inherits from the EventArg
+            *   class AlarmEventArgs : EventArgs
+            * 
+            *
+            */
+
+            //1.70 Exceptions
+
+            //This sections wasnt very clear I'm going to have to find more resources on this subject
+
+            List<Exception> exceptionList = new List<Exception>();
+
+            foreach (Delegate handler in test.GetInvocationList())
+
+            {
+                try
+                {
+                    handler.DynamicInvoke();
+
+                }
+                catch (TargetInvocationException e)
+                {
+                    exceptionList.Add(e);
+                }
+
+
+            }
+
+
+            /*Notes:
+            *If an error occurs the rest of the delegates will not be called
+            * In order to capture the errors you can call each event handler individually and then a singles aggregate exceptions created containing all the errors
+            *
+            * 
+            *
+            */
+
+
+
+
         }
+
+        public static void CancellationTokenExample(CancellationToken token)
+        {
+            if (token.IsCancellationRequested)
+            {
+                token.ThrowIfCancellationRequested();
+            }
+
+        }
+
 
         public static void ShowObject(object obj)
 
@@ -1145,10 +1527,6 @@ namespace MicrosoftCertification_CSHARP
             Console.WriteLine(obj.ToString());
 
         }
-
-
-
-
 
         public static string ReturnOne()
 
