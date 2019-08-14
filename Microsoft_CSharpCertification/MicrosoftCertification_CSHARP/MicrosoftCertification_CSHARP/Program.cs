@@ -85,7 +85,7 @@ namespace MicrosoftCertification_CSHARP
 
             Console.WriteLine("Part 1.4");
 
-            var parallelLoop = Parallel.For(0, items.Count(), (int i, ParallelLoopState loopState) =>
+            Parallel.For(0, items.Count(), (int i, ParallelLoopState loopState) =>
 
             {
 
@@ -1028,6 +1028,7 @@ namespace MicrosoftCertification_CSHARP
 
             var conDictionary = new ConcurrentDictionary<int, string>();
 
+            
 
             //List 1.40 Cuncurrent Dictionary
 
@@ -1506,9 +1507,147 @@ namespace MicrosoftCertification_CSHARP
             */
 
 
+            //1.71 Create delegate 
+
+           var op = new Delete(Add);
+
+            Console.WriteLine(op(1, 2));
+
+
+            Delete op2 = Add;
+            Console.WriteLine(op(1, 2));
+
+            /*Notes:
+            *Look for the example below to see how you can create a new delegate using the delegate keyword
+            * When you create the delegate you pass the a method with the same signature that the delegate is expectiong
+            * delegate (lower case) keyword to create the delegate type
+            * Delete (Upper case) its the abstract class that defines the behaviour of delegate instances
+            * 
+            *
+            *
+            */
+
+            //PRACTICE THIS EXAMPLE
+
+            //1.72 Delegates with lambda expressions
+
+            Delete add = (int a, int b) => { return a + b; };
+
+
+            //add = (a, b) =>
+            //{
+            //    Console.WriteLine("");
+            //    return a + b;
+
+            //};
+
+            int valueofparameter = add(1, 2);
+
+            /*Notes:
+            *Instead of using a delegae and passing the values you can use the lambda expression
+            *use the => to create a new set of instructions to run instead of adding a method to the pipeline
+            */
+
+
+            //1.73 Closures
+
+
+            /*Notes:
+            *Delegates might access multiple variables across the code so you need to be sure that they are available
+            * So to my understanding when a varibables life is extended because it's being used in a delegate this is called a CLOSURE
+            *
+            */
+
+
+            //ALSO PRACTICE THIS EXAMPLE
+
+            //1.74 Build in types
+
+            Func<int, int, int> funcAdd = (a, b) => a + b;
+
+
+            /*Notes:
+            *Another way to write the code but I recommend learning and practicing more about it
+            * 
+            *
+            */
+
+
+            //1.75 Anonymous types
+
+            Task.Run(() =>
+            {
+                Console.WriteLine("Anonymous type example");
+
+            });
+
+            Task.WaitAll();
+
+            /*Notes:
+            *Functional code that doesnt have a name to it
+            * 
+            *
+            */
+
+
+
+
+            //1.76 Implement expection handling
+
+            try
+            {
+
+            }
+            catch 
+            {
+
+                Console.WriteLine("ERROR BLA");
+            }
+
+
+            /*Notes:
+            *In the example above since i dont use the expection class the error would be caught BUT only the message would be displayed
+            * 
+            *
+            */
+
+            //Exception handling 
+
+            /*Notes:
+             * Using the try catch to catch an error
+             * You don't have to capture the error if you dont want to but its usually necessary 
+             * If you want to run a piece of code after the catch statement you can use the finally block to run one final piece of code
+             * You can also catch the errors and present them to the user
+             * You can use throw to pass the exception BUT you will lose the stack trace information that is part of the original exception
+             *  and replace it with the one from the handler making it harder to find the error
+             * You can also pass the exceptions to an inner exception property that is created when you use the throw new exception("Something happened", ex)
+             * Theres also custom exceptions. This can be created by creating a new class that inherits from the Exception class
+             * Conditional clauses in catch blocks. Use the when keyword to catch specific exceptions
+             *
+             * catch(Exception ex) when (ex.Exception == "SOME ERROR")
+             * 
+             * ex.InnerException.Message
+             * ex.InnerException.StackTrace
+             * 
+           
+             *  Aggreagated exceptions are exceptions that have lists of inner exceptions when more than one thing can fail in a program
+             *  
+             *      
+             */
 
 
         }
+
+        //1.71
+
+        public static int Add(int a, int b)
+        {
+            int c = a + b;
+            return c;
+
+        }
+
+        delegate int Delete(int a, int b);
 
         public static void CancellationTokenExample(CancellationToken token)
         {
